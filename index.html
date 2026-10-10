@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <title>Mind Coach</title>
+  </head>
+  <body>
+    <p>Chargement de Mind Coach…</p>
+    <script>
+      const destination = new URL("index.htm", window.location.href);
+      destination.search = window.location.search;
+      destination.hash = window.location.hash;
+      window.location.replace(destination.toString());
+    </script>
+    <noscript><a href="./index.htm">Ouvrir Mind Coach</a></noscript>
+  </body>
+</html>
