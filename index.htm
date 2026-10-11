@@ -1979,6 +1979,16 @@
         <h2 id="home-tests-title" class="mt-2 text-3xl font-semibold" data-i18n="homeTests.title"></h2>
         <p class="mt-2 max-w-2xl text-slate-300" data-i18n="homeTests.subtitle"></p>
       </div>
+      <article id="full-assessment-card" class="mb-6 flex flex-col gap-5 rounded-xl border border-amber-200/25 bg-gradient-to-br from-amber-100/10 via-slate-900/75 to-slate-950/80 p-6 shadow-xl shadow-black/10 sm:flex-row sm:items-center sm:justify-between">
+        <div class="max-w-2xl">
+          <p id="full-assessment-eyebrow" class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-200"></p>
+          <h3 id="full-assessment-card-title" class="mt-2 text-2xl font-semibold text-stone-50"></h3>
+          <p id="full-assessment-card-description" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
+        </div>
+        <a id="full-assessment-start" href="?page=assessment&amp;flow=full" class="inline-flex shrink-0 items-center justify-center gap-3 rounded-md bg-amber-200 px-5 py-3 font-semibold text-slate-950 transition hover:bg-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-100">
+          <span id="full-assessment-card-action"></span><span aria-hidden="true">&#8594;</span>
+        </a>
+      </article>
       <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         <article class="rounded-xl border border-white/10 bg-slate-900/60 p-5">
           <p class="text-sm font-medium text-cyan-200" id="mental-health-card-label"></p>
@@ -2040,6 +2050,7 @@
       <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80')">
         <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="dashboard.combinedEyebrow"></p><h1 id="combined-results-title" data-i18n="dashboard.combinedTitle"></h1><p data-i18n="dashboard.combinedSubtitle"></p></div>
       </div>
+      <section id="full-assessment-summary" class="hidden mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="full-assessment-summary-title" aria-live="polite"></section>
       <div id="assessment-result" class="assessment-dashboard mt-5 hidden scroll-mt-24" role="region" aria-labelledby="assessment-result-title">
         <div class="assessment-board-heading">
           <div class="assessment-board-heading-copy">
@@ -2899,6 +2910,49 @@
       darija: "\u0643\u0645\u0644 \u0628\u0644\u0627 \u062d\u0633\u0627\u0628"
     };
 
+    const fullAssessmentCopy = {
+      fr: {
+        eyebrow: "Parcours complet \u00b7 3 \u00e9tapes", title: "Un seul parcours, trois exercices",
+        description: "R\u00e9ponds aux trois exercices \u00e0 la suite. \u00c0 la fin, retrouve une vue d\u2019ensemble de tes r\u00e9ponses.", action: "Commencer le parcours",
+        step: "\u00c9tape", of: "sur", advance: "Tes r\u00e9ponses sont enregistr\u00e9es. Passage \u00e0 l\u2019\u00e9tape suivante\u2026", finish: "Tes trois exercices sont termin\u00e9s. Pr\u00e9paration de la synth\u00e8se\u2026",
+        summaryEyebrow: "Vue d\u2019ensemble", summaryTitle: "Ton analyse des trois exercices",
+        summaryIntro: "Voici les r\u00e9ponses des trois exercices rassembl\u00e9es au m\u00eame endroit.", scaleNote: "Les exercices explorent des th\u00e8mes et des \u00e9chelles diff\u00e9rentes. Les r\u00e9sultats restent pr\u00e9sent\u00e9s par domaine, sans score global unique.",
+        assessment: "Exercice 1 \u00b7 Bien-\u00eatre", schemas: "Exercice 2 \u00b7 Th\u00e8mes \u00e9motionnels", reflection: "Exercice 3 \u00b7 Ressources personnelles",
+        top: "Indicateurs les plus \u00e9lev\u00e9s", strengths: "Ressources les plus souvent rapport\u00e9es", explore: "Ressources moins souvent rapport\u00e9es",
+        promptTitle: "Une piste pour la suite", prompt: "Quel th\u00e8me aimerais-tu observer avec curiosit\u00e9, sans te juger ?", note: "Cet outil de r\u00e9flexion personnelle n\u2019est pas valid\u00e9 cliniquement et ne fournit ni diagnostic ni mesure de sant\u00e9 mentale.", restart: "Refaire le parcours complet"
+      },
+      en: {
+        eyebrow: "Complete reflection \u00b7 3 steps", title: "One path, three exercises",
+        description: "Complete the three exercises in sequence. At the end, see your responses together in one overview.", action: "Start the full path",
+        step: "Step", of: "of", advance: "Your responses are saved. Moving to the next step\u2026", finish: "All three exercises are complete. Preparing your overview\u2026",
+        summaryEyebrow: "Full overview", summaryTitle: "Your three-exercise reflection",
+        summaryIntro: "Responses from all three exercises, brought together in one place.", scaleNote: "The exercises explore different topics and use different scales. Results stay grouped by area instead of being combined into one overall score.",
+        assessment: "Exercise 1 \u00b7 Well-being", schemas: "Exercise 2 \u00b7 Emotional themes", reflection: "Exercise 3 \u00b7 Personal resources",
+        top: "Highest indicators", strengths: "Resources reported most often", explore: "Resources reported less often",
+        promptTitle: "A prompt for what comes next", prompt: "Which theme would you like to notice with curiosity, without judging yourself?", note: "This personal reflection tool is not clinically validated and does not provide a diagnosis or measure of mental health.", restart: "Take the full path again"
+      },
+      ar: {
+        eyebrow: "\u0645\u0633\u0627\u0631 \u0643\u0627\u0645\u0644 \u00b7 3 \u0645\u0631\u0627\u062d\u0644", title: "\u0645\u0633\u0627\u0631 \u0648\u0627\u062d\u062f \u0648\u062b\u0644\u0627\u062b\u0629 \u062a\u0645\u0627\u0631\u064a\u0646",
+        description: "\u0623\u0643\u0645\u0644 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0628\u0627\u0644\u062a\u0631\u062a\u064a\u0628. \u0641\u064a \u0627\u0644\u0646\u0647\u0627\u064a\u0629\u060c \u0627\u0637\u0644\u0639 \u0639\u0644\u0649 \u0645\u0644\u062e\u0635 \u0644\u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0643\u0644\u0647\u0627.", action: "\u0627\u0628\u062f\u0623 \u0627\u0644\u0645\u0633\u0627\u0631 \u0627\u0644\u0643\u0627\u0645\u0644",
+        step: "\u0627\u0644\u0645\u0631\u062d\u0644\u0629", of: "\u0645\u0646", advance: "\u062d\u064f\u0641\u0638\u062a \u0625\u062c\u0627\u0628\u0627\u062a\u0643. \u0646\u0646\u062a\u0642\u0644 \u0625\u0644\u0649 \u0627\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629\u2026", finish: "\u0623\u0643\u0645\u0644\u062a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629. \u064a\u062a\u0645 \u0625\u0639\u062f\u0627\u062f \u0627\u0644\u0645\u0644\u062e\u0635\u2026",
+        summaryEyebrow: "\u0645\u0644\u062e\u0635 \u0634\u0627\u0645\u0644", summaryTitle: "\u0642\u0631\u0627\u0621\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629",
+        summaryIntro: "\u0625\u062c\u0627\u0628\u0627\u062a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0645\u062c\u062a\u0645\u0639\u0629 \u0641\u064a \u0645\u0643\u0627\u0646 \u0648\u0627\u062d\u062f.", scaleNote: "\u062a\u062a\u0646\u0627\u0648\u0644 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0645\u0648\u0627\u0636\u064a\u0639 \u0648\u0645\u0642\u0627\u064a\u064a\u0633 \u0645\u062e\u062a\u0644\u0641\u0629\u061b \u0644\u0630\u0644\u0643 \u0646\u0639\u0631\u0636 \u0643\u0644 \u0645\u062c\u0627\u0644 \u0645\u0646\u0641\u0635\u0644\u0627\u064b \u0628\u062f\u0648\u0646 \u062d\u0633\u0627\u0628 \u0646\u0642\u0637\u0629 \u0643\u0644\u064a\u0629 \u0648\u0627\u062d\u062f\u0629.",
+        assessment: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 1 \u00b7 \u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 2 \u00b7 \u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639 \u0627\u0644\u0639\u0627\u0637\u0641\u064a\u0629", reflection: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 3 \u00b7 \u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0634\u062e\u0635\u064a\u0629",
+        top: "\u0627\u0644\u0645\u0624\u0634\u0631\u0627\u062a \u0627\u0644\u0623\u0639\u0644\u0649", strengths: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0623\u0643\u062b\u0631 \u0630\u0643\u0631\u0627\u064b", explore: "\u0645\u0648\u0627\u0631\u062f \u0630\u064f\u0643\u0631\u062a \u0623\u0642\u0644",
+        promptTitle: "\u0641\u0643\u0631\u0629 \u0644\u0644\u062e\u0637\u0648\u0629 \u0627\u0644\u0642\u0627\u062f\u0645\u0629", prompt: "\u0645\u0627 \u0627\u0644\u0645\u0648\u0636\u0648\u0639 \u0627\u0644\u0630\u064a \u062a\u0648\u062f \u0645\u0644\u0627\u062d\u0638\u062a\u0647 \u0628\u0641\u0636\u0648\u0644 \u062f\u0648\u0646 \u0623\u0646 \u062a\u062d\u0643\u0645 \u0639\u0644\u0649 \u0646\u0641\u0633\u0643\u061f", note: "\u0647\u0630\u0647 \u0623\u062f\u0627\u0629 \u0644\u0644\u062a\u0623\u0645\u0644 \u0627\u0644\u0634\u062e\u0635\u064a\u060c \u0648\u0644\u064a\u0633\u062a \u0645\u0639\u062a\u0645\u062f\u0629 \u0633\u0631\u064a\u0631\u064a\u0627\u064b \u0648\u0644\u0627 \u062a\u0642\u062f\u0645 \u062a\u0634\u062e\u064a\u0635\u0627\u064b \u0623\u0648 \u0642\u064a\u0627\u0633\u0627\u064b \u0644\u0644\u0635\u062d\u0629 \u0627\u0644\u0646\u0641\u0633\u064a\u0629.", restart: "\u0623\u0639\u062f \u0627\u0644\u0645\u0633\u0627\u0631 \u0627\u0644\u0643\u0627\u0645\u0644"
+      },
+      darija: {
+        eyebrow: "\u0645\u0633\u0627\u0631 \u0643\u0627\u0645\u0644 \u00b7 3 \u0645\u0631\u0627\u062d\u0644", title: "\u062b\u0644\u0627\u062b\u0629 \u062a\u0645\u0627\u0631\u064a\u0646 \u0641\u0645\u0633\u0627\u0631 \u0648\u0627\u062d\u062f",
+        description: "\u062c\u0627\u0648\u0628 \u0639\u0644\u0649 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0628\u0627\u0644\u062a\u0631\u062a\u064a\u0628. \u0645\u0646 \u0628\u0639\u062f \u063a\u0627\u062f\u064a \u062a\u0634\u0648\u0641 \u0645\u0644\u062e\u0635 \u0648\u0627\u062d\u062f \u0644\u0644\u0623\u062c\u0648\u0628\u0629 \u062f\u064a\u0627\u0644\u0643.", action: "\u0628\u062f\u0627 \u0627\u0644\u0645\u0633\u0627\u0631 \u0627\u0644\u0643\u0627\u0645\u0644",
+        step: "\u0627\u0644\u0645\u0631\u062d\u0644\u0629", of: "\u0645\u0646", advance: "\u062a\u062d\u0641\u0638\u0627\u062a \u0627\u0644\u0623\u062c\u0648\u0628\u0629 \u062f\u064a\u0627\u0644\u0643. \u063a\u0627\u062f\u064a \u0646\u0645\u0634\u064a\u0648 \u0644\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u0644\u064a \u0645\u0646 \u0628\u0639\u062f\u0647\u0627\u2026", finish: "\u0643\u0645\u0644\u062a\u064a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629. \u063a\u0627\u062f\u064a \u0646\u0648\u062c\u062f\u0648 \u0627\u0644\u0645\u0644\u062e\u0635\u2026",
+        summaryEyebrow: "\u0645\u0644\u062e\u0635 \u0634\u0627\u0645\u0644", summaryTitle: "\u0642\u0631\u0627\u0621\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629",
+        summaryIntro: "\u062c\u0648\u0627\u0628\u0627\u062a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0645\u062c\u0645\u0648\u0639\u064a\u0646 \u0641\u0645\u0643\u0627\u0646 \u0648\u0627\u062d\u062f.", scaleNote: "\u0643\u0644 \u062a\u0645\u0631\u064a\u0646 \u0643\u064a\u0633\u0648\u0644 \u0639\u0644\u0649 \u062d\u0627\u062c\u0629 \u0648\u0628\u0645\u0642\u064a\u0627\u0633 \u0645\u062e\u062a\u0644\u0641. \u0639\u0644\u0627\u0634 \u0647\u0643\u0627\u060c \u063a\u0627\u062f\u064a \u0646\u0628\u064a\u0646\u0648 \u0643\u0644 \u0645\u062c\u0627\u0644 \u0628\u0648\u062d\u062f\u0648 \u0648\u0645\u0627 \u0646\u062e\u0644\u0637\u0648\u0647\u0645\u0634 \u0641\u0646\u0642\u0637\u0629 \u0643\u0644\u064a\u0629 \u0648\u0627\u062d\u062f\u0629.",
+        assessment: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 1 \u00b7 \u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 2 \u00b7 \u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639 \u0627\u0644\u0639\u0627\u0637\u0641\u064a\u0629", reflection: "\u0627\u0644\u062a\u0645\u0631\u064a\u0646 3 \u00b7 \u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0634\u062e\u0635\u064a\u0629",
+        top: "\u0627\u0644\u0645\u0624\u0634\u0631\u0627\u062a \u0627\u0644\u0623\u0639\u0644\u0649", strengths: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0644\u064a \u062a\u0630\u0643\u0631\u0648 \u0628\u0632\u0627\u0641", explore: "\u0645\u0648\u0627\u0631\u062f \u062a\u0630\u0643\u0631\u0648 \u0642\u0644\u064a\u0644",
+        promptTitle: "\u0641\u0643\u0631\u0629 \u0644\u0644\u062e\u0637\u0648\u0629 \u0627\u0644\u0644\u064a \u062c\u0627\u064a\u0629", prompt: "\u0634\u0646\u0648 \u0647\u0648 \u0627\u0644\u0645\u0648\u0636\u0648\u0639 \u0627\u0644\u0644\u064a \u0628\u063a\u064a\u062a\u064a \u062a\u0644\u0627\u062d\u0638\u064a\u0647 \u0628\u0641\u0636\u0648\u0644 \u0628\u0644\u0627 \u0645\u0627 \u062a\u062d\u0643\u0645\u064a \u0639\u0644\u0649 \u0631\u0627\u0633\u0643\u061f", note: "\u0647\u0627\u062f \u0627\u0644\u062a\u0645\u0631\u064a\u0646 \u063a\u064a\u0631 \u0644\u0644\u062a\u0623\u0645\u0644 \u0627\u0644\u0634\u062e\u0635\u064a\u060c \u0645\u0627\u0634\u064a \u0645\u0639\u062a\u0645\u062f \u0633\u0631\u064a\u0631\u064a\u0627\u064b\u060c \u0648\u0645\u0627 \u0643\u064a\u0639\u0637\u064a \u0644\u0627 \u062a\u0634\u062e\u064a\u0635 \u0644\u0627 \u0642\u064a\u0627\u0633 \u0644\u0644\u0635\u062d\u0629 \u0627\u0644\u0646\u0641\u0633\u064a\u0629.", restart: "\u0639\u0627\u0648\u062f\u064a \u0627\u0644\u0645\u0633\u0627\u0631 \u0627\u0644\u0643\u0627\u0645\u0644"
+      }
+    };
+
     const state = {
       lang: ["fr", "en", "ar", "darija"].includes(localStorage.getItem("mc-lang"))
         ? localStorage.getItem("mc-lang")
@@ -2920,6 +2974,110 @@
       breathStep: 0,
       breathCycles: 0
     };
+
+    const fullAssessmentSessionKey = "mc-full-assessment-session";
+    const fullAssessmentDraftPrefix = "mc-full-assessment-draft-";
+
+    function fullAssessmentText() {
+      return fullAssessmentCopy[state.lang] || fullAssessmentCopy.en;
+    }
+
+    function isFullAssessmentFlow() {
+      return new URLSearchParams(window.location.search).get("flow") === "full";
+    }
+
+    function readFullAssessmentSession() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(fullAssessmentSessionKey) || "null");
+        return saved && typeof saved === "object" && Array.isArray(saved.completed) ? saved : null;
+      } catch {
+        return null;
+      }
+    }
+
+    function startFullAssessment() {
+      localStorage.setItem(fullAssessmentSessionKey, JSON.stringify({ startedAt: new Date().toISOString(), completed: [] }));
+      ["assessment", "schema-form", "reflection-form"].forEach((formId) => localStorage.removeItem(`${fullAssessmentDraftPrefix}${formId}`));
+      localStorage.removeItem("mc-active-question-set");
+    }
+
+    function readFullAssessmentDraft(formId) {
+      if (!isFullAssessmentFlow()) return {};
+      try {
+        const saved = JSON.parse(localStorage.getItem(`${fullAssessmentDraftPrefix}${formId}`) || "{}");
+        if (!saved || typeof saved !== "object" || Array.isArray(saved)) return {};
+        return Object.fromEntries(Object.entries(saved).filter(([name, value]) => typeof name === "string" && ["0", "1", "2", "3"].includes(String(value))));
+      } catch {
+        return {};
+      }
+    }
+
+    function storeFullAssessmentDraft(formId) {
+      if (!isFullAssessmentFlow()) return;
+      const form = document.getElementById(formId);
+      if (!form) return;
+      const answers = Object.fromEntries([...form.querySelectorAll('input[type="radio"]:checked')].map((input) => [input.name, input.value]));
+      localStorage.setItem(`${fullAssessmentDraftPrefix}${formId}`, JSON.stringify(answers));
+    }
+
+    function finishFullAssessmentStep(type) {
+      const session = readFullAssessmentSession() || { startedAt: new Date().toISOString(), completed: [] };
+      session.completed = [...new Set([...session.completed, type])];
+      const nextPage = { assessment: "schemas", schema: "reflection", reflection: "results" }[type];
+      if (type === "reflection") session.finishedAt = new Date().toISOString();
+      localStorage.setItem(fullAssessmentSessionKey, JSON.stringify(session));
+      const formId = { assessment: "assessment", schema: "schema-form", reflection: "reflection-form" }[type];
+      if (formId) localStorage.removeItem(`${fullAssessmentDraftPrefix}${formId}`);
+      window.location.assign(`?page=${nextPage}&flow=full`);
+    }
+
+    function renderFullAssessmentCard() {
+      const copy = fullAssessmentText();
+      document.getElementById("full-assessment-eyebrow").textContent = copy.eyebrow;
+      document.getElementById("full-assessment-card-title").textContent = copy.title;
+      document.getElementById("full-assessment-card-description").textContent = copy.description;
+      document.getElementById("full-assessment-card-action").textContent = copy.action;
+    }
+
+    function renderFullAssessmentProgress() {
+      document.getElementById("full-assessment-progress")?.remove();
+      if (!isFullAssessmentFlow()) return;
+      const stages = {
+        assessment: { section: "assessment", title: "assessment.title" },
+        schemas: { section: "schema-test", title: "schemas.title" },
+        reflection: { section: "reflection-test", title: "reflection.title" }
+      };
+      const stage = stages[state.page];
+      if (!stage) return;
+      const index = Object.keys(stages).indexOf(state.page);
+      const copy = fullAssessmentText();
+      const panel = document.createElement("aside");
+      panel.id = "full-assessment-progress";
+      panel.className = "mx-auto mb-6 max-w-6xl rounded-xl border border-amber-200/20 bg-amber-100/5 px-5 py-4";
+      panel.setAttribute("aria-label", `${copy.step} ${index + 1} ${copy.of} 3`);
+      const header = document.createElement("div");
+      header.className = "flex flex-wrap items-center justify-between gap-2 text-sm";
+      const label = document.createElement("span");
+      label.className = "text-slate-300";
+      label.textContent = `${copy.step} ${index + 1} ${copy.of} 3 · ${t(stage.title)}`;
+      const count = document.createElement("strong");
+      count.className = "text-amber-100";
+      count.textContent = `${index + 1} / 3`;
+      header.append(label, count);
+      const track = document.createElement("div");
+      track.className = "mt-3 h-1.5 overflow-hidden rounded-full bg-white/10";
+      track.setAttribute("role", "progressbar");
+      track.setAttribute("aria-valuemin", "0");
+      track.setAttribute("aria-valuemax", "3");
+      track.setAttribute("aria-valuenow", String(index));
+      const fill = document.createElement("span");
+      fill.className = "block h-full rounded-full bg-amber-200 transition-all duration-500";
+      fill.style.width = `${(index / 3) * 100}%`;
+      track.appendChild(fill);
+      panel.append(header, track);
+      const cover = document.querySelector(`#${stage.section} .page-cover`);
+      cover?.insertAdjacentElement("afterend", panel);
+    }
 
     const assessmentModeCopy = {
       fr: {
@@ -3227,6 +3385,7 @@
         }
       });
       updateWorkspaceHeader();
+      renderFullAssessmentProgress();
     }
 
     function hasSeenWelcomeIntro() {
@@ -3362,6 +3521,131 @@
             $("#combined-reflection-scores").appendChild(row);
           });
         }
+        renderFullAssessmentSummary();
+    }
+
+    function renderFullAssessmentSummary() {
+      const panel = document.getElementById("full-assessment-summary");
+      if (!panel) return;
+      const session = readFullAssessmentSession();
+      const allStepsFinished = isFullAssessmentFlow() && session?.finishedAt
+        && ["assessment", "schema", "reflection"].every((step) => session.completed.includes(step));
+      let assessment = null;
+      let schema = null;
+      let reflection = null;
+      try {
+        assessment = JSON.parse(localStorage.getItem("mc-combined-assessment") || "null");
+        schema = JSON.parse(localStorage.getItem("mc-combined-schema") || "null");
+        reflection = JSON.parse(localStorage.getItem("mc-combined-reflection") || "null");
+      } catch {}
+      const startedAt = Date.parse(session?.startedAt || "");
+      const recordsMatchSession = [assessment, schema, reflection].every((record) => record?.date && Date.parse(record.date) >= startedAt);
+      const validRecords = assessment?.scores && assessmentDimensions.every((key) => Number.isFinite(assessment.scores[key]?.score))
+        && schema?.scores && reflection?.scores && reflectionDimensions.every((key) => Number.isFinite(reflection.scores[key]));
+      panel.classList.toggle("hidden", !(allStepsFinished && Number.isFinite(startedAt) && recordsMatchSession && validRecords));
+      panel.replaceChildren();
+      if (!(allStepsFinished && Number.isFinite(startedAt) && recordsMatchSession && validRecords)) return;
+
+      const copy = fullAssessmentText();
+      const headingGroup = document.createElement("div");
+      headingGroup.className = "mb-6 max-w-3xl";
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "text-xs font-semibold uppercase tracking-[0.18em] text-amber-200";
+      eyebrow.textContent = copy.summaryEyebrow;
+      const heading = document.createElement("h2");
+      heading.id = "full-assessment-summary-title";
+      heading.className = "mt-2 font-serif text-3xl font-semibold text-stone-50 sm:text-4xl";
+      heading.textContent = copy.summaryTitle;
+      const intro = document.createElement("p");
+      intro.className = "mt-2 text-sm leading-relaxed text-slate-300";
+      intro.textContent = copy.summaryIntro;
+      headingGroup.append(eyebrow, heading, intro);
+
+      function makeRows(rows) {
+        const list = document.createElement("div");
+        list.className = "mt-4 space-y-3";
+        rows.forEach(({ label, value, max = 9 }) => {
+          const row = document.createElement("div");
+          const top = document.createElement("div");
+          top.className = "mb-1 flex items-center justify-between gap-3 text-sm";
+          const name = document.createElement("span");
+          name.textContent = label;
+          const score = document.createElement("span");
+          score.className = "shrink-0 text-slate-300";
+          score.textContent = `${Number(value).toFixed(1)} / ${max}`;
+          top.append(name, score);
+          const track = document.createElement("div");
+          track.className = "h-1.5 overflow-hidden rounded-full bg-white/10";
+          const fill = document.createElement("span");
+          fill.className = "block h-full rounded-full bg-amber-200";
+          fill.style.width = `${Math.max(0, Math.min(100, (Number(value) / max) * 100))}%`;
+          track.appendChild(fill);
+          row.append(top, track);
+          list.appendChild(row);
+        });
+        return list;
+      }
+
+      function makeGroup(title, summary, rows, extra = "") {
+        const card = document.createElement("article");
+        card.className = "rounded-xl border border-white/10 bg-slate-900/60 p-4 sm:p-5";
+        const titleElement = document.createElement("h3");
+        titleElement.className = "text-lg font-semibold text-stone-100";
+        titleElement.textContent = title;
+        const summaryElement = document.createElement("p");
+        summaryElement.className = "mt-2 text-sm leading-relaxed text-slate-300";
+        summaryElement.textContent = summary;
+        card.append(titleElement, summaryElement, makeRows(rows));
+        if (extra) {
+          const extraElement = document.createElement("p");
+          extraElement.className = "mt-4 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-300";
+          extraElement.textContent = extra;
+          card.appendChild(extraElement);
+        }
+        return card;
+      }
+
+      const assessmentResult = buildResultInterpretation(assessment.scores, assessment.mode);
+      const assessmentCard = makeGroup(copy.assessment, assessmentResult.summary,
+        assessmentDimensions.map((key) => ({ label: t(`common.${key}`), value: assessment.scores[key].score })));
+
+      const schemaResult = schemaAnalysis(schema.scores);
+      const schemaRows = schemaResult.topThree.map((item) => ({ label: item.label, value: item.value }));
+      const schemaCard = makeGroup(copy.schemas, `${copy.top}: ${schemaResult.topThree.map((item) => item.label).join(", ")}.`, schemaRows);
+
+      const orderedResources = reflectionDimensions.map((key) => [key, reflection.scores[key]]).sort((a, b) => b[1] - a[1]);
+      const strongest = orderedResources.filter(([, value]) => value === orderedResources[0][1]).map(([key]) => reflectionLabels[state.lang][key]);
+      const explore = orderedResources.filter(([, value]) => value === orderedResources.at(-1)[1]).map(([key]) => reflectionLabels[state.lang][key]);
+      const reflectionCard = makeGroup(copy.reflection, `${copy.strengths}: ${strongest.join(", ")}.`,
+        orderedResources.map(([key, value]) => ({ label: reflectionLabels[state.lang][key], value })), `${copy.explore}: ${explore.join(", ")}.`);
+
+      const groups = document.createElement("div");
+      groups.className = "grid gap-4 lg:grid-cols-3";
+      groups.append(assessmentCard, schemaCard, reflectionCard);
+
+      const note = document.createElement("p");
+      note.className = "mt-5 rounded-lg border border-amber-100/15 bg-amber-100/5 p-4 text-sm leading-relaxed text-slate-200";
+      note.textContent = copy.scaleNote;
+      const prompt = document.createElement("aside");
+      prompt.className = "mt-5 flex flex-col gap-3 rounded-lg border border-white/10 bg-white/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between";
+      const promptText = document.createElement("div");
+      const promptTitle = document.createElement("h3");
+      promptTitle.className = "font-semibold text-stone-100";
+      promptTitle.textContent = copy.promptTitle;
+      const promptBody = document.createElement("p");
+      promptBody.className = "mt-1 text-sm text-slate-300";
+      promptBody.textContent = copy.prompt;
+      promptText.append(promptTitle, promptBody);
+      const restart = document.createElement("a");
+      restart.href = "?page=assessment&flow=full";
+      restart.className = "full-assessment-restart inline-flex shrink-0 items-center justify-center rounded-md border border-amber-100/30 px-4 py-2 text-sm font-medium text-amber-100 transition hover:bg-amber-100/10";
+      restart.textContent = copy.restart;
+      prompt.append(promptText, restart);
+
+      const disclaimer = document.createElement("p");
+      disclaimer.className = "mt-4 text-xs leading-relaxed text-slate-400";
+      disclaimer.textContent = copy.note;
+      panel.append(headingGroup, groups, note, prompt, disclaimer);
     }
 
     function formatResultDate(value) {
@@ -3421,6 +3705,8 @@
       document.documentElement.lang = state.lang === "darija" ? "ar" : state.lang;
       document.documentElement.dir = rtl ? "rtl" : "ltr";
       renderWelcomeIntro();
+      renderFullAssessmentCard();
+      renderFullAssessmentProgress();
       $("#account-page-eyebrow").textContent = t("homeDashboard.privateLabel");
       $("#account-page-title").textContent = t("account.title");
       $("#account-page-description").textContent = t("account.intro");
@@ -3776,6 +4062,8 @@
           storeAssessmentDraft();
           updateAssessmentProgress();
         }
+        const fullFlowForm = row.closest("#schema-form, #reflection-form");
+        if (fullFlowForm) storeFullAssessmentDraft(fullFlowForm.id);
       });
     }
 
@@ -3844,7 +4132,7 @@
 
     function renderSchemaQuestions() {
       const wrap = $("#schema-questions");
-      const current = Object.fromEntries(new FormData($("#schema-form")).entries());
+      const current = { ...readFullAssessmentDraft("schema-form"), ...Object.fromEntries(new FormData($("#schema-form")).entries()) };
       wrap.innerHTML = "";
       state.activeSchemaQuestions.forEach((q, idx) => {
         const fs = document.createElement("fieldset");
@@ -3874,7 +4162,7 @@
 
     function renderReflectionQuestions() {
       const wrap = $("#reflection-questions");
-      const current = Object.fromEntries(new FormData($("#reflection-form")).entries());
+      const current = { ...readFullAssessmentDraft("reflection-form"), ...Object.fromEntries(new FormData($("#reflection-form")).entries()) };
       wrap.replaceChildren();
       state.activeReflectionQuestions.forEach((question, index) => {
         const fieldset = document.createElement("fieldset");
@@ -4628,6 +4916,14 @@
       status.classList.remove("hidden");
       submit.disabled = true;
       submit.classList.add("cursor-wait", "opacity-60");
+      if (isFullAssessmentFlow()) {
+        status.textContent = type === "reflection" ? fullAssessmentText().finish : fullAssessmentText().advance;
+        state.resultTimers[type] = setTimeout(() => {
+          state.resultTimers[type] = null;
+          finishFullAssessmentStep(type);
+        }, 1200);
+        return;
+      }
       state.resultTimers[type] = setTimeout(() => {
         state.resultTimers[type] = null;
         submit.disabled = false;
@@ -5239,6 +5535,7 @@
         if (!link || link.target || link.hasAttribute("download")) return;
         const nextUrl = new URL(link.href, window.location.href);
         if (nextUrl.origin !== window.location.origin) return;
+        if (link.id === "full-assessment-start" || link.classList.contains("full-assessment-restart")) startFullAssessment();
         event.preventDefault();
         window.clearTimeout(pendingPageNavigation);
         document.body.classList.add("presentation-leaving");
@@ -5420,6 +5717,7 @@
       $("#schema-form").addEventListener("submit", handleSchemaSubmit);
       $("#schema-reset").addEventListener("click", () => {
         cancelResultReveal("schema");
+        localStorage.removeItem(`${fullAssessmentDraftPrefix}schema-form`);
         $("#schema-form").reset();
         buildSchemaQuestionSet();
         renderSchemaQuestions();
@@ -5428,6 +5726,7 @@
       $("#reflection-form").addEventListener("submit", handleReflectionSubmit);
       $("#reflection-reset").addEventListener("click", () => {
         cancelResultReveal("reflection");
+        localStorage.removeItem(`${fullAssessmentDraftPrefix}reflection-form`);
         state.lastReflectionScores = null;
         $("#reflection-form").reset();
         buildReflectionQuestionSet();
