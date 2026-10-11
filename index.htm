@@ -2977,6 +2977,7 @@
 
     const fullAssessmentSessionKey = "mc-full-assessment-session";
     const fullAssessmentDraftPrefix = "mc-full-assessment-draft-";
+    let activeFullAssessmentInterpretationCopy = null;
 
     function fullAssessmentText() {
       return fullAssessmentCopy[state.lang] || fullAssessmentCopy.en;
@@ -3033,6 +3034,38 @@
 
     function renderFullAssessmentCard() {
       const copy = fullAssessmentText();
+      const interpretationCopy = {
+        fr: {
+          intro: "Les derniers résultats enregistrés pour les trois exercices sont rassemblés ici.",
+          resultDate: "Dernier résultat",
+          synthesisTitle: "Lecture croisée des trois exercices",
+          synthesis: "Le domaine le plus élevé est {wellbeing}. Le thème émotionnel le plus marqué est {theme}, tandis que la ressource la moins souvent rapportée est {resource}. Ce sont des pistes de réflexion, pas des preuves d’un lien de cause à effet."
+        },
+        en: {
+          intro: "The latest saved result from each of the three exercises, brought together here.",
+          resultDate: "Latest result",
+          synthesisTitle: "Reading across the three exercises",
+          synthesis: "The highest well-being area is {wellbeing}. The most prominent emotional theme is {theme}, while the least reported resource is {resource}. These are prompts for reflection, not evidence that one caused another."
+        },
+        ar: {
+          intro: "\u0622\u062e\u0631 \u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u062d\u0641\u0648\u0638\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0645\u062c\u062a\u0645\u0639\u0629 \u0647\u0646\u0627.",
+          resultDate: "\u0622\u062e\u0631 \u0646\u062a\u064a\u062c\u0629",
+          synthesisTitle: "\u0642\u0631\u0627\u0621\u0629 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629",
+          synthesis: "\u0623\u0639\u0644\u0649 \u0645\u062c\u0627\u0644 \u0641\u064a \u0627\u0644\u0639\u0627\u0641\u064a\u0629 \u0647\u0648 {wellbeing}. \u0623\u0643\u062b\u0631 \u0645\u0648\u0636\u0648\u0639 \u0639\u0627\u0637\u0641\u064a \u0638\u0647\u0648\u0631\u0627\u064b \u0647\u0648 {theme}\u060c \u0628\u064a\u0646\u0645\u0627 \u0627\u0644\u0645\u0648\u0631\u062f \u0627\u0644\u0623\u0642\u0644 \u0630\u0643\u0631\u0627\u064b \u0647\u0648 {resource}. \u0647\u0630\u0647 \u0646\u0642\u0627\u0637 \u0644\u0644\u062a\u0623\u0645\u0644\u060c \u0648\u0644\u064a\u0633\u062a \u062f\u0644\u064a\u0644\u0627\u064b \u0639\u0644\u0649 \u0623\u0646 \u0623\u062d\u062f\u0647\u0627 \u0633\u0628\u0628 \u0627\u0644\u0622\u062e\u0631."
+        },
+        darija: {
+          intro: "\u0622\u062e\u0631 \u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u062d\u0641\u0648\u0638\u0629 \u062f\u064a\u0627\u0644 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0645\u062c\u0645\u0648\u0639\u064a\u0646 \u0647\u0646\u0627.",
+          resultDate: "\u0622\u062e\u0631 \u0646\u062a\u064a\u062c\u0629",
+          synthesisTitle: "\u0642\u0631\u0627\u0621\u0629 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629",
+          synthesis: "\u0623\u0639\u0644\u0649 \u0645\u062c\u0627\u0644 \u0641\u062a\u0645\u0631\u064a\u0646 \u0627\u0644\u0639\u0627\u0641\u064a\u0629 \u0647\u0648 {wellbeing}. \u0623\u0643\u062b\u0631 \u0645\u0648\u0636\u0648\u0639 \u0639\u0627\u0637\u0641\u064a \u0628\u0627\u0631\u0632 \u0647\u0648 {theme}\u060c \u0648\u0627\u0644\u0645\u0648\u0631\u062f \u0627\u0644\u0644\u064a \u062a\u0630\u0643\u0631 \u0623\u0642\u0644 \u0647\u0648 {resource}. \u0647\u0627\u062f\u0648 \u063a\u064a\u0631 \u062e\u064a\u0648\u0637 \u0644\u0644\u062a\u0623\u0645\u0644\u060c \u0648\u0645\u0627 \u0643\u064a\u062b\u0628\u062a\u0648\u0634 \u0623\u0646 \u0648\u0627\u062d\u062f \u0633\u0628\u0628 \u0644\u0644\u0622\u062e\u0631."
+        }
+      }[state.lang] || {
+        intro: "The latest saved result from each of the three exercises, brought together here.",
+        resultDate: "Latest result",
+        synthesisTitle: "Reading across the three exercises",
+        synthesis: "The highest well-being area is {wellbeing}. The most prominent emotional theme is {theme}, while the least reported resource is {resource}. These are prompts for reflection, not evidence that one caused another."
+      };
+      activeFullAssessmentInterpretationCopy = interpretationCopy;
       document.getElementById("full-assessment-eyebrow").textContent = copy.eyebrow;
       document.getElementById("full-assessment-card-title").textContent = copy.title;
       document.getElementById("full-assessment-card-description").textContent = copy.description;
@@ -3527,9 +3560,6 @@
     function renderFullAssessmentSummary() {
       const panel = document.getElementById("full-assessment-summary");
       if (!panel) return;
-      const session = readFullAssessmentSession();
-      const allStepsFinished = isFullAssessmentFlow() && session?.finishedAt
-        && ["assessment", "schema", "reflection"].every((step) => session.completed.includes(step));
       let assessment = null;
       let schema = null;
       let reflection = null;
@@ -3538,16 +3568,20 @@
         schema = JSON.parse(localStorage.getItem("mc-combined-schema") || "null");
         reflection = JSON.parse(localStorage.getItem("mc-combined-reflection") || "null");
       } catch {}
-      const startedAt = Date.parse(session?.startedAt || "");
-      const recordsMatchSession = [assessment, schema, reflection].every((record) => record?.date && Date.parse(record.date) >= startedAt);
-      const validRecords = assessment?.scores && assessmentDimensions.every((key) => Number.isFinite(assessment.scores[key]?.score))
-        && schema?.scores && reflection?.scores && reflectionDimensions.every((key) => Number.isFinite(reflection.scores[key]));
-      panel.classList.toggle("hidden", !(allStepsFinished && Number.isFinite(startedAt) && recordsMatchSession && validRecords));
+      const hasDate = (record) => Number.isFinite(Date.parse(record?.date || ""));
+      const validRecords = hasDate(assessment) && assessment?.scores
+        && assessmentDimensions.every((key) => Number.isFinite(assessment.scores[key]?.score))
+        && hasDate(schema) && schema?.scores && Object.keys(schema.scores).length > 0
+        && Object.values(schema.scores).every(Number.isFinite)
+        && hasDate(reflection) && reflection?.scores
+        && reflectionDimensions.every((key) => Number.isFinite(reflection.scores[key]));
+      panel.classList.toggle("hidden", !validRecords);
       panel.replaceChildren();
-      if (!(allStepsFinished && Number.isFinite(startedAt) && recordsMatchSession && validRecords)) return;
+      if (!validRecords) return;
 
       const copy = fullAssessmentText();
       const headingGroup = document.createElement("div");
+      const interpretationCopy = activeFullAssessmentInterpretationCopy;
       headingGroup.className = "mb-6 max-w-3xl";
       const eyebrow = document.createElement("p");
       eyebrow.className = "text-xs font-semibold uppercase tracking-[0.18em] text-amber-200";
@@ -3558,7 +3592,7 @@
       heading.textContent = copy.summaryTitle;
       const intro = document.createElement("p");
       intro.className = "mt-2 text-sm leading-relaxed text-slate-300";
-      intro.textContent = copy.summaryIntro;
+      intro.textContent = interpretationCopy.intro;
       headingGroup.append(eyebrow, heading, intro);
 
       function makeRows(rows) {
@@ -3586,7 +3620,7 @@
         return list;
       }
 
-      function makeGroup(title, summary, rows, extra = "") {
+      function makeGroup(title, summary, rows, extra = "", resultDate = "") {
         const card = document.createElement("article");
         card.className = "rounded-xl border border-white/10 bg-slate-900/60 p-4 sm:p-5";
         const titleElement = document.createElement("h3");
@@ -3595,7 +3629,11 @@
         const summaryElement = document.createElement("p");
         summaryElement.className = "mt-2 text-sm leading-relaxed text-slate-300";
         summaryElement.textContent = summary;
-        card.append(titleElement, summaryElement, makeRows(rows));
+        const dateElement = document.createElement("p");
+        dateElement.className = "mt-2 text-xs text-slate-400";
+        const dateLabel = { fr: "Dernier résultat", en: "Latest result", ar: "\u0622\u062e\u0631 \u0646\u062a\u064a\u062c\u0629", darija: "\u0622\u062e\u0631 \u0646\u062a\u064a\u062c\u0629" }[state.lang];
+        dateElement.textContent = `${dateLabel}: ${formatResultDate(resultDate)}`;
+        card.append(titleElement, summaryElement, dateElement, makeRows(rows));
         if (extra) {
           const extraElement = document.createElement("p");
           extraElement.className = "mt-4 border-t border-white/10 pt-3 text-sm leading-relaxed text-slate-300";
@@ -3607,21 +3645,39 @@
 
       const assessmentResult = buildResultInterpretation(assessment.scores, assessment.mode);
       const assessmentCard = makeGroup(copy.assessment, assessmentResult.summary,
-        assessmentDimensions.map((key) => ({ label: t(`common.${key}`), value: assessment.scores[key].score })));
+        assessmentDimensions.map((key) => ({ label: t(`common.${key}`), value: assessment.scores[key].score })), "", assessment.date);
 
       const schemaResult = schemaAnalysis(schema.scores);
       const schemaRows = schemaResult.topThree.map((item) => ({ label: item.label, value: item.value }));
-      const schemaCard = makeGroup(copy.schemas, `${copy.top}: ${schemaResult.topThree.map((item) => item.label).join(", ")}.`, schemaRows);
+      const schemaCard = makeGroup(copy.schemas, `${copy.top}: ${schemaResult.topThree.map((item) => item.label).join(", ")}.`, schemaRows, "", schema.date);
 
       const orderedResources = reflectionDimensions.map((key) => [key, reflection.scores[key]]).sort((a, b) => b[1] - a[1]);
       const strongest = orderedResources.filter(([, value]) => value === orderedResources[0][1]).map(([key]) => reflectionLabels[state.lang][key]);
       const explore = orderedResources.filter(([, value]) => value === orderedResources.at(-1)[1]).map(([key]) => reflectionLabels[state.lang][key]);
       const reflectionCard = makeGroup(copy.reflection, `${copy.strengths}: ${strongest.join(", ")}.`,
-        orderedResources.map(([key, value]) => ({ label: reflectionLabels[state.lang][key], value })), `${copy.explore}: ${explore.join(", ")}.`);
+        orderedResources.map(([key, value]) => ({ label: reflectionLabels[state.lang][key], value })), `${copy.explore}: ${explore.join(", ")}.`, reflection.date);
 
       const groups = document.createElement("div");
       groups.className = "grid gap-4 lg:grid-cols-3";
       groups.append(assessmentCard, schemaCard, reflectionCard);
+
+      const highestWellbeing = assessmentDimensions
+        .map((key) => ({ label: t("common." + key), score: assessment.scores[key].score }))
+        .sort((a, b) => b.score - a.score)[0].label;
+      const strongestTheme = schemaResult.topThree[0]?.label || "";
+      const leastReportedResource = reflectionLabels[state.lang][orderedResources.at(-1)[0]];
+      const synthesis = document.createElement("article");
+      synthesis.className = "mt-4 rounded-xl border border-amber-100/20 bg-amber-100/[0.04] p-4 sm:p-5";
+      const synthesisHeading = document.createElement("h3");
+      synthesisHeading.className = "text-lg font-semibold text-stone-100";
+      synthesisHeading.textContent = interpretationCopy.synthesisTitle;
+      const synthesisBody = document.createElement("p");
+      synthesisBody.className = "mt-2 text-sm leading-relaxed text-slate-300";
+      synthesisBody.textContent = interpretationCopy.synthesis
+        .replace("{wellbeing}", highestWellbeing)
+        .replace("{theme}", strongestTheme)
+        .replace("{resource}", leastReportedResource);
+      synthesis.append(synthesisHeading, synthesisBody);
 
       const note = document.createElement("p");
       note.className = "mt-5 rounded-lg border border-amber-100/15 bg-amber-100/5 p-4 text-sm leading-relaxed text-slate-200";
@@ -3645,7 +3701,7 @@
       const disclaimer = document.createElement("p");
       disclaimer.className = "mt-4 text-xs leading-relaxed text-slate-400";
       disclaimer.textContent = copy.note;
-      panel.append(headingGroup, groups, note, prompt, disclaimer);
+      panel.append(headingGroup, groups, synthesis, note, prompt, disclaimer);
     }
 
     function formatResultDate(value) {
