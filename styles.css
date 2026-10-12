@@ -1857,10 +1857,10 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
     .workspace-topbar { display:none !important; }
     .hero-section { width:min(1480px,calc(100% - 2rem)); min-height:clamp(680px,calc(100svh - 2rem),960px); margin:1rem auto 0; border:1px solid rgba(255,255,255,.86); border-radius:2px; background:#e6e8e5; box-shadow:0 20px 60px rgba(30,36,32,.08); }
     .hero-content { grid-template-columns:minmax(0,1.2fr) minmax(250px,.55fr); grid-template-rows:minmax(330px,1fr) auto auto; justify-items:stretch; gap:1rem; padding:clamp(6.8rem,12vh,8rem) clamp(1rem,4vw,3rem) 1.1rem; text-align:start; }
-    .hero-section > img { object-position:center 54%; transform:none !important; animation:none !important; filter:grayscale(.58) brightness(1.32) saturate(.46) contrast(.78); }
-    body:not(.theme-light) .hero-section > img { filter:grayscale(.42) brightness(.48) saturate(.52) contrast(.9); }
-    body.theme-light .hero-overlay { background:linear-gradient(90deg,rgba(248,249,247,.96),rgba(248,249,247,.78) 39%,rgba(248,249,247,.08)),linear-gradient(0deg,rgba(27,33,29,.15),transparent 48%); }
-    body:not(.theme-light) .hero-overlay { background:linear-gradient(90deg,rgba(14,18,16,.76),rgba(14,18,16,.4) 48%,rgba(14,18,16,.12)),linear-gradient(0deg,rgba(14,18,16,.46),transparent 62%); }
+    .hero-section > img { object-position:center 54%; animation:hero-image-drift 24s ease-in-out infinite alternate; will-change:transform; filter:grayscale(.42) brightness(.96) saturate(.62) contrast(.9); }
+    body:not(.theme-light) .hero-section > img { filter:grayscale(.3) brightness(.74) saturate(.76) contrast(.96); }
+    body.theme-light .hero-overlay { background:linear-gradient(90deg,rgba(248,249,247,.48),rgba(248,249,247,.24) 39%,rgba(248,249,247,0) 78%),linear-gradient(0deg,rgba(27,33,29,.2),transparent 52%); }
+    body:not(.theme-light) .hero-overlay { background:linear-gradient(90deg,rgba(14,18,16,.38),rgba(14,18,16,.18) 48%,rgba(14,18,16,.04)),linear-gradient(0deg,rgba(14,18,16,.28),transparent 62%); }
     .hero-overlay::after { display:none !important; }
     .hero-copy { grid-column:1; grid-row:1; align-self:center; max-width:min(850px,100%); margin:0; text-align:start; }
     .hero-greeting { border:0; border-radius:0; padding-inline:0; background:transparent; color:#535c56 !important; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; }
@@ -2025,7 +2025,6 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
     #scroll-progress { position:fixed; z-index:110; inset:0 0 auto; height:2px; background:var(--evora-accent); box-shadow:none; }
     #combined-results article,#home-tests article,#results-path,#daily-note-card { transform:none; }
     #combined-results article:hover,#home-tests article:hover { box-shadow:none !important; }
-    .hero-copy.show h1,.hero-copy.show > p[data-i18n="hero.subtitle"],.hero-copy.show .hero-actions,.hero-caption { animation:none !important; }
     @media (max-width:900px) {
       .hero-section { width:calc(100% - 1rem); min-height:max(760px,calc(100svh - 1rem)); }
       .hero-content { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(320px,1fr) auto auto; padding:6.8rem 1.1rem 1rem; }
