@@ -2061,3 +2061,9 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
       body.theme-light .page-cover-copy h1 { font-size:clamp(2.8rem,14vw,4.4rem); }
     }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } .route-entering { animation:none !important; } }
+
+/* Keep the hero photo and tint behind the copy and controls. */
+.hero-section { isolation: isolate; }
+.hero-section > img { z-index: 0 !important; pointer-events: none; }
+.hero-section > .hero-overlay { z-index: 1 !important; pointer-events: none; }
+.hero-section > .hero-content { position: relative; z-index: 2 !important; }
