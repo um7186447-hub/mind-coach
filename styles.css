@@ -2066,3 +2066,10 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
 .hero-section > img { z-index: 0 !important; pointer-events: none; }
 .hero-section > .hero-overlay { z-index: 1 !important; pointer-events: none; }
 .hero-section > .hero-content { position: relative; z-index: 2 !important; }
+
+/* Leave the landscape full-bleed; keep readability in the text styling. */
+.hero-section > .hero-overlay { background: transparent !important; }
+body.theme-light .hero-section > img { filter: saturate(.86) brightness(.94) contrast(.92) !important; }
+body:not(.theme-light) .hero-section > img { filter: saturate(.82) brightness(.66) contrast(1.04) !important; }
+body.theme-light .hero-copy h1, body.theme-light .hero-copy > p[data-i18n="hero.subtitle"] { text-shadow: 0 1px 16px rgba(255,255,255,.42); }
+body:not(.theme-light) .hero-copy h1, body:not(.theme-light) .hero-copy > p[data-i18n="hero.subtitle"] { text-shadow: 0 1px 16px rgba(0,0,0,.32); }
