@@ -1858,7 +1858,7 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
     .hero-section { width:min(1480px,calc(100% - 2rem)); min-height:clamp(680px,calc(100svh - 2rem),960px); margin:1rem auto 0; border:1px solid rgba(255,255,255,.86); border-radius:2px; background:#e6e8e5; box-shadow:0 20px 60px rgba(30,36,32,.08); }
     .hero-content { grid-template-columns:minmax(0,1.2fr) minmax(250px,.55fr); grid-template-rows:minmax(330px,1fr) auto auto; justify-items:stretch; gap:1rem; padding:clamp(6.8rem,12vh,8rem) clamp(1rem,4vw,3rem) 1.1rem; text-align:start; }
     .hero-section > img { object-position:center 54%; animation:hero-image-drift 16s ease-in-out infinite alternate; will-change:transform; filter:grayscale(.42) brightness(.96) saturate(.62) contrast(.9); }
-    body.theme-light .hero-section > img { animation-name:light-hero-drift; }
+    body.theme-light .hero-section > img { animation-name:light-hero-drift; object-position:center calc(50% + var(--hero-parallax,0px)); }
     @keyframes light-hero-drift { from { transform:scale(1.045) translate3d(-1.1%,0,0); } to { transform:scale(1.13) translate3d(1.1%,-.8%,0); } }
     body:not(.theme-light) .hero-section > img { filter:grayscale(.3) brightness(.74) saturate(.76) contrast(.96); }
     body.theme-light .hero-overlay { background:linear-gradient(90deg,rgba(248,249,247,.48),rgba(248,249,247,.24) 39%,rgba(248,249,247,0) 78%),linear-gradient(0deg,rgba(27,33,29,.2),transparent 52%); }
@@ -1926,9 +1926,8 @@ body[data-page="login"] main#top { padding-top: 0 !important; }
     #combined-results,#assessment,#schema-test,#reflection-test,#methods,#breathing,#sleep,#references,#mental-health-checkin,#dashboard { max-width:1280px !important; }
     body.theme-light #combined-results,body.theme-light #assessment,body.theme-light #schema-test,body.theme-light #reflection-test,body.theme-light #methods,body.theme-light #breathing,body.theme-light #sleep,body.theme-light #references,body.theme-light #mental-health-checkin { color:var(--evora-ink); }
     body.theme-light .page-cover { min-height:clamp(260px,30vw,380px); border:1px solid rgba(255,255,255,.8); border-radius:2px; background-color:#e6e8e5; box-shadow:none; }
-    body.theme-light .page-cover::before { background-image:linear-gradient(90deg,rgba(248,249,247,.92),rgba(248,249,247,.44) 58%,rgba(248,249,247,.08)),linear-gradient(0deg,rgba(34,41,36,.16),transparent 72%),var(--page-cover); filter:grayscale(.62) brightness(1.28) saturate(.45) contrast(.76); background-size:cover; background-position:center; animation:light-cover-pan 26s ease-in-out infinite alternate; transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .6s ease; }
+    body.theme-light .page-cover::before { background-image:linear-gradient(90deg,rgba(248,249,247,.92),rgba(248,249,247,.44) 58%,rgba(248,249,247,.08)),linear-gradient(0deg,rgba(34,41,36,.16),transparent 72%),var(--page-cover); filter:grayscale(.62) brightness(1.28) saturate(.45) contrast(.76); background-size:cover; background-position:center center,center center,center calc(50% + var(--cover-parallax,0px)); transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .6s ease; }
     body.theme-light .page-cover:hover::before { transform:scale(1.045); filter:grayscale(.42) brightness(1.2) saturate(.62) contrast(.82); }
-    @keyframes light-cover-pan { from { background-position:48% 50%; } to { background-position:52% 50%; } }
     body.theme-light .page-cover .page-cover-copy { align-items:flex-start; color:var(--evora-ink); text-align:start; text-shadow:none; }
     body.theme-light .page-cover-copy h1 { max-width:13ch; color:var(--evora-ink); font-size:clamp(3.1rem,7vw,6.6rem); line-height:.84; }
     body.theme-light .page-cover-copy p { color:#525a55; }

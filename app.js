@@ -3794,10 +3794,36 @@
     function measureScrollRange() {
       scrollableHeight = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     }
+    function updateScrollImageMotion() {
+      const covers = $$(".page-cover");
+      const hero = document.querySelector(".hero-section");
+      const heroImage = hero?.querySelector("img");
+      if (!document.body.classList.contains("theme-light") || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+        covers.forEach((cover) => cover.style.removeProperty("--cover-parallax"));
+        heroImage?.style.removeProperty("--hero-parallax");
+        return;
+      }
+      const viewportHeight = Math.max(window.innerHeight, 1);
+      const getParallaxShift = (element, limit, strength) => {
+        if (!element?.getClientRects().length) return 0;
+        const bounds = element.getBoundingClientRect();
+        const distanceFromCenter = bounds.top + bounds.height / 2 - viewportHeight / 2;
+        return Math.max(-limit, Math.min(limit, -distanceFromCenter * strength));
+      };
+      covers.forEach((cover) => {
+        const shift = getParallaxShift(cover, 58, .14);
+        cover.style.setProperty("--cover-parallax", `${shift.toFixed(1)}px`);
+      });
+      if (heroImage) {
+        const shift = getParallaxShift(hero, 88, .12);
+        heroImage.style.setProperty("--hero-parallax", `${shift.toFixed(1)}px`);
+      }
+    }
     function updateScrollProgress() {
       if (scrollFrame) return;
       scrollFrame = requestAnimationFrame(() => {
         scrollFrame = 0;
+        updateScrollImageMotion();
         const scrolled = window.scrollY > 24;
         if (scrolled !== previousScrolledState) {
           document.body.classList.toggle("has-scrolled", scrolled);
