@@ -3348,6 +3348,11 @@
       localStorage.setItem(fullAssessmentSessionKey, JSON.stringify({ startedAt: new Date().toISOString(), completed: [] }));
       ["assessment", "schema-form", "reflection-form"].forEach((formId) => localStorage.removeItem(`${fullAssessmentDraftPrefix}${formId}`));
       localStorage.removeItem("mc-active-question-set");
+      ["assessment-form", "schema-form", "reflection-form"].forEach((formId) => document.getElementById(formId)?.reset());
+      state.assessmentAnswers = {};
+      state.activeQuestions = [];
+      state.activeSchemaQuestions = [];
+      state.activeReflectionQuestions = [];
     }
 
     function readFullAssessmentDraft(formId) {
@@ -3377,7 +3382,7 @@
       localStorage.setItem(fullAssessmentSessionKey, JSON.stringify(session));
       const formId = { assessment: "assessment", schema: "schema-form", reflection: "reflection-form" }[type];
       if (formId) localStorage.removeItem(`${fullAssessmentDraftPrefix}${formId}`);
-      window.location.assign(`?page=${nextPage}&flow=full`);
+      navigateToAppUrl(new URL(`?page=${nextPage}&flow=full`, window.location.href));
     }
 
     function renderFullAssessmentCard() {
@@ -3536,8 +3541,6 @@
 
     const $ = (s) => document.querySelector(s);
     const $$ = (s) => [...document.querySelectorAll(s)];
-    let pendingPageNavigation = 0;
-
     function getGuestAssessments() {
       return JSON.parse(localStorage.getItem("mc-assessments") || "[]");
     }
@@ -3768,6 +3771,42 @@
       updateWorkspaceHeader();
       renderFullAssessmentProgress();
       updateResultsPageLayout();
+    }
+
+    function renderRouteFromLocation({ scrollToTop = false } = {}) {
+      const params = new URLSearchParams(window.location.search);
+      state.page = params.get("page") || "home";
+      state.resultsDetail = params.get("detail") || "";
+      state.schemaFocus = params.get("topic") || "";
+      document.body.classList.remove("presentation-leaving");
+      applyPageLayout();
+      applyTranslations();
+      restoreLatestAssessmentResult();
+      renderHomeProgress();
+      renderDaypartNote();
+      replayVisibleReveals();
+      if (scrollToTop) {
+        if (window.location.hash) {
+          requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView({ block: "start" }));
+        } else {
+          window.scrollTo(0, 0);
+        }
+        const activeSection = document.querySelector("#top > section:not([hidden])");
+        const heading = activeSection?.querySelector("#results-detail-title") || activeSection?.querySelector("h1");
+        if (heading) {
+          heading.tabIndex = -1;
+          heading.focus({ preventScroll: true });
+        }
+      }
+      measureScrollRange();
+      updateScrollProgress();
+    }
+
+    function navigateToAppUrl(url, { scrollToTop = true, replace = false } = {}) {
+      if (!(url instanceof URL) || url.origin !== window.location.origin) return;
+      const method = replace ? "replaceState" : "pushState";
+      window.history[method]({ page: url.searchParams.get("page") || "home" }, "", `${url.pathname}${url.search}${url.hash}`);
+      renderRouteFromLocation({ scrollToTop });
     }
 
     function updateResultsPageLayout() {
@@ -6207,10 +6246,14 @@
         if (nextUrl.origin !== window.location.origin) return;
         if (link.id === "full-assessment-start" || link.classList.contains("full-assessment-restart")) startFullAssessment();
         event.preventDefault();
-        window.clearTimeout(pendingPageNavigation);
-        document.body.classList.add("presentation-leaving");
-        const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 280;
-        pendingPageNavigation = window.setTimeout(() => window.location.assign(nextUrl.href), delay);
+        const topNav = document.getElementById("top-nav");
+        const menuButton = document.getElementById("menu-btn");
+        if (topNav && menuButton) {
+          topNav.classList.add("hidden");
+          topNav.setAttribute("aria-hidden", "true");
+          menuButton.setAttribute("aria-expanded", "false");
+        }
+        navigateToAppUrl(nextUrl);
       }, true);
 
       const menuButton = $("#menu-btn");
@@ -6510,10 +6553,7 @@
     window.addEventListener("pageshow", () => {
       document.body.classList.remove("presentation-leaving");
     });
-    window.addEventListener("popstate", () => {
-      state.page = new URLSearchParams(window.location.search).get("page") || "home";
-      applyPageLayout();
-    });
+    window.addEventListener("popstate", () => renderRouteFromLocation());
 
     applyPageLayout();
     initEvents();
