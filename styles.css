@@ -2084,3 +2084,49 @@ body:not(.theme-light) .hero-copy h1, body:not(.theme-light) .hero-copy > p[data
   .hero-caption { grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr); }
   .hero-safety { grid-column: 1 / -1; max-width: none; }
 }
+
+/* Scroll-linked photo motion: animate transforms on the compositor, without per-frame JS layout reads. */
+body.theme-light .hero-section > img,
+body:not(.theme-light) .hero-section > img {
+  animation: none;
+  object-position: center 54%;
+  will-change: auto;
+}
+
+body .page-cover::before {
+  background-position: center;
+  transition: filter .5s ease;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-section { view-timeline-name: --mind-coach-hero; view-timeline-axis: block; }
+    body.theme-light .hero-section > img,
+    body:not(.theme-light) .hero-section > img {
+      animation-name: mind-coach-photo-parallax;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --mind-coach-hero;
+      animation-range: entry 0% exit 100%;
+      will-change: transform;
+    }
+    .page-cover { view-timeline-name: --mind-coach-cover; view-timeline-axis: block; }
+    body .page-cover::before {
+      animation: mind-coach-cover-parallax 1s linear both;
+      animation-timeline: --mind-coach-cover;
+      animation-range: entry 0% exit 100%;
+      will-change: transform;
+    }
+  }
+}
+
+@keyframes mind-coach-photo-parallax {
+  from { transform: scale(1.055) translate3d(0, -1.5%, 0); }
+  to { transform: scale(1.055) translate3d(0, 1.5%, 0); }
+}
+
+@keyframes mind-coach-cover-parallax {
+  from { transform: scale(1.045) translate3d(0, -1.4%, 0); }
+  to { transform: scale(1.045) translate3d(0, 1.4%, 0); }
+}
