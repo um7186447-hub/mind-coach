@@ -353,6 +353,21 @@
     #home-tests article:nth-child(3) { animation-delay: .2s; }
     @keyframes glass-card-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes glass-menu-in { from { opacity: 0; transform: translateY(-8px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    #results-path { overflow: hidden; }
+    .results-progress-track { height: 7px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.1); }
+    .results-progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#9bb8d2,#f2eee7); box-shadow: 0 0 16px rgba(207,224,242,.28); transition: width .75s cubic-bezier(.2,.7,.2,1); }
+    .results-path-step { overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 15px; background: rgba(255,255,255,.035); transition: transform .28s ease,border-color .28s ease,background-color .28s ease,box-shadow .28s ease; }
+    .results-path-step > a { display: flex; min-height: 84px; align-items: center; gap: .85rem; padding: 1rem; color: inherit; text-decoration: none; }
+    .results-path-index { display: grid; width: 2.6rem; height: 2.6rem; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; color: #dce8f5; font-size: .78rem; font-weight: 700; transition: background-color .28s ease,transform .28s ease; }
+    .results-path-status { margin-inline-start: auto; flex: 0 0 auto; color: #aab6c5; font-size: .7rem; }
+    .results-path-step.is-complete { border-color: rgba(186,211,233,.35); background: rgba(133,167,198,.1); }
+    .results-path-step.is-complete .results-path-index { border-color: rgba(222,238,252,.5); background: rgba(222,238,252,.14); }
+    .results-path-step.is-current { border-color: rgba(236,216,186,.4); background: rgba(236,216,186,.075); }
+    .results-path-step:hover { transform: translateY(-4px); border-color: rgba(222,238,252,.38); box-shadow: 0 16px 30px rgba(0,0,0,.18); }
+    .results-path-step:hover .results-path-index { transform: scale(1.06); }
+    body.theme-light .results-path-step { border-color: rgba(70,91,85,.15); background: rgba(255,255,255,.48); }
+    body.theme-light .results-path-index { border-color: rgba(70,91,85,.2); color: #40584f; }
+    @media (prefers-reduced-motion: reduce) { .results-progress-track span,.results-path-step,.results-path-index { transition: none !important; } }
     #scroll-progress { position: absolute; inset-inline: 0 auto; bottom: 0; width: 100%; height: 2px; background: #bd744d; transform: scaleX(var(--scroll-progress, 0)); transform-origin: left center; pointer-events: none; }
     [dir="rtl"] #scroll-progress { transform-origin: right center; }
     .hero-section > img { transform: scale(1.02); animation: hero-image-drift 22s ease-in-out infinite alternate; will-change: transform; }
@@ -2050,6 +2065,23 @@
       <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80')">
         <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="dashboard.combinedEyebrow"></p><h1 id="combined-results-title" data-i18n="dashboard.combinedTitle"></h1><p data-i18n="dashboard.combinedSubtitle"></p></div>
       </div>
+      <section id="results-path" class="mt-6 rounded-2xl border border-white/10 bg-slate-950/55 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="results-path-title">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <div class="max-w-2xl">
+            <p id="results-path-eyebrow" class="text-xs font-semibold uppercase tracking-[.18em] text-sky-200"></p>
+            <h2 id="results-path-title" class="mt-2 text-2xl font-semibold text-stone-50 sm:text-3xl"></h2>
+            <p id="results-path-description" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
+          </div>
+          <strong id="results-progress-count" class="rounded-full border border-white/15 bg-white/[.05] px-4 py-2 text-lg text-stone-100" aria-live="polite">0/3</strong>
+        </div>
+        <div id="results-progress-track" class="results-progress-track mt-5" role="progressbar" aria-labelledby="results-path-title" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="results-progress-fill"></span></div>
+        <p id="results-progress-note" class="mt-3 text-sm leading-relaxed text-slate-300" aria-live="polite"></p>
+        <div id="results-progress-steps" class="mt-5 grid gap-3 md:grid-cols-3">
+          <article class="results-path-step"><a href="?page=assessment"><span class="results-path-index">01</span><span class="min-w-0"><strong id="results-step-title-assessment" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-assessment" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+          <article class="results-path-step"><a href="?page=schemas"><span class="results-path-index">02</span><span class="min-w-0"><strong id="results-step-title-schemas" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-schemas" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+          <article class="results-path-step"><a href="?page=reflection"><span class="results-path-index">03</span><span class="min-w-0"><strong id="results-step-title-reflection" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-reflection" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+        </div>
+      </section>
       <p id="three-exercise-guide" class="mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 text-sm leading-7 text-slate-200 shadow-2xl shadow-black/20 sm:p-7"></p>
       <section id="full-assessment-summary" class="hidden mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="full-assessment-summary-title" aria-live="polite"></section>
       <div id="assessment-result" class="assessment-dashboard mt-5 hidden scroll-mt-24" role="region" aria-labelledby="assessment-result-title">
@@ -3001,6 +3033,29 @@
       }
     };
 
+    const resultsProgressCopy = {
+      fr: {
+        eyebrow: "TON PARCOURS", title: "Ton analyse se construit en 3 étapes", description: "Avance à ton rythme : les résultats apparaissent après chaque exercice.",
+        incomplete: "Termine les trois exercices pour retrouver leur synthèse et le guide sur l’anxiété ici.", complete: "Les trois exercices sont terminés : la synthèse et le guide sur l’anxiété sont disponibles plus bas.",
+        stepTitle: ["Bien-être", "Schémas émotionnels", "Ressources personnelles"], stepSubtitle: ["Exercice 1", "Exercice 2", "Réflexion approfondie"], done: "Terminé", next: "À faire", later: "Ensuite"
+      },
+      en: {
+        eyebrow: "YOUR REFLECTION PATH", title: "Your overview builds in 3 steps", description: "Move at your own pace; each exercise result appears when it is complete.",
+        incomplete: "Finish all three exercises to see their combined overview and the anxiety guide here.", complete: "All three exercises are complete. The overview and anxiety guide are below.",
+        stepTitle: ["Well-being", "Emotional themes", "Personal resources"], stepSubtitle: ["Exercise 1", "Exercise 2", "Deeper reflection"], done: "Complete", next: "Next step", later: "Up next"
+      },
+      ar: {
+        eyebrow: "مسار التأمل", title: "يُبنى ملخصك عبر ثلاث مراحل", description: "تقدم بالوتيرة التي تناسبك؛ تظهر نتيجة كل تمرين بعد إكماله.",
+        incomplete: "أكمل التمارين الثلاثة لتظهر هنا خلاصتها المشتركة ودليل القلق.", complete: "أكملت التمارين الثلاثة. ستجد الملخص ودليل القلق أدناه.",
+        stepTitle: ["العافية", "المواضيع العاطفية", "الموارد الشخصية"], stepSubtitle: ["التمرين 1", "التمرين 2", "التأمل الأعمق"], done: "مكتمل", next: "الخطوة التالية", later: "لاحقاً"
+      },
+      darija: {
+        eyebrow: "مسار التأمل ديالك", title: "الملخص ديالك كيتبنى فـ3 مراحل", description: "كمل بالوتيرة اللي مناسبة ليك؛ نتيجة كل تمرين كتبان من بعد ما تساليه.",
+        incomplete: "كمل التمارين الثلاثة باش يبان هنا الملخص ديالهم ودليل القلق.", complete: "كملتي التمارين الثلاثة. الملخص ودليل القلق كاينين لتحت.",
+        stepTitle: ["العافية", "المواضيع العاطفية", "الموارد الشخصية"], stepSubtitle: ["التمرين 1", "التمرين 2", "التأمل المفصل"], done: "كمل", next: "الخطوة الجاية", later: "من بعد"
+      }
+    };
+
     const state = {
       lang: ["fr", "en", "ar", "darija"].includes(localStorage.getItem("mc-lang"))
         ? localStorage.getItem("mc-lang")
@@ -3602,7 +3657,38 @@
             $("#combined-reflection-scores").appendChild(row);
           });
         }
+        renderResultsProgress([hasCurrentAssessment, hasCurrentSchema, hasCurrentReflection]);
         renderFullAssessmentSummary();
+    }
+
+    function renderResultsProgress(completedSteps) {
+      const copy = resultsProgressCopy[state.lang] || resultsProgressCopy.en;
+      const completed = completedSteps.filter(Boolean).length;
+      $("#results-path-eyebrow").textContent = copy.eyebrow;
+      $("#results-path-title").textContent = copy.title;
+      $("#results-path-description").textContent = copy.description;
+      $("#results-progress-count").textContent = `${completed}/3`;
+      $("#results-progress-note").textContent = completed === 3 ? copy.complete : copy.incomplete;
+      const track = $("#results-progress-track");
+      track.setAttribute("aria-valuenow", String(completed));
+      track.setAttribute("aria-valuetext", `${completed}/3`);
+      const steps = $$("#results-progress-steps .results-path-step");
+      const nextIndex = completedSteps.indexOf(false);
+      steps.forEach((step, index) => {
+        const key = ["assessment", "schemas", "reflection"][index];
+        $(`#results-step-title-${key}`).textContent = copy.stepTitle[index];
+        $(`#results-step-subtitle-${key}`).textContent = copy.stepSubtitle[index];
+        step.classList.toggle("is-complete", completedSteps[index]);
+        step.classList.toggle("is-current", index === nextIndex);
+        step.querySelector(".results-path-index").textContent = completedSteps[index] ? "✓" : String(index + 1).padStart(2, "0");
+        step.querySelector(".results-path-status").textContent = completedSteps[index] ? copy.done : index === nextIndex ? copy.next : copy.later;
+        const stepLink = step.querySelector("a");
+        if (index === nextIndex) stepLink.setAttribute("aria-current", "step");
+        else stepLink.removeAttribute("aria-current");
+      });
+      const fill = $("#results-progress-fill");
+      fill.style.width = "0%";
+      requestAnimationFrame(() => { fill.style.width = `${(completed / 3) * 100}%`; });
     }
 
     function renderFullAssessmentSummary() {
