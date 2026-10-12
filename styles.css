@@ -2078,3 +2078,9 @@ body.theme-light .hero-section > img { filter: saturate(.86) brightness(.94) con
 body:not(.theme-light) .hero-section > img { filter: saturate(.82) brightness(.66) contrast(1.04) !important; }
 body.theme-light .hero-copy h1, body.theme-light .hero-copy > p[data-i18n="hero.subtitle"] { text-shadow: 0 1px 16px rgba(255,255,255,.42); }
 body:not(.theme-light) .hero-copy h1, body:not(.theme-light) .hero-copy > p[data-i18n="hero.subtitle"] { text-shadow: 0 1px 16px rgba(0,0,0,.32); }
+
+/* Keep the hero safety note inside its narrow side panel on desktop. */
+@media (min-width: 961px) {
+  .hero-caption { grid-template-columns: minmax(0, .9fr) minmax(0, 1.15fr); }
+  .hero-safety { grid-column: 1 / -1; max-width: none; }
+}
