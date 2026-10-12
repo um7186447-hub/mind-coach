@@ -1975,6 +1975,45 @@
     .schema-radial-swatch { width:.55rem; height:.55rem; border-radius:50%; background:var(--schema-color); }
     .schema-radial-name { line-height:1.35; }
     .schema-radial-legend strong { color:var(--evora-muted); font-size:.7rem; font-weight:600; }
+    .schema-radial-sector { cursor:pointer; opacity:1; transition:opacity .18s ease,filter .18s ease; }
+    .schema-radial-sector.is-dimmed { opacity:.3; }
+    .schema-radial-sector.is-selected { filter:drop-shadow(0 3px 6px rgba(28,34,29,.24)); }
+    .schema-radial-sector:focus-visible { outline:3px solid #273f33; outline-offset:4px; }
+    .schema-radial-value { transition:fill .18s ease; }
+    .schema-radial-legend-button { display:grid; width:100%; grid-template-columns:.7rem minmax(0,1fr) auto; align-items:center; gap:.55rem; border:0; padding:.6rem .4rem; background:transparent; color:inherit; text-align:start; cursor:pointer; }
+    .schema-radial-legend-button:hover,.schema-radial-legend-button[aria-pressed="true"] { background:rgba(115,133,119,.12); }
+    .schema-radial-legend-button:focus-visible { outline:2px solid #506b58; outline-offset:2px; }
+    .results-report-card { display:flex; min-height:205px; flex-direction:column; align-items:flex-start; border:1px solid var(--evora-line); padding:1.15rem; background:var(--evora-card); color:var(--evora-ink); }
+    .results-report-card.hidden { display:none !important; }
+    .results-report-card h2 { margin:.65rem 0 .25rem; font-family:var(--evora-serif); font-size:1.4rem; font-weight:400; line-height:1.1; }
+    .results-report-card > p:not(.results-report-index) { margin:.4rem 0 1rem; color:var(--evora-muted); font-size:.85rem; line-height:1.55; }
+    .results-report-index { margin:0; color:var(--evora-accent); font-size:.65rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; }
+    .results-report-card > a,.results-detail-heading > a { display:inline-flex; min-height:2.55rem; align-items:center; justify-content:center; margin-top:auto; border:1px solid currentColor; padding:.55rem .85rem; color:var(--evora-ink); font-size:.8rem; text-decoration:none; transition:background .16s ease,color .16s ease; }
+    .results-report-card > a:hover,.results-detail-heading > a:hover { background:var(--evora-ink); color:var(--evora-card); }
+    .results-detail-heading { max-width:850px; margin:0 auto; padding:clamp(1.2rem,4vw,3rem) 0 1.5rem; border-bottom:1px solid var(--evora-line); }
+    .results-detail-heading > a { margin:0 0 2rem; }
+    .results-detail-heading h2 { margin:.55rem 0; font-family:var(--evora-serif); font-size:clamp(2.3rem,5vw,4.6rem); font-weight:400; letter-spacing:-.035em; line-height:1; }
+    .results-detail-heading > p:last-child { max-width:65ch; color:var(--evora-muted); line-height:1.65; }
+    .results-detail-nav { display:flex; gap:.45rem; overflow-x:auto; padding:1rem 0; scrollbar-width:thin; }
+    .results-detail-nav a { flex:0 0 auto; border:1px solid var(--evora-line); padding:.55rem .8rem; color:var(--evora-muted); font-size:.77rem; text-decoration:none; }
+    .results-detail-nav a[aria-current="page"] { border-color:var(--evora-ink); background:var(--evora-ink); color:var(--evora-card); }
+    .results-detail-empty { margin:1rem 0; border:1px solid var(--evora-line); padding:clamp(1.2rem,3vw,2rem); background:var(--evora-card); }
+    .results-detail-empty p { margin:0 0 1rem; color:var(--evora-muted); line-height:1.6; }
+    .results-detail-empty a { display:inline-flex; border:1px solid var(--evora-ink); padding:.65rem .9rem; color:var(--evora-ink); text-decoration:none; }
+    body.theme-light #assessment .page-cover-mode,body.theme-light #assessment .page-cover-mode > span,body.theme-light #analysis-mode,
+    body.theme-light #assessment-mode-description { color:#242a26 !important; }
+    body.theme-light #analysis-mode { border-color:#727b74 !important; background:#fff !important; }
+    body.theme-light #questions fieldset,body.theme-light #schema-questions fieldset,body.theme-light #reflection-questions fieldset { border-color:#aeb4ad !important; background:#fbfbf8 !important; }
+    body.theme-light #questions legend,body.theme-light #schema-questions legend,body.theme-light #reflection-questions legend { color:#171c18 !important; opacity:1 !important; font-weight:650 !important; }
+    body.theme-light #questions fieldset label,body.theme-light #schema-questions fieldset label,body.theme-light #reflection-questions fieldset label { border-color:#aeb4ad !important; background:#fff !important; color:#252b27 !important; opacity:1 !important; }
+    body.theme-light #questions fieldset label *,body.theme-light #schema-questions fieldset label *,body.theme-light #reflection-questions fieldset label * { color:inherit !important; opacity:1 !important; }
+    body.theme-light #questions fieldset label.answer-option-selected,body.theme-light #schema-questions fieldset label.answer-option-selected,body.theme-light #reflection-questions fieldset label.answer-option-selected { border-color:#344e3d !important; background:#344e3d !important; color:#fff !important; }
+    body.theme-light #questions .text-slate-400,body.theme-light #schema-questions .text-slate-400,body.theme-light #reflection-questions .text-slate-400 { color:#505852 !important; }
+    body:not(.theme-light) #questions legend,body:not(.theme-light) #schema-questions legend,body:not(.theme-light) #reflection-questions legend { color:#f2f4ef !important; opacity:1 !important; }
+    body:not(.theme-light) #questions fieldset label,body:not(.theme-light) #schema-questions fieldset label,body:not(.theme-light) #reflection-questions fieldset label { color:#e6e9e4 !important; opacity:1 !important; }
+    body:not(.theme-light) #assessment .page-cover-mode,body:not(.theme-light) #assessment .page-cover-mode > span { color:#f2f4ef !important; }
+    body.theme-light #results-detail-content #schema-results,body.theme-light #results-detail-content #reflection-results { margin-top:1rem; }
+    body.theme-light #results-detail-content #schema-results h3,body.theme-light #results-detail-content #reflection-results h3 { color:#263c31 !important; }
 
     body.theme-light .assessment-dashboard { border:1px solid var(--evora-line); border-radius:2px; background:var(--evora-card); color:var(--evora-ink); box-shadow:none; }
     body.theme-light .assessment-board-kpis article,body.theme-light .assessment-board-scores,body.theme-light .assessment-board-history,body.theme-light .assessment-guidance-card,body.theme-light .assessment-focus-card { border:1px solid var(--evora-line); border-radius:2px; background:transparent; box-shadow:none; }
@@ -2259,28 +2298,64 @@
     </section>
 
     <section id="combined-results" class="hidden fade-up mx-auto max-w-6xl px-5 py-16" aria-labelledby="combined-results-title">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80')">
-        <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="dashboard.combinedEyebrow"></p><h1 id="combined-results-title" data-i18n="dashboard.combinedTitle"></h1><p data-i18n="dashboard.combinedSubtitle"></p></div>
-      </div>
-      <section id="results-path" class="mt-6 rounded-2xl border border-white/10 bg-slate-950/55 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="results-path-title">
-        <div class="flex flex-wrap items-start justify-between gap-4">
-          <div class="max-w-2xl">
-            <p id="results-path-eyebrow" class="text-xs font-semibold uppercase tracking-[.18em] text-sky-200"></p>
-            <h2 id="results-path-title" class="mt-2 text-2xl font-semibold text-stone-50 sm:text-3xl"></h2>
-            <p id="results-path-description" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
+      <div id="results-overview">
+        <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80')">
+          <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="dashboard.combinedEyebrow"></p><h1 id="combined-results-title" data-i18n="dashboard.combinedTitle"></h1><p data-i18n="dashboard.combinedSubtitle"></p></div>
+        </div>
+        <section id="results-path" class="mt-6 rounded-2xl border border-white/10 bg-slate-950/55 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="results-path-title">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="max-w-2xl">
+              <p id="results-path-eyebrow" class="text-xs font-semibold uppercase tracking-[.18em] text-sky-200"></p>
+              <h2 id="results-path-title" class="mt-2 text-2xl font-semibold text-stone-50 sm:text-3xl"></h2>
+              <p id="results-path-description" class="mt-2 text-sm leading-relaxed text-slate-300"></p>
+            </div>
+            <strong id="results-progress-count" class="rounded-full border border-white/15 bg-white/[.05] px-4 py-2 text-lg text-stone-100" aria-live="polite">0/3</strong>
           </div>
-          <strong id="results-progress-count" class="rounded-full border border-white/15 bg-white/[.05] px-4 py-2 text-lg text-stone-100" aria-live="polite">0/3</strong>
+          <div id="results-progress-track" class="results-progress-track mt-5" role="progressbar" aria-labelledby="results-path-title" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="results-progress-fill"></span></div>
+          <p id="results-progress-note" class="mt-3 text-sm leading-relaxed text-slate-300" aria-live="polite"></p>
+          <div id="results-progress-steps" class="mt-5 grid gap-3 md:grid-cols-3">
+            <article class="results-path-step"><a href="?page=assessment"><span class="results-path-index">01</span><span class="min-w-0"><strong id="results-step-title-assessment" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-assessment" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+            <article class="results-path-step"><a href="?page=schemas"><span class="results-path-index">02</span><span class="min-w-0"><strong id="results-step-title-schemas" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-schemas" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+            <article class="results-path-step"><a href="?page=reflection"><span class="results-path-index">03</span><span class="min-w-0"><strong id="results-step-title-reflection" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-reflection" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+          </div>
+        </section>
+        <p id="three-exercise-guide" class="mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 text-sm leading-7 text-slate-200 shadow-2xl shadow-black/20 sm:p-7"></p>
+        <div id="results-report-cards" class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <article class="results-report-card"><p class="results-report-index">01 / EXERCICE</p><h2 data-i18n="nav.assessment"></h2><p id="combined-assessment-status" aria-live="polite"></p><a id="open-assessment-report" href="?page=results&amp;detail=assessment"></a></article>
+          <article class="results-report-card"><p class="results-report-index">02 / EXERCICE</p><h2 data-i18n="nav.schemas"></h2><p id="combined-schema-status" aria-live="polite"></p><a id="open-schema-report" href="?page=results&amp;detail=schemas"></a></article>
+          <article class="results-report-card"><p class="results-report-index">03 / EXERCICE</p><h2 data-i18n="reflection.title"></h2><p id="combined-reflection-status" aria-live="polite"></p><a id="open-reflection-report" href="?page=results&amp;detail=reflection"></a></article>
+          <article id="results-integrated-card" class="results-report-card hidden"><p class="results-report-index">SYNTHÈSE</p><h2 id="results-integrated-card-title"></h2><p id="results-integrated-card-status"></p><a id="open-integrated-report" href="?page=results&amp;detail=integrated"></a></article>
         </div>
-        <div id="results-progress-track" class="results-progress-track mt-5" role="progressbar" aria-labelledby="results-path-title" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><span id="results-progress-fill"></span></div>
-        <p id="results-progress-note" class="mt-3 text-sm leading-relaxed text-slate-300" aria-live="polite"></p>
-        <div id="results-progress-steps" class="mt-5 grid gap-3 md:grid-cols-3">
-          <article class="results-path-step"><a href="?page=assessment"><span class="results-path-index">01</span><span class="min-w-0"><strong id="results-step-title-assessment" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-assessment" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
-          <article class="results-path-step"><a href="?page=schemas"><span class="results-path-index">02</span><span class="min-w-0"><strong id="results-step-title-schemas" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-schemas" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
-          <article class="results-path-step"><a href="?page=reflection"><span class="results-path-index">03</span><span class="min-w-0"><strong id="results-step-title-reflection" class="block text-sm text-stone-100"></strong><small id="results-step-subtitle-reflection" class="mt-1 block text-xs text-slate-400"></small></span><span class="results-path-status"></span></a></article>
+        <p class="mt-6 text-xs text-slate-400" data-i18n="dashboard.reportEthic"></p>
+        <div class="mt-5 flex flex-wrap items-center gap-3 rounded-lg border border-white/10 bg-slate-950/50 p-4">
+          <p class="flex-1 text-sm text-slate-300" data-i18n="dashboard.privacyNotice"></p>
+          <button id="clear-private-data" type="button" class="rounded-md border border-rose-300/40 px-4 py-2 text-sm text-rose-100 hover:bg-rose-500/10" data-i18n="dashboard.clearData"></button>
         </div>
+        <p id="privacy-clear-status" class="mt-3 text-sm text-emerald-200" role="status" aria-live="polite"></p>
+      </div>
+      <section id="results-detail" class="hidden" aria-labelledby="results-detail-title">
+        <header class="results-detail-heading">
+          <a id="results-detail-back" href="?page=results"></a>
+          <p id="results-detail-eyebrow" class="results-report-index"></p>
+          <h2 id="results-detail-title" tabindex="-1"></h2>
+          <p id="results-detail-description"></p>
+        </header>
+        <nav id="results-detail-nav" class="results-detail-nav" aria-label="Report navigation">
+          <a href="?page=results&amp;detail=assessment" data-detail-link="assessment"></a>
+          <a href="?page=results&amp;detail=schemas" data-detail-link="schemas"></a>
+          <a href="?page=results&amp;detail=reflection" data-detail-link="reflection"></a>
+        </nav>
+        <div id="results-detail-empty" class="results-detail-empty" hidden>
+          <p id="results-detail-empty-copy"></p>
+          <a id="results-detail-action" href="?page=assessment"></a>
+        </div>
+        <div id="results-detail-content"></div>
       </section>
-      <p id="three-exercise-guide" class="mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 text-sm leading-7 text-slate-200 shadow-2xl shadow-black/20 sm:p-7"></p>
-      <section id="full-assessment-summary" class="hidden mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="full-assessment-summary-title" aria-live="polite"></section>
+      <div id="results-detail-source-host" hidden>
+        <div id="results-assessment-origin"></div>
+        <div id="results-integrated-origin"></div>
+        <div id="results-schema-chart-origin"></div>
+      </div>
       <div id="assessment-result" class="assessment-dashboard mt-5 hidden scroll-mt-24" role="region" aria-labelledby="assessment-result-title">
         <div class="assessment-board-heading">
           <div class="assessment-board-heading-copy">
@@ -2345,64 +2420,20 @@
         <p class="assessment-board-disclaimer" data-i18n="assessment.resultNote"></p>
       </div>
 
-      <div class="grid gap-5 md:grid-cols-2">
-        <article class="rounded-xl border border-white/10 bg-slate-900/60 p-5">
-          <h2 class="text-xl font-semibold" data-i18n="nav.assessment"></h2>
-          <p id="combined-assessment-status" class="mt-2 text-sm text-slate-300" aria-live="polite"></p>
-          <div id="combined-assessment" class="mt-4 hidden">
-            <p id="combined-assessment-summary" class="text-slate-100"></p>
-            <p id="combined-assessment-date" class="mt-2 text-xs text-slate-400"></p>
-            <div id="combined-assessment-scores" class="mt-4 space-y-3"></div>
-          </div>
-          <a href="?page=assessment" class="mt-5 inline-flex rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="dashboard.takeAssessment"></a>
-        </article>
-        <article class="rounded-xl border border-white/10 bg-slate-900/60 p-5">
-          <h2 class="text-xl font-semibold" data-i18n="nav.schemas"></h2>
-          <p id="combined-schema-status" class="mt-2 text-sm text-slate-300" aria-live="polite"></p>
-          <div id="combined-schema" class="mt-4 hidden">
-            <p id="combined-schema-summary" class="font-medium text-cyan-100"></p>
-            <p id="combined-schema-date" class="mt-2 text-xs text-slate-400"></p>
-            <p id="combined-schema-profile" class="mt-2 text-sm text-slate-200"></p>
-            <section id="schema-radial-chart" class="schema-radial-chart mt-5" aria-labelledby="schema-radial-title" hidden>
-              <div class="schema-radial-visual">
-                <svg viewBox="0 0 360 360" role="img" aria-labelledby="schema-radial-title schema-radial-description">
-                  <title id="schema-radial-title"></title>
-                  <desc id="schema-radial-description"></desc>
-                  <g id="schema-radial-petals"></g>
-                  <circle class="schema-radial-center" cx="180" cy="180" r="66"></circle>
-                  <text class="schema-radial-center-value" x="180" y="174">9</text>
-                  <text id="schema-radial-center-label" class="schema-radial-center-label" x="180" y="198"></text>
-                </svg>
-              </div>
-              <ol id="schema-radial-legend" class="schema-radial-legend"></ol>
-            </section>
-            <div id="combined-schema-top3" class="mt-4 space-y-2"></div>
-          </div>
-          <a href="?page=schemas" class="mt-5 inline-flex rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="dashboard.takeSchemas"></a>
-        </article>
-        <article class="rounded-xl border border-white/10 bg-slate-900/60 p-5">
-          <h2 class="text-xl font-semibold" data-i18n="reflection.title"></h2>
-          <p id="combined-reflection-status" class="mt-2 text-sm text-slate-300" aria-live="polite"></p>
-          <div id="combined-reflection" class="mt-4 hidden">
-            <p id="combined-reflection-summary" class="font-medium text-cyan-100"></p>
-            <p id="combined-reflection-date" class="mt-2 text-xs text-slate-400"></p>
-            <p id="combined-reflection-profile" class="mt-2 text-sm text-slate-200"></p>
-            <div id="combined-reflection-scores" class="mt-4 space-y-2"></div>
-          </div>
-          <a href="?page=reflection" class="mt-5 inline-flex rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="reflection.open"></a>
-        </article>
-      </div>
-      <p class="mt-6 text-xs text-slate-400" data-i18n="dashboard.reportEthic"></p>
-      <div class="mt-5 flex flex-wrap items-center gap-3 rounded-lg border border-white/10 bg-slate-950/50 p-4">
-        <p class="flex-1 text-sm text-slate-300" data-i18n="dashboard.privacyNotice"></p>
-        <button id="clear-private-data" type="button" class="rounded-md border border-rose-300/40 px-4 py-2 text-sm text-rose-100 hover:bg-rose-500/10" data-i18n="dashboard.clearData"></button>
-      </div>
-      <p id="privacy-clear-status" class="mt-3 text-sm text-emerald-200" role="status" aria-live="polite"></p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="?page=assessment" class="rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="dashboard.takeAssessment"></a>
-        <a href="?page=schemas" class="rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="dashboard.takeSchemas"></a>
-        <a href="?page=reflection" class="rounded-md border border-white/20 px-4 py-2 text-sm hover:bg-white/10" data-i18n="reflection.open"></a>
-      </div>
+      <section id="full-assessment-summary" class="hidden mt-6 rounded-2xl border border-amber-100/20 bg-slate-950/60 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="full-assessment-summary-title" aria-live="polite"></section>
+      <section id="schema-radial-chart" class="schema-radial-chart mt-5" aria-labelledby="schema-radial-title" hidden>
+        <div class="schema-radial-visual">
+          <svg viewBox="0 0 360 360" role="img" aria-labelledby="schema-radial-title schema-radial-description">
+            <title id="schema-radial-title"></title>
+            <desc id="schema-radial-description"></desc>
+            <g id="schema-radial-petals"></g>
+            <circle class="schema-radial-center" cx="180" cy="180" r="66"></circle>
+            <text id="schema-radial-center-value" class="schema-radial-center-value" x="180" y="174">0</text>
+            <text id="schema-radial-center-label" class="schema-radial-center-label" x="180" y="198"></text>
+          </svg>
+        </div>
+        <ol id="schema-radial-legend" class="schema-radial-legend"></ol>
+      </section>
     </section>
 
     <section id="account-page" class="account-page" aria-labelledby="account-page-title">
@@ -2553,6 +2584,7 @@
       <p id="schema-account-status" class="mt-3 hidden text-sm" role="status" aria-live="polite"></p>
       <p id="schema-result-status" class="mt-5 hidden rounded-lg border border-cyan-300/20 bg-cyan-500/5 p-4 text-sm text-cyan-100" role="status" aria-live="polite" data-i18n="schemas.analyzing"></p>
 
+      <div id="schema-results-origin"></div>
       <div id="schema-results" class="mt-5 hidden scroll-mt-24 rounded-xl border border-cyan-300/30 bg-slate-900/80 p-5 shadow-xl shadow-cyan-950/20" role="region" aria-labelledby="schema-result-heading">
         <h3 id="schema-result-heading" class="text-xl font-semibold text-cyan-200" tabindex="-1" data-i18n="schemas.resultTitle"></h3>
         <p id="schema-empathy" class="mt-2 rounded-md border border-white/10 bg-slate-950/60 p-3 text-sm text-slate-100"></p>
@@ -2584,7 +2616,7 @@
           <p data-i18n="resultGuide.schemas"></p>
         </aside>
         <p class="mt-4 text-xs text-slate-400" data-i18n="schemas.ethic"></p>
-        <a class="mt-4 inline-flex rounded-md border border-cyan-300/30 px-3 py-2 text-sm font-medium text-cyan-100 hover:bg-cyan-400/10" href="?page=results" data-i18n="assessment.fullReport"></a>
+        <a class="mt-4 inline-flex rounded-md border border-cyan-300/30 px-3 py-2 text-sm font-medium text-cyan-100 hover:bg-cyan-400/10" href="?page=results&amp;detail=schemas" data-i18n="assessment.fullReport"></a>
       </div>
     </section>
 
@@ -2609,6 +2641,7 @@
       </form>
       <p id="reflection-account-status" class="mt-3 hidden text-sm" role="status" aria-live="polite"></p>
       <p id="reflection-result-status" class="mt-5 hidden rounded-lg border border-cyan-300/20 bg-cyan-500/5 p-4 text-sm text-cyan-100" role="status" aria-live="polite" data-i18n="reflection.analyzing"></p>
+      <div id="reflection-results-origin"></div>
       <div id="reflection-results" class="mt-5 hidden scroll-mt-24 rounded-xl border border-cyan-300/30 bg-slate-900/80 p-5 shadow-xl shadow-cyan-950/20" role="region" aria-labelledby="reflection-result-heading">
         <h3 id="reflection-result-heading" class="text-xl font-semibold text-cyan-200" tabindex="-1" data-i18n="reflection.resultTitle"></h3>
         <p id="reflection-result-summary" class="mt-3 text-slate-100"></p>
@@ -2622,7 +2655,7 @@
           <p data-i18n="resultGuide.reflection"></p>
         </aside>
         <p class="mt-5 border-t border-white/10 pt-3 text-xs text-slate-400" data-i18n="reflection.disclaimer"></p>
-        <a class="mt-4 inline-flex rounded-md border border-cyan-300/30 px-3 py-2 text-sm font-medium text-cyan-100 hover:bg-cyan-400/10" href="?page=results" data-i18n="assessment.fullReport"></a>
+        <a class="mt-4 inline-flex rounded-md border border-cyan-300/30 px-3 py-2 text-sm font-medium text-cyan-100 hover:bg-cyan-400/10" href="?page=results&amp;detail=reflection" data-i18n="assessment.fullReport"></a>
       </div>
     </section>
 
@@ -3271,6 +3304,8 @@
         ? localStorage.getItem("mc-lang")
         : "fr",
       page: new URLSearchParams(window.location.search).get("page") || "home",
+      resultsDetail: new URLSearchParams(window.location.search).get("detail") || "",
+      schemaFocus: new URLSearchParams(window.location.search).get("topic") || "",
       currentMethod: "stress",
       accountUser: null,
       lastReflectionScores: null,
@@ -3732,6 +3767,131 @@
       });
       updateWorkspaceHeader();
       renderFullAssessmentProgress();
+      updateResultsPageLayout();
+    }
+
+    function updateResultsPageLayout() {
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("detail") || "";
+      const allowed = ["assessment", "schemas", "reflection", "integrated"];
+      const detail = state.page === "results" && allowed.includes(requested) ? requested : "";
+      state.resultsDetail = detail;
+      state.schemaFocus = params.get("topic") || "";
+
+      const copy = ({
+        fr: {
+          back: "← Tous les résultats", eyebrow: "RAPPORT PERSONNEL", open: "Ouvrir le rapport →", integrated: "Synthèse des trois exercices", integratedReady: "Les trois exercices sont terminés.",
+          titles: { assessment: "Auto-évaluation et bien-être", schemas: "Schémas émotionnels", reflection: "Ressources personnelles", integrated: "Synthèse des trois exercices" },
+          descriptions: { assessment: "Les réponses au questionnaire sur le stress, l’anxiété, l’humeur et le sommeil, avec une lecture indicative et des pistes de réflexion.", schemas: "Explore un seul thème à la fois. Choisis un secteur du graphique pour afficher son résultat et son analyse détaillée.", reflection: "Un aperçu des ressources et des soutiens que tu as identifiés, avec des idées pour les renforcer.", integrated: "Une mise en regard des trois exercices, avec leurs points communs et des pistes concrètes pour la suite." },
+          empty: "Ce rapport apparaîtra ici dès que tu auras terminé l’exercice correspondant.", actions: { assessment: "Faire l’auto-évaluation", schemas: "Explorer les schémas", reflection: "Faire la réflexion", integrated: "Terminer les trois exercices" },
+          nav: { assessment: "Bien-être", schemas: "Schémas", reflection: "Ressources" }
+        },
+        en: {
+          back: "← All results", eyebrow: "PERSONAL REPORT", open: "Open report →", integrated: "Three-exercise synthesis", integratedReady: "All three exercises are complete.",
+          titles: { assessment: "Well-being check-in", schemas: "Emotional themes", reflection: "Personal resources", integrated: "Three-exercise synthesis" },
+          descriptions: { assessment: "Your answers about stress, anxiety, mood, and sleep, with an indicative reading and reflection prompts.", schemas: "Explore one theme at a time. Select a chart segment to see its score and focused reflection.", reflection: "A view of the resources and supports you identified, with ideas for strengthening them.", integrated: "A careful comparison across the three exercises, with shared themes and practical next steps." },
+          empty: "This report will appear here after you complete the matching exercise.", actions: { assessment: "Take the well-being check-in", schemas: "Explore the themes", reflection: "Start the reflection", integrated: "Complete all three exercises" },
+          nav: { assessment: "Well-being", schemas: "Themes", reflection: "Resources" }
+        },
+        ar: {
+          back: "\u2190 \u062c\u0645\u064a\u0639 \u0627\u0644\u0646\u062a\u0627\u0626\u062c", eyebrow: "\u062a\u0642\u0631\u064a\u0631 \u0634\u062e\u0635\u064a", open: "\u0627\u0641\u062a\u062d \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u2192", integrated: "\u062e\u0644\u0627\u0635\u0629 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629", integratedReady: "\u0623\u0643\u0645\u0644\u062a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629.",
+          titles: { assessment: "\u0627\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0630\u0627\u062a\u064a \u0648\u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639 \u0627\u0644\u0639\u0627\u0637\u0641\u064a\u0629", reflection: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0634\u062e\u0635\u064a\u0629", integrated: "\u062e\u0644\u0627\u0635\u0629 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629" },
+          descriptions: { assessment: "\u0645\u0644\u062e\u0635 \u0644\u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u062d\u0648\u0644 \u0627\u0644\u062a\u0648\u062a\u0631 \u0648\u0627\u0644\u0642\u0644\u0642 \u0648\u0627\u0644\u0645\u0632\u0627\u062c \u0648\u0627\u0644\u0646\u0648\u0645\u060c \u0645\u0639 \u0642\u0631\u0627\u0621\u0629 \u0627\u0633\u062a\u0631\u0634\u0627\u062f\u064a\u0629 \u0648\u0623\u0641\u0643\u0627\u0631 \u0644\u0644\u062a\u0623\u0645\u0644.", schemas: "\u0627\u0633\u062a\u0643\u0634\u0641 \u0645\u0648\u0636\u0648\u0639\u0627 \u0648\u0627\u062d\u062f\u0627 \u0641\u064a \u0643\u0644 \u0645\u0631\u0629. \u0627\u062e\u062a\u0631 \u0642\u0637\u0627\u0639\u0627 \u0645\u0646 \u0627\u0644\u0631\u0633\u0645 \u0644\u0639\u0631\u0636 \u0646\u062a\u064a\u062c\u062a\u0647 \u0648\u062a\u0623\u0645\u0644\u0647 \u0627\u0644\u0645\u0641\u0635\u0644.", reflection: "\u0646\u0638\u0631\u0629 \u0639\u0644\u0649 \u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0648\u0627\u0644\u062f\u0639\u0645 \u0627\u0644\u0630\u064a \u062d\u062f\u062f\u062a\u0647\u060c \u0645\u0639 \u0623\u0641\u0643\u0627\u0631 \u0644\u062a\u0639\u0632\u064a\u0632\u0647\u0627.", integrated: "\u0642\u0631\u0627\u0621\u0629 \u0645\u062a\u0623\u0646\u064a\u0629 \u0644\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0648\u0645\u0648\u0627\u0636\u064a\u0639\u0647\u0627 \u0627\u0644\u0645\u0634\u062a\u0631\u0643\u0629\u060c \u0645\u0639 \u062e\u0637\u0648\u0627\u062a \u0639\u0645\u0644\u064a\u0629 \u0644\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u0642\u0627\u062f\u0645\u0629." },
+          empty: "\u0633\u064a\u0638\u0647\u0631 \u0647\u0630\u0627 \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u0628\u0639\u062f \u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u062a\u0645\u0631\u064a\u0646 \u0627\u0644\u0645\u0646\u0627\u0633\u0628.", actions: { assessment: "\u0627\u0628\u062f\u0623 \u0627\u0644\u062a\u0642\u064a\u064a\u0645", schemas: "\u0627\u0633\u062a\u0643\u0634\u0641 \u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639", reflection: "\u0627\u0628\u062f\u0623 \u0627\u0644\u062a\u0623\u0645\u0644", integrated: "\u0623\u0643\u0645\u0644 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629" }, nav: { assessment: "\u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639", reflection: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f" }
+        },
+        darija: {
+          back: "\u2190 \u062c\u0645\u064a\u0639 \u0627\u0644\u0646\u062a\u0627\u0626\u062c", eyebrow: "\u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u062f\u064a\u0627\u0644\u0643", open: "\u062d\u0644 \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u2192", integrated: "\u062e\u0644\u0627\u0635\u0629 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629", integratedReady: "\u0643\u0645\u0644\u062a\u064a \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629.",
+          titles: { assessment: "\u0627\u0644\u062a\u0642\u064a\u064a\u0645 \u0627\u0644\u0630\u0627\u062a\u064a \u0648\u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639 \u0627\u0644\u0639\u0627\u0637\u0641\u064a\u0629", reflection: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f \u0627\u0644\u0634\u062e\u0635\u064a\u0629", integrated: "\u062e\u0644\u0627\u0635\u0629 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629" },
+          descriptions: { assessment: "\u0645\u0644\u062e\u0635 \u0644\u0623\u062c\u0648\u0628\u062a\u0643 \u0639\u0644\u0649 \u0627\u0644\u062a\u0648\u062a\u0631 \u0648\u0627\u0644\u0642\u0644\u0642 \u0648\u0627\u0644\u0645\u0632\u0627\u062c \u0648\u0627\u0644\u0646\u0648\u0645\u060c \u0645\u0639 \u0623\u0641\u0643\u0627\u0631 \u0628\u0633\u064a\u0637\u0629 \u0644\u0644\u062a\u0623\u0645\u0644.", schemas: "\u062e\u062a\u0627\u0631 \u0645\u0648\u0636\u0648\u0639 \u0648\u0627\u062d\u062f \u0645\u0646 \u0627\u0644\u062f\u0627\u0626\u0631\u0629 \u0628\u0627\u0634 \u062a\u0634\u0648\u0641 \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0648\u0627\u0644\u062a\u0641\u0635\u064a\u0644 \u062f\u064a\u0627\u0644\u0648.", reflection: "\u0647\u0627\u062f\u0627 \u0645\u0644\u062e\u0635 \u0644\u0644\u0645\u0648\u0627\u0631\u062f \u0648\u0627\u0644\u062f\u0639\u0645 \u0627\u0644\u0644\u064a \u062d\u062f\u062f\u062a\u064a\u060c \u0648\u0623\u0641\u0643\u0627\u0631 \u0628\u0627\u0634 \u062a\u0642\u0648\u064a\u0647\u0645.", integrated: "\u0646\u0634\u0648\u0641\u0648 \u0646\u062a\u0627\u0626\u062c \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629 \u0645\u0639 \u0628\u0639\u0636\u064a\u0627\u062a\u0647\u0645 \u0648\u0646\u062e\u0631\u062c\u0648 \u0628\u062e\u0637\u0648\u0627\u062a \u0639\u0645\u0644\u064a\u0629." },
+          empty: "\u063a\u0627\u062f\u064a \u064a\u0628\u0627\u0646 \u0647\u0627\u062f \u0627\u0644\u062a\u0642\u0631\u064a\u0631 \u0645\u0646 \u0628\u0639\u062f \u0645\u0627 \u062a\u0643\u0645\u0644 \u0627\u0644\u062a\u0645\u0631\u064a\u0646 \u0627\u0644\u0645\u0639\u0646\u064a.", actions: { assessment: "\u0628\u062f\u0627 \u0627\u0644\u062a\u0642\u064a\u064a\u0645", schemas: "\u0634\u0648\u0641 \u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639", reflection: "\u0628\u062f\u0627 \u0627\u0644\u062a\u0623\u0645\u0644", integrated: "\u0643\u0645\u0644 \u0627\u0644\u062a\u0645\u0627\u0631\u064a\u0646 \u0627\u0644\u062b\u0644\u0627\u062b\u0629" }, nav: { assessment: "\u0627\u0644\u0639\u0627\u0641\u064a\u0629", schemas: "\u0627\u0644\u0645\u0648\u0627\u0636\u064a\u0639", reflection: "\u0627\u0644\u0645\u0648\u0627\u0631\u062f" }
+        }
+      })[state.lang] || null;
+      const text = copy || {
+        back: "← Tous les résultats", eyebrow: "PERSONAL REPORT", open: "Open report →", integrated: "Three-exercise synthesis", integratedReady: "All three exercises are complete.",
+        titles: { assessment: "Well-being check-in", schemas: "Emotional themes", reflection: "Personal resources", integrated: "Three-exercise synthesis" },
+        descriptions: { assessment: "Your answers about stress, anxiety, mood, and sleep, with an indicative reading and reflection prompts.", schemas: "Explore one theme at a time. Select a chart segment to see its score and focused reflection.", reflection: "A view of the resources and supports you identified, with ideas for strengthening them.", integrated: "A careful comparison across the three exercises, with shared themes and practical next steps." },
+        empty: "This report will appear here after you complete the matching exercise.", actions: { assessment: "Take the well-being check-in", schemas: "Explore the themes", reflection: "Start the reflection", integrated: "Complete all three exercises" }, nav: { assessment: "Well-being", schemas: "Themes", reflection: "Resources" }
+      };
+      document.getElementById("results-integrated-card-title").textContent = text.integrated;
+      document.getElementById("results-integrated-card-status").textContent = text.integratedReady;
+      ["open-assessment-report", "open-schema-report", "open-reflection-report", "open-integrated-report"].forEach((id) => {
+        const link = document.getElementById(id);
+        if (link) link.textContent = text.open;
+      });
+      const overview = document.getElementById("results-overview");
+      const page = document.getElementById("results-detail");
+      const content = document.getElementById("results-detail-content");
+      const detailEmpty = document.getElementById("results-detail-empty");
+      const read = (key) => { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch { return null; } };
+      const records = {
+        assessment: read("mc-combined-assessment"),
+        schemas: read("mc-combined-schema"),
+        reflection: read("mc-combined-reflection")
+      };
+      const available = {
+        assessment: Boolean(records.assessment?.scores),
+        schemas: Boolean(records.schemas?.scores),
+        reflection: Boolean(records.reflection?.scores),
+        integrated: Boolean(records.assessment?.scores && records.schemas?.scores && records.reflection?.scores)
+      };
+      const panels = {
+        assessment: [document.getElementById("assessment-result"), document.getElementById("results-assessment-origin")],
+        integrated: [document.getElementById("full-assessment-summary"), document.getElementById("results-integrated-origin")],
+        schemas: [document.getElementById("schema-results"), document.getElementById("schema-results-origin")],
+        reflection: [document.getElementById("reflection-results"), document.getElementById("reflection-results-origin")]
+      };
+      const chart = document.getElementById("schema-radial-chart");
+      const chartOrigin = document.getElementById("results-schema-chart-origin");
+      Object.values(panels).forEach(([panel, origin]) => {
+        if (!panel || !origin) return;
+        if (origin.id === "schema-results-origin" || origin.id === "reflection-results-origin") origin.parentNode.insertBefore(panel, origin.nextSibling);
+        else origin.appendChild(panel);
+      });
+      if (chart && chartOrigin) chartOrigin.appendChild(chart);
+      if (overview) overview.hidden = Boolean(detail);
+      if (page) {
+        page.hidden = !detail;
+        page.classList.toggle("hidden", !detail);
+      }
+      if (!detail || state.page !== "results") {
+        if (content) content.replaceChildren();
+        if (detailEmpty) detailEmpty.hidden = true;
+        return;
+      }
+      const titles = text.titles;
+      document.getElementById("results-detail-back").textContent = text.back;
+      document.getElementById("results-detail-eyebrow").textContent = text.eyebrow;
+      document.getElementById("results-detail-title").textContent = titles[detail];
+      document.getElementById("results-detail-description").textContent = text.descriptions[detail];
+      document.querySelectorAll("#results-detail-nav [data-detail-link]").forEach((link) => {
+        const key = link.dataset.detailLink;
+        link.textContent = text.nav[key];
+        if (key === detail) link.setAttribute("aria-current", "page"); else link.removeAttribute("aria-current");
+      });
+      const [panel] = panels[detail];
+      const isAvailable = available[detail];
+      detailEmpty.hidden = isAvailable;
+      document.getElementById("results-detail-empty-copy").textContent = text.empty;
+      const exercise = detail === "assessment" ? "assessment" : detail === "schemas" ? "schemas" : "reflection";
+      const action = document.getElementById("results-detail-action");
+      action.href = detail === "integrated" ? "?page=assessment&flow=full" : `?page=${exercise}`;
+      action.textContent = text.actions[detail];
+      if (detail === "schemas" && chart) content.appendChild(chart);
+      if (panel) content.appendChild(panel);
+      if (panel) panel.classList.toggle("hidden", !isAvailable);
+      if (!isAvailable) return;
+      if (detail === "assessment") restoreLatestAssessmentResult();
+      if (detail === "schemas") {
+        const selectedKey = Object.hasOwn(records.schemas.scores, state.schemaFocus) ? state.schemaFocus : "";
+        const analysis = schemaAnalysis(records.schemas.scores, selectedKey || undefined);
+        if (selectedKey) {
+          document.getElementById("results-detail-title").textContent = analysis.topLabel;
+          document.getElementById("results-detail-description").textContent = analysis.profile;
+        }
+        renderSchemaRadialChart(analysis.ordered, selectedKey || analysis.topDim);
+        renderSchemaResults(analysis, selectedKey);
+      }
+      if (detail === "reflection") renderReflectionResults(records.reflection.scores);
     }
 
     function hasSeenWelcomeIntro() {
@@ -3771,16 +3931,16 @@
       dateElement.textContent = new Intl.DateTimeFormat(locales[state.lang] || "fr-FR", { weekday: "short", month: "short", day: "numeric" }).format(now);
     }
 
-    function renderSchemaRadialChart(ordered) {
+    function renderSchemaRadialChart(ordered, activeKey = "") {
       const panel = document.getElementById("schema-radial-chart");
       const petals = document.getElementById("schema-radial-petals");
       const legend = document.getElementById("schema-radial-legend");
       if (!panel || !petals || !legend) return;
       const titles = {
-        fr: { title: "Les huit thèmes de réflexion", description: "Chaque secteur reprend un thème du questionnaire. Le rayon montre le score descriptif sur neuf, sans valeur diagnostique.", max: "SUR 9" },
-        en: { title: "Eight reflection themes", description: "Each segment represents one questionnaire theme. Its length shows the descriptive score out of nine, not a diagnosis.", max: "OUT OF 9" },
-        ar: { title: "الموضوعات التأملية الثمانية", description: "كل قطاع يمثل موضوعا من الاستبيان. امتداده يوضح النتيجة الوصفية من تسعة، وليس تشخيصا.", max: "من 9" },
-        darija: { title: "8 مواضيع ديال التأمل", description: "كل جزء كيمثل موضوع من الاستبيان. الطول كيبين النتيجة الوصفية من 9، ماشي تشخيص.", max: "من 9" }
+        fr: { title: "Les huit thèmes de réflexion", description: "Choisis un secteur pour voir son score puis ouvrir son analyse détaillée.", max: "SUR 9" },
+        en: { title: "Eight reflection themes", description: "Select a segment to see its score and open its focused report.", max: "OUT OF 9" },
+        ar: { title: "الموضوعات التأملية الثمانية", description: "اختر قطاعا لعرض نتيجته وفتح تحليله المفصل.", max: "من 9" },
+        darija: { title: "8 مواضيع ديال التأمل", description: "ختار شي جزء باش تشوف النتيجة والتحليل ديالو بالتفصيل.", max: "من 9" }
       };
       const copy = titles[state.lang] || titles.fr;
       document.getElementById("schema-radial-title").textContent = copy.title;
@@ -3792,6 +3952,8 @@
 
       const palette = ["#718677", "#a18c75", "#7d929d", "#b19b80", "#87958b", "#a7867c", "#829494", "#b6a589"];
       const scoreSuffix = state.lang === "en" ? "out of 9" : state.lang === "ar" || state.lang === "darija" ? "من 9" : "sur 9";
+      const selectHint = state.lang === "en" ? "Select to open this theme's report." : state.lang === "ar" ? "اختر لفتح تقرير هذا الموضوع." : state.lang === "darija" ? "ختار باش تحل تقرير هاد الموضوع." : "Sélectionner pour ouvrir le rapport de ce thème.";
+      const selectedKey = ordered.some(([key]) => key === activeKey) ? activeKey : ordered[0]?.[0];
       const polar = (radius, angle) => {
         const radians = angle * Math.PI / 180;
         return [180 + Math.cos(radians) * radius, 180 + Math.sin(radians) * radius];
@@ -3809,21 +3971,40 @@
         const score = Math.max(0, Math.min(9, Number(rawScore) || 0));
         const start = -90 + index * 45 - 20.5;
         const end = start + 41;
+        const sector = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        sector.setAttribute("class", `schema-radial-sector${key === selectedKey ? " is-selected" : " is-dimmed"}`);
+        sector.setAttribute("role", "button");
+        sector.setAttribute("tabindex", "0");
+        sector.setAttribute("aria-pressed", String(key === selectedKey));
+        sector.setAttribute("aria-label", `${label}: ${score.toFixed(1)} ${scoreSuffix}. ${selectHint}`);
+        sector.dataset.schemaKey = key;
+        sector.addEventListener("click", () => openSchemaTopic(key));
+        sector.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openSchemaTopic(key); }
+        });
         const base = document.createElementNS("http://www.w3.org/2000/svg", "path");
         base.setAttribute("d", sectorPath(148, 83, start, end));
         base.setAttribute("class", "schema-radial-base");
-        petals.appendChild(base);
+        sector.appendChild(base);
         const value = document.createElementNS("http://www.w3.org/2000/svg", "path");
         value.setAttribute("d", sectorPath(83 + (65 * score / 9), 83, start, end));
         value.setAttribute("class", "schema-radial-value");
         value.style.fill = palette[index % palette.length];
+        value.style.pointerEvents = "none";
         const pathTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
         pathTitle.textContent = `${label}: ${score.toFixed(1)} ${scoreSuffix}`;
         value.appendChild(pathTitle);
-        petals.appendChild(value);
+        sector.appendChild(value);
+        petals.appendChild(sector);
 
         const item = document.createElement("li");
         item.style.setProperty("--schema-color", palette[index % palette.length]);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "schema-radial-legend-button";
+        button.dataset.schemaKey = key;
+        button.setAttribute("aria-pressed", String(key === selectedKey));
+        button.addEventListener("click", () => openSchemaTopic(key));
         const swatch = document.createElement("span");
         swatch.className = "schema-radial-swatch";
         swatch.setAttribute("aria-hidden", "true");
@@ -3832,112 +4013,65 @@
         name.textContent = label;
         const amount = document.createElement("strong");
         amount.textContent = `${score.toFixed(1)}/9`;
-        item.append(swatch, name, amount);
+        button.append(swatch, name, amount);
+        item.appendChild(button);
         legend.appendChild(item);
       });
+      const active = ordered.find(([key]) => key === selectedKey);
+      if (active) document.getElementById("schema-radial-center-value").textContent = Number(active[1]).toFixed(1);
+    }
+
+    function openSchemaTopic(key) {
+      if (!window.schemaLabels?.[state.lang]?.[key]) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set("page", "results");
+      url.searchParams.set("detail", "schemas");
+      url.searchParams.set("topic", key);
+      window.history.pushState({ page: "results", detail: "schemas", topic: key }, "", `${url.pathname}${url.search}${url.hash}`);
+      state.page = "results";
+      state.resultsDetail = "schemas";
+      state.schemaFocus = key;
+      applyPageLayout();
+      document.getElementById("results-detail-title")?.focus({ preventScroll: true });
     }
 
     function renderCombinedResults() {
-        const assessment = JSON.parse(localStorage.getItem("mc-combined-assessment") || "null");
-        const schemaRaw = JSON.parse(localStorage.getItem("mc-combined-schema") || "null");
-        const reflectionRaw = JSON.parse(localStorage.getItem("mc-combined-reflection") || "null");
-        const hasCurrentAssessment = Boolean(assessment?.date && assessment.scores
-          && ["stress", "anxiety", "dépression", "sleep"].every((key) => assessment.scores[key]?.max === 9));
-        const hasCurrentSchema = Boolean(schemaRaw?.date && schemaRaw.scores);
-        const hasCurrentReflection = Boolean(reflectionRaw?.date && reflectionRaw.scores
-          && reflectionDimensions.every((key) => Number.isFinite(reflectionRaw.scores[key])));
-        const assessmentDetails = $("#combined-assessment");
-        const assessmentScores = $("#combined-assessment-scores");
-        $("#combined-assessment-status").textContent = t(hasCurrentAssessment
-          ? "dashboard.assessmentComplete"
-          : assessment ? "dashboard.assessmentRefresh" : "dashboard.assessmentPending");
-        assessmentDetails.classList.toggle("hidden", !hasCurrentAssessment);
-        assessmentDetails.closest("article")?.classList.toggle("hidden", hasCurrentAssessment);
-        assessmentScores.replaceChildren();
-        if (hasCurrentAssessment) {
-          const interpretation = buildResultInterpretation(assessment.scores, assessment.mode);
-          $("#combined-assessment-summary").textContent = interpretation.summary;
-          $("#combined-assessment-date").textContent = `${t("dashboard.assessmentDate")}: ${formatResultDate(assessment.date)}`;
-          ["stress", "anxiety", "dépression", "sleep"].forEach((key) => {
-            const item = assessment.scores[key];
-            const row = document.createElement("div");
-            const header = document.createElement("div");
-            header.className = "mb-1 flex justify-between gap-3 text-sm";
-            const label = document.createElement("span");
-            label.textContent = t(`common.${key}`);
-            const value = document.createElement("span");
-            value.className = "text-slate-300";
-            value.textContent = `${item.score}/${item.max} · ${t(`common.${item.level}`)}`;
-            header.append(label, value);
-            const track = document.createElement("div");
-            track.className = "h-2 overflow-hidden rounded-full bg-white/10";
-            const fill = document.createElement("div");
-            fill.className = "h-full rounded-full bg-cyan-400";
-            fill.style.width = `${Math.min(100, Math.round((item.score / item.max) * 100))}%`;
-            track.appendChild(fill);
-            row.append(header, track);
-            assessmentScores.appendChild(row);
-          });
-        }
+      const safeRead = (key) => { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch { return null; } };
+      const assessment = safeRead("mc-combined-assessment");
+      const schemaRaw = safeRead("mc-combined-schema");
+      const reflectionRaw = safeRead("mc-combined-reflection");
+      const hasCurrentAssessment = Boolean(assessment?.date && assessment.scores
+        && ["stress", "anxiety", "dépression", "sleep"].every((key) => assessment.scores[key]?.max === 9));
+      const hasCurrentSchema = Boolean(schemaRaw?.date && schemaRaw.scores && Object.values(schemaRaw.scores).every(Number.isFinite));
+      const hasCurrentReflection = Boolean(reflectionRaw?.date && reflectionRaw.scores
+        && reflectionDimensions.every((key) => Number.isFinite(reflectionRaw.scores[key])));
+      const setCard = (id, done, partial, completeKey, pendingKey) => {
+        const status = document.getElementById(id);
+        if (!status) return;
+        status.textContent = t(done ? completeKey : partial ? "dashboard.assessmentRefresh" : pendingKey);
+        status.closest("article")?.classList.toggle("is-complete", done);
+      };
+      setCard("combined-assessment-status", hasCurrentAssessment, Boolean(assessment), "dashboard.assessmentComplete", "dashboard.assessmentPending");
+      setCard("combined-schema-status", hasCurrentSchema, Boolean(schemaRaw), "dashboard.schemaComplete", "dashboard.schemaPending");
+      setCard("combined-reflection-status", hasCurrentReflection, Boolean(reflectionRaw), "reflection.complete", "reflection.pending");
+      const cards = [hasCurrentAssessment, hasCurrentSchema, hasCurrentReflection];
+      renderResultsProgress(cards);
 
-        const schemaDetails = $("#combined-schema");
-        const schemaTop3 = $("#combined-schema-top3");
-        $("#combined-schema-status").textContent = t(hasCurrentSchema
-          ? "dashboard.schemaComplete"
-          : schemaRaw ? "dashboard.schemaRefresh" : "dashboard.schemaPending");
-        schemaDetails.classList.toggle("hidden", !hasCurrentSchema);
-        const radialChart = document.getElementById("schema-radial-chart");
-        if (radialChart) radialChart.hidden = !hasCurrentSchema;
-        schemaTop3.replaceChildren();
-        if (hasCurrentSchema) {
-          const analysis = schemaAnalysis(schemaRaw.scores || schemaRaw);
-          renderSchemaRadialChart(analysis.ordered);
-          $("#combined-schema-summary").textContent = `${analysis.topLabel} (${t(`common.${analysis.level}`)})`;
-          $("#combined-schema-date").textContent = `${t("dashboard.schemaDate")}: ${formatResultDate(schemaRaw.date)}`;
-          $("#combined-schema-profile").textContent = analysis.profile;
-          analysis.topThree.forEach((item) => {
-            const row = document.createElement("div");
-            row.className = "flex items-center justify-between gap-3 rounded-md border border-white/10 bg-slate-950/50 px-3 py-2 text-sm";
-            const label = document.createElement("span");
-            label.textContent = item.label;
-            const value = document.createElement("span");
-            value.className = "shrink-0 text-slate-300";
-            value.textContent = `${item.value}/9 · ${t(`common.${item.level}`)}`;
-            row.append(label, value);
-            schemaTop3.appendChild(row);
-          });
-        }
-        $("#combined-reflection-status").textContent = t(hasCurrentReflection ? "reflection.complete" : "reflection.pending");
-        $("#combined-reflection").classList.toggle("hidden", !hasCurrentReflection);
-        $("#combined-reflection-scores").replaceChildren();
-        if (hasCurrentReflection) {
-          const ordered = reflectionDimensions.map((key) => [key, reflectionRaw.scores[key]]).sort((a, b) => b[1] - a[1]);
-          const high = ordered[0][1];
-          const low = ordered[ordered.length - 1][1];
-          $("#combined-reflection-summary").textContent = `${t("reflection.strength")}: ${ordered.filter(([, score]) => score === high).map(([key]) => reflectionLabels[state.lang][key]).join(", ")}.`;
-          $("#combined-reflection-date").textContent = `${t("reflection.date")}: ${formatResultDate(reflectionRaw.date)}`;
-          $("#combined-reflection-profile").textContent = `${t("reflection.explore")}: ${ordered.filter(([, score]) => score === low).map(([key]) => reflectionLabels[state.lang][key]).join(", ")}. ${t("reflection.disclaimer")}`;
-          ordered.forEach(([key, score]) => {
-            const row = document.createElement("div");
-            const header = document.createElement("div");
-            header.className = "mb-1 flex justify-between gap-3 text-sm";
-            const label = document.createElement("span");
-            label.textContent = reflectionLabels[state.lang][key];
-            const value = document.createElement("span");
-            value.textContent = `${score.toFixed(1)}/9`;
-            header.append(label, value);
-            const track = document.createElement("div");
-            track.className = "h-2 overflow-hidden rounded-full bg-white/10";
-            const fill = document.createElement("div");
-            fill.className = "h-full rounded-full bg-cyan-400";
-            fill.style.width = `${Math.round((score / 9) * 100)}%`;
-            track.appendChild(fill);
-            row.append(header, track);
-            $("#combined-reflection-scores").appendChild(row);
-          });
-        }
-        renderResultsProgress([hasCurrentAssessment, hasCurrentSchema, hasCurrentReflection]);
-        renderFullAssessmentSummary();
+      if (hasCurrentSchema) {
+        const focus = Object.hasOwn(schemaRaw.scores, state.schemaFocus) ? state.schemaFocus : "";
+        const analysis = schemaAnalysis(schemaRaw.scores, focus || undefined);
+        renderSchemaRadialChart(analysis.ordered, focus || analysis.topDim);
+        renderSchemaResults(analysis, focus);
+      } else {
+        const chart = document.getElementById("schema-radial-chart");
+        if (chart) chart.hidden = true;
+      }
+      if (hasCurrentReflection) renderReflectionResults(reflectionRaw.scores);
+
+      renderFullAssessmentSummary();
+      const integratedCard = document.getElementById("results-integrated-card");
+      if (integratedCard) integratedCard.classList.toggle("hidden", !(hasCurrentAssessment && hasCurrentSchema && hasCurrentReflection));
+      updateResultsPageLayout();
     }
 
     function renderResultsProgress(completedSteps) {
@@ -4761,7 +4895,7 @@
       });
     }
 
-    function schemaAnalysis(rawByDim) {
+    function schemaAnalysis(rawByDim, focusDimension = "") {
       const normalizedByDim = Object.fromEntries(Object.entries(rawByDim).map(([dim, score]) => {
         const questionCount = schemaBank.filter((question) => question.dim === dim).length;
         const normalizedScore = questionCount
@@ -4770,7 +4904,8 @@
         return [dim, normalizedScore];
       }));
       const ordered = Object.entries(normalizedByDim).sort((a, b) => b[1] - a[1]);
-      const [topDim, topScore] = ordered[0];
+      const topDim = focusDimension && Object.hasOwn(normalizedByDim, focusDimension) ? focusDimension : ordered[0][0];
+      const topScore = normalizedByDim[topDim];
       const level = topScore <= 2 ? "low" : topScore <= 4 ? "moderate" : topScore <= 6 ? "high" : "severe";
 
       const labels = {"fr":{"abandon":"Peur d'abandon","rejection":"Schema de rejet","inferiority":"Schema d'inferiorite","perfectionism":"Perfectionnisme rigide","dependence":"Dependance decisionnelle","mistrust":"Mefiance relationnelle","peoplepleasing":"Sur-adaptation","emotionaldeprivation":"Privation emotionnelle"},"en":{"abandon":"Abandonment fear","rejection":"Rejection schema","inferiority":"Inferiority schema","perfectionism":"Rigid perfectionism","dependence":"Decision dependence","mistrust":"Relational mistrust","peoplepleasing":"People pleasing","emotionaldeprivation":"Emotional deprivation"},"ar":{"abandon":"خوف الهجر","rejection":"مخطط الرفض","inferiority":"مخطط الدونية","perfectionism":"الكمالية الصارمة","dependence":"اعتماد مفرط في القرار","mistrust":"عدم الثقة العلائقية","peoplepleasing":"ارضاء الاخرين","emotionaldeprivation":"حرمان عاطفي"},"darija":{"abandon":"الخوف من الهجر","rejection":"مخطط الرفض","inferiority":"مخطط النقص","perfectionism":"الكمالية الصارمة","dependence":"اعتماد زايد فالقرار","mistrust":"نقص الثقة فالعلاقات","peoplepleasing":"ارضاء الناس","emotionaldeprivation":"حرمان عاطفي"}};
@@ -4877,6 +5012,7 @@
 
       return {
         topDim,
+        focusedDim: focusDimension && Object.hasOwn(normalizedByDim, focusDimension) ? focusDimension : "",
         topLabel: labels[state.lang][topDim],
         normalizedByDim,
         level,
@@ -4893,7 +5029,12 @@
         impactTitle: extraPack.impactTitle,
         monthTitle: extraPack.monthTitle,
         comfort: extraPack.comfort,
-        profile: adv.profile,
+        profile: focusDimension
+          ? state.lang === "en" ? `For the selected theme, ${labels.en[topDim]}, your descriptive score is ${topScore.toFixed(1)} out of 9. It reflects these answers only; it does not define you.`
+            : state.lang === "ar" ? `\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0648\u0635\u0641\u064a\u0629 \u0644\u0644\u0645\u0648\u0636\u0648\u0639 ${labels.ar[topDim]} \u0647\u064a ${topScore.toFixed(1)} \u0645\u0646 9. \u062a\u0639\u0643\u0633 \u0647\u0630\u0647 \u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0625\u062c\u0627\u0628\u0627\u062a\u0643 \u0647\u0646\u0627 \u0641\u0642\u0637\u060c \u0648\u0644\u0627 \u062a\u0639\u0631\u0641\u0643.`
+            : state.lang === "darija" ? `\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0648\u0635\u0641\u064a\u0629 \u0644\u0644\u0645\u0648\u0636\u0648\u0639 ${labels.darija[topDim]} \u0647\u064a ${topScore.toFixed(1)} \u0645\u0646 9. \u0643\u062a\u0639\u0643\u0633 \u063a\u064a\u0631 \u0627\u0644\u0623\u062c\u0648\u0628\u0629 \u062f\u064a\u0627\u0644\u0643 \u0647\u0646\u0627\u060c \u0648\u0645\u0627 \u0643\u062a\u0639\u0631\u0641\u0643\u0634.`
+            : `Pour le thème choisi, ${labels.fr[topDim]}, ton score descriptif est de ${topScore.toFixed(1)} sur 9. Il reflète uniquement tes réponses ici et ne te définit pas.`
+          : adv.profile,
         top3Title: adv.top3Title,
         recoTitle: adv.recoTitle,
         recos: adv.recos,
@@ -4906,14 +5047,18 @@
       };
     }
 
-    function renderSchemaResults(analysis) {
-      const titlePrefix = state.lang === "en" ? "Most selected reflection theme" : state.lang === "ar" ? "الموضوع الأكثر اختيارا" : state.lang === "darija" ? "الموضوع اللي تختار بزاف" : "Theme le plus selectionne";
+    function renderSchemaResults(analysis, focusedDim = "") {
+      const titlePrefix = focusedDim
+        ? state.lang === "en" ? "Selected reflection theme" : state.lang === "ar" ? "الموضوع المختار" : state.lang === "darija" ? "الموضوع اللي ختاريتي" : "Thème choisi"
+        : state.lang === "en" ? "Most selected reflection theme" : state.lang === "ar" ? "الموضوع الأكثر اختيارا" : state.lang === "darija" ? "الموضوع اللي تختار بزاف" : "Thème le plus selectionne";
       const reflectionNote = {"fr":"Ce resume reflete uniquement les reponses données a ce questionnaire de réflexion non valide cliniquement.","en":"This summary reflects only the answers you gave to this unvalidated reflection questionnaire.","ar":"يعكس هذا الملخص إجاباتك على هذا الاستبيان التأملي غير المعتمد سريريا فقط.","darija":"هاد الملخص غير كيعكس الأجوبة اللي عطيت فهاد الاستبيان التأملي اللي ماشي معتمد سريريا."};
       $("#schema-empathy").textContent = reflectionNote[state.lang];
       $("#schema-summary").textContent = `${titlePrefix}: ${analysis.topLabel} (${t(`common.${analysis.level}`)}).`;
       $("#schema-profile").textContent = analysis.profile;
-      $("#schema-top3-title").textContent = analysis.top3Title;
-      $("#schema-top3").innerHTML = analysis.topThree.map((item, idx) => {
+      $("#schema-top3-title").textContent = focusedDim
+        ? state.lang === "en" ? "Selected theme score" : state.lang === "ar" ? "نتيجة الموضوع المختار" : state.lang === "darija" ? "نتيجة الموضوع المختار" : "Score du thème choisi"
+        : analysis.top3Title;
+      $("#schema-top3").innerHTML = (focusedDim ? analysis.topThree.filter((item) => item.dim === focusedDim) : analysis.topThree).map((item, idx) => {
         const badgeTone = item.level === "severe" ? "border-rose-300/40 text-rose-100" : item.level === "high" ? "border-orange-300/40 text-orange-100" : item.level === "moderate" ? "border-yellow-300/40 text-yellow-100" : "border-emerald-300/40 text-emerald-100";
         return `<div class="rounded-md border border-white/10 bg-slate-950/70 p-3"><p class="text-xs text-slate-400">#${idx + 1}</p><p class="mt-1 font-medium">${item.label}</p><p class="mt-2 inline-block rounded-full border px-2 py-0.5 text-xs ${badgeTone}">${t(`common.${item.level}`)}</p><p class="mt-2 text-xs text-slate-400">${item.value}/9</p></div>`;
       }).join("");
@@ -4935,7 +5080,7 @@
       $("#schema-reco").innerHTML = analysis.recos.map((x) => `<li>${x}</li>`).join("");
       $("#schema-comfort").textContent = analysis.comfort;
       $("#schema-plan").innerHTML = analysis.plan.map((p) => `<li>${p}</li>`).join("");
-      $("#schema-bars").innerHTML = analysis.ordered.map(([key, val]) => {
+      $("#schema-bars").innerHTML = analysis.ordered.filter(([key]) => !focusedDim || key === focusedDim).map(([key, val]) => {
         const w = Math.min(100, Math.round((val / 9) * 100));
         return `<div><div class="mb-1 flex justify-between text-sm"><span>${window.schemaLabels[state.lang][key]}</span><span>${val}/9</span></div><div class="h-2 rounded-full bg-white/10"><div class="h-2 rounded-full bg-cyan-400" style="width:${w}%"></div></div></div>`;
       }).join("");
@@ -5451,14 +5596,17 @@
         submit.disabled = false;
         submit.classList.remove("cursor-wait", "opacity-60");
         status.classList.add("hidden");
-        if (type === "assessment") {
-          window.history.pushState({ page: "results" }, "", "?page=results");
+        const detail = { assessment: "assessment", schema: "schemas", reflection: "reflection" }[type];
+        if (detail) {
+          window.history.pushState({ page: "results", detail }, "", `?page=results&detail=${detail}`);
           state.page = "results";
+          state.resultsDetail = detail;
           applyPageLayout();
+          window.scrollTo(0, 0);
+          document.getElementById("results-detail-title")?.focus({ preventScroll: true });
         }
         result.classList.remove("hidden");
-        result.scrollIntoView({ behavior: "smooth", block: "start" });
-        heading.focus({ preventScroll: true });
+        if (!detail) heading.focus({ preventScroll: true });
       }, 4500);
     }
 
