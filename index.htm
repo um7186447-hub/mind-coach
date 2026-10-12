@@ -1997,6 +1997,8 @@
     .results-detail-nav { display:flex; gap:.45rem; overflow-x:auto; padding:1rem 0; scrollbar-width:thin; }
     .results-detail-nav a { flex:0 0 auto; border:1px solid var(--evora-line); padding:.55rem .8rem; color:var(--evora-muted); font-size:.77rem; text-decoration:none; }
     .results-detail-nav a[aria-current="page"] { border-color:var(--evora-ink); background:var(--evora-ink); color:var(--evora-card); }
+    @keyframes route-content-enter { from { opacity:.28; transform:translateY(9px); } to { opacity:1; transform:translateY(0); } }
+    #top > section.route-entering,#results-detail.route-entering { animation:route-content-enter .32s cubic-bezier(.2,.7,.2,1) var(--route-enter-delay,0ms) both !important; }
     .results-detail-empty { margin:1rem 0; border:1px solid var(--evora-line); padding:clamp(1.2rem,3vw,2rem); background:var(--evora-card); }
     .results-detail-empty p { margin:0 0 1rem; color:var(--evora-muted); line-height:1.6; }
     .results-detail-empty a { display:inline-flex; border:1px solid var(--evora-ink); padding:.65rem .9rem; color:var(--evora-ink); text-decoration:none; }
@@ -2070,7 +2072,7 @@
       body.theme-light .page-cover { min-height:250px; }
       body.theme-light .page-cover-copy h1 { font-size:clamp(2.8rem,14vw,4.4rem); }
     }
-    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } .route-entering { animation:none !important; } }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased font-dm-sans">
@@ -3773,7 +3775,38 @@
       updateResultsPageLayout();
     }
 
-    function renderRouteFromLocation({ scrollToTop = false } = {}) {
+    function animateRouteContent() {
+      if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+      const homeTargets = ["main-home", "daily-note", "home-dashboard", "home-tests"]
+        .map((id) => document.getElementById(id));
+      const pageTargetIds = {
+        assessment: "assessment",
+        schemas: "schema-test",
+        reflection: "reflection-test",
+        "mental-health": "mental-health-checkin",
+        methods: "methods",
+        breathing: "breathing",
+        sleep: "sleep",
+        results: state.resultsDetail ? "results-detail" : "combined-results",
+        references: "references",
+        login: "account-page"
+      };
+      const targets = state.page === "home"
+        ? homeTargets
+        : [document.getElementById(pageTargetIds[state.page])];
+      targets.filter((target) => target && !target.hidden).forEach((target, index) => {
+        target.classList.remove("route-entering");
+        target.style.setProperty("--route-enter-delay", `${index * 55}ms`);
+        void target.offsetWidth;
+        target.classList.add("route-entering");
+        window.setTimeout(() => {
+          target.classList.remove("route-entering");
+          target.style.removeProperty("--route-enter-delay");
+        }, 520);
+      });
+    }
+
+    function renderRouteFromLocation({ scrollToTop = false, animate = true } = {}) {
       const params = new URLSearchParams(window.location.search);
       state.page = params.get("page") || "home";
       state.resultsDetail = params.get("detail") || "";
@@ -3785,6 +3818,7 @@
       renderHomeProgress();
       renderDaypartNote();
       replayVisibleReveals();
+      if (animate) animateRouteContent();
       if (scrollToTop) {
         if (window.location.hash) {
           requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView({ block: "start" }));
@@ -4071,6 +4105,7 @@
       state.resultsDetail = "schemas";
       state.schemaFocus = key;
       applyPageLayout();
+      animateRouteContent();
       document.getElementById("results-detail-title")?.focus({ preventScroll: true });
     }
 
