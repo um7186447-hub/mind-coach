@@ -1,27 +1,1119 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mind Coach | Well-being Self-Reflection</title>
-  <meta name="description" content="Mind Coach offers private, browser-based self-reflection exercises for well-being. The custom questionnaires are not clinically validated and do not provide a diagnosis.">
-  <meta name="theme-color" content="#080b12">
+  <title>Mind Coach — space for reflection</title>
+  <meta name="description" content="Mind Coach offers thoughtful self-reflection tools for wellbeing, at your own pace.">
+  <meta name="theme-color" content="#f6e9cf">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="./styles.css?v=20261012-smooth-parallax-v2">
+  <link rel="stylesheet" href="./styles.css?v=20261018-menu-theme-fix">
   
   
   
   
   
   
+  <style id="nafs-mindcoach-theme">
+    :root {
+      color-scheme: light;
+      --nafs-cream: #f6e9cf;
+      --nafs-paper: #efe0c3;
+      --nafs-ink: #1b1209;
+      --nafs-tan: #a87f4e;
+      --nafs-brown: #6b4a26;
+      --nafs-menu: #1a0f06;
+      --nafs-line: rgba(27,18,9,.24);
+      --orbite-ink: #1b1209;
+      --orbite-muted: #6b4a26;
+      --orbite-border: rgba(27,18,9,.2);
+      --orbite-glass: #efe0c3;
+      --display: "Bodoni Moda", "Bodoni MT", Didot, Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+      --arabic: "Amiri", "Noto Naskh Arabic", serif;
+    }
+    html { background: var(--nafs-cream) !important; scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body, body.theme-light, body:not(.theme-light) {
+      color-scheme: light !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important;
+      font-family: var(--sans) !important; font-size: 13px; -webkit-font-smoothing: antialiased;
+    }
+    body.theme-light [class*="text-slate-"], body:not(.theme-light) [class*="text-slate-"] { color: var(--nafs-brown) !important; }
+    body.theme-light [class*="border-white"], body:not(.theme-light) [class*="border-white"] { border-color: var(--nafs-line) !important; }
+    body.theme-light main#top [class*="text-cyan-"], body:not(.theme-light) main#top [class*="text-cyan-"] { color: var(--nafs-tan) !important; }
+    body.theme-light main#top [class*="bg-cyan-"], body:not(.theme-light) main#top [class*="bg-cyan-"] { background: var(--nafs-tan) !important; color: #fff8eb !important; }
+    body.theme-light main#top [class*="hover:bg-cyan-"]:hover, body:not(.theme-light) main#top [class*="hover:bg-cyan-"]:hover { background: var(--nafs-brown) !important; }
+    h1, h2, h3, h4, h5, .page-cover h1, #assessment-result-title, #schema-result-heading {
+      color: inherit; font-family: var(--display) !important; font-weight: 500 !important; letter-spacing: -.025em;
+    }
+    p, li, label, input, select, textarea, button, a { font-family: var(--sans); }
+    :focus-visible { outline: 2px solid var(--nafs-tan) !important; outline-offset: 4px; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--nafs-brown); color: var(--nafs-cream); }
+    main#top { width: 100%; max-width: none; margin: 0 !important; padding: 0 0 4rem !important; }
+    #welcome-intro { display: none !important; }
+    body:not([data-page="home"]) main#top { padding: 5.5rem max(5vw, env(safe-area-inset-right)) 4rem max(5vw, env(safe-area-inset-left)) !important; }
+    main#top > section { position: relative; }
+    body[data-page="home"] .workspace-topbar { display: none !important; }
+    .workspace-topbar { border-color: var(--nafs-line) !important; border-radius: 2px !important; background: var(--nafs-paper) !important; color: var(--nafs-ink) !important; box-shadow: none !important; }
+
+    .orbite-navbar {
+      position: fixed !important; z-index: 120 !important; inset: 0 0 auto !important; display: grid !important;
+      width: 100% !important; min-height: 76px; grid-template-columns: 1fr auto !important; align-items: center;
+      gap: 0 !important; padding: max(16px,env(safe-area-inset-top)) max(5vw,env(safe-area-inset-right)) 15px max(5vw,env(safe-area-inset-left)) !important;
+      transform: none !important; border: 0 !important; border-radius: 0 !important; background: transparent !important;
+      box-shadow: none !important; color: #fff !important; mix-blend-mode: difference; backdrop-filter: none !important;
+    }
+    .orbite-navbar::after { position: absolute; right: max(5vw,env(safe-area-inset-right)); bottom: 0; left: max(5vw,env(safe-area-inset-left)); height: 1px; background: currentColor; content: ""; opacity: .7; }
+    .nafs-brand { justify-self: start; color: inherit; font-size: 14px; font-weight: 600; letter-spacing: .18em; text-decoration: none; }
+    #menu-btn {
+      position: relative !important; inset: auto !important; z-index: 121 !important; display: inline-flex !important; width: auto !important;
+      min-height: 34px !important; align-items: center; justify-self: end; gap: 13px !important; border: 0 !important;
+      border-radius: 0 !important; padding: 8px 0 8px 10px !important; background: transparent !important; color: inherit !important;
+      box-shadow: none !important; font-size: 11px !important; font-weight: 400 !important; cursor: pointer; backdrop-filter: none !important;
+    }
+    #menu-btn:hover { background: transparent !important; }
+    #menu-btn .menu-icon { width: 28px !important; gap: 5px !important; }
+    #menu-btn .menu-icon i { height: 1px !important; border-radius: 0 !important; background: currentColor !important; }
+    #menu-btn .menu-icon i:last-child { width: 100% !important; }
+    #menu-btn[aria-expanded="true"] .menu-icon i:first-child { transform: translateY(6px) rotate(45deg); }
+    #menu-btn[aria-expanded="true"] .menu-icon i:nth-child(2) { opacity: 0; }
+    #menu-btn[aria-expanded="true"] .menu-icon i:last-child { transform: translateY(-6px) rotate(-45deg); }
+    #scroll-progress { z-index: 121 !important; background: var(--nafs-tan) !important; }
+
+    #top-nav, #top-nav.hidden, #top-nav:not(.hidden) {
+      position: fixed !important; z-index: 110 !important; inset: 0 !important; display: block !important; width: auto !important;
+      max-width: none !important; margin: 0 !important; padding: 0 !important; overflow: auto !important; border: 0 !important;
+      background: var(--nafs-menu) !important; color: var(--nafs-cream) !important; transform: translateY(-102%);
+      visibility: hidden; opacity: 1; pointer-events: none; transition: transform .8s cubic-bezier(.7,0,.2,1), visibility .8s;
+      backdrop-filter: none !important;
+    }
+    #top-nav:not(.hidden) { transform: translateY(0); visibility: visible; pointer-events: auto; }
+    html body #top-nav[aria-hidden="false"] { transform: translateY(0) !important; visibility: visible !important; pointer-events: auto !important; }
+    html body #top-nav[aria-hidden="true"] { transform: translateY(-102%) !important; visibility: hidden !important; pointer-events: none !important; }
+    body.theme-light #top-nav > div,
+    body.theme-light #top-nav:not(.hidden) > div { background: var(--nafs-menu) !important; color: var(--nafs-cream) !important; }
+    #top-nav > div {
+      position: relative; display: grid !important; width: 100% !important; min-height: 100svh !important; grid-template-columns: minmax(0,1.05fr) minmax(240px,.95fr);
+      grid-template-rows: auto 1fr auto; align-content: stretch; gap: 18px 5vw; overflow: hidden; margin: 0 !important;
+      padding: max(105px,calc(env(safe-area-inset-top) + 92px)) max(7vw,env(safe-area-inset-right)) max(30px,env(safe-area-inset-bottom)) max(7vw,env(safe-area-inset-left)) !important;
+      border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; backdrop-filter: none !important;
+    }
+    #top-nav > div::after { grid-column: 2; grid-row: 2; align-self: center; justify-self: center; color: var(--nafs-tan); content: "(MIND COACH)"; font: 500 clamp(3rem,9vw,9rem)/.9 var(--display); letter-spacing: -.06em; transform: rotate(-8deg); }
+    #top-nav .sidebar-search { grid-column: 1; grid-row: 1; max-width: min(390px,100%); border: 1px solid rgba(246,233,207,.28) !important; border-radius: 999px !important; padding: 2px 14px; background: transparent !important; }
+    #top-nav .sidebar-search input { border: 0 !important; background: transparent !important; color: var(--nafs-cream) !important; }
+    #top-nav .top-search-status { grid-column: 1; }
+    #primary-nav { grid-column: 1; grid-row: 2; display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)); align-content: center; gap: 0 24px !important; counter-reset: nafs-nav; }
+    #top-nav a.sidebar-link {
+      display: flex !important; min-height: 0 !important; align-items: baseline; gap: 13px !important; border: 0 !important;
+      border-bottom: 1px solid rgba(246,233,207,.18) !important; border-radius: 0 !important; padding: 10px 0 !important;
+      color: var(--nafs-cream) !important; background: transparent !important; font: 500 clamp(1.25rem,2.3vw,2.35rem)/1.08 var(--display) !important;
+      transition: opacity .25s ease, color .25s ease;
+    }
+    #top-nav a.sidebar-link::before { counter-increment: nafs-nav; content: "(" counter(nafs-nav,decimal-leading-zero) ")"; flex: 0 0 27px; color: #b99b73; font: 400 9px/1 var(--sans); letter-spacing: .1em; }
+    #top-nav a.sidebar-link:hover, #top-nav a.sidebar-link[aria-current="page"] { color: #e5bf8d !important; }
+    #top-nav:has(#primary-nav a:hover) #primary-nav a:not(:hover), #top-nav:has(#primary-nav a:focus-visible) #primary-nav a:not(:focus-visible) { opacity: .36; }
+    #top-nav .side-icon { display: none !important; }
+    #top-nav .sidebar-settings { grid-column: 1/-1; grid-row: 3; align-self: end; margin: 0 !important; border: 0 !important; border-top: 1px solid rgba(246,233,207,.28) !important; border-radius: 0 !important; padding: 14px 0 0 !important; background: transparent !important; }
+    #sidebar-controls { display: flex; width: 100%; flex-wrap: wrap; gap: 10px 22px; }
+    #sidebar-controls label { color: rgba(246,233,207,.74) !important; font-size: 10px !important; }
+    #sidebar-controls select { min-width: 70px; border: 1px solid rgba(246,233,207,.34) !important; border-radius: 999px !important; padding: 7px 10px !important; background: transparent !important; color: var(--nafs-cream) !important; }
+    #sidebar-controls option { background: var(--nafs-menu); color: var(--nafs-cream); }
+    .nafs-menu-info { grid-column: 1/-1; grid-row: 4; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; padding-top: 14px; border-top: 1px solid rgba(246,233,207,.24); }
+    .nafs-menu-info h2 { margin: 0 0 5px; color: #b99b73; font: 500 9px/1.4 var(--sans) !important; letter-spacing: .15em; text-transform: uppercase; }
+    .nafs-menu-info p { margin: 0; color: rgba(246,233,207,.82); font-size: 10px; line-height: 1.65; }
+
+    #main-home {
+      position: sticky !important; top: 0 !important; z-index: 0 !important; display: block; width: 100%; height: 100svh; min-height: 600px !important;
+      overflow: hidden !important; margin: 0 !important; padding: 0 !important; background: var(--nafs-ink) !important; color: var(--nafs-cream) !important;
+      isolation: isolate;
+    }
+    .nafs-hero-art { position: absolute; inset: 0; overflow: hidden; background: radial-gradient(ellipse at 72% 39%,rgba(168,127,78,.31),transparent 27%),linear-gradient(130deg,#1b1209,#26180e 60%,#100b07); }
+    .nafs-hero-art::before { position: absolute; right: 12%; bottom: -8%; width: min(40vw,560px); aspect-ratio: .76; border: 1px solid rgba(246,233,207,.2); border-bottom: 0; border-radius: 50% 50% 0 0 / 32% 32% 0 0; background: linear-gradient(180deg,rgba(168,127,78,.15),rgba(27,18,9,.44)); content: ""; }
+    .nafs-hero-art::after { position: absolute; right: 22%; bottom: -10%; width: min(21vw,290px); aspect-ratio: .67; border: 1px solid rgba(246,233,207,.18); border-bottom: 0; border-radius: 50% 50% 0 0 / 34% 34% 0 0; content: ""; }
+    #main-home .hero-overlay { position: absolute !important; inset: 0 !important; z-index: 0; background: linear-gradient(180deg,rgba(12,8,5,.12),transparent 45%,rgba(12,8,5,.32)) !important; }
+    #main-home .hero-content { position: absolute !important; inset: 0 !important; display: block !important; width: 100% !important; max-width: none !important; min-height: 100svh !important; margin: 0 !important; padding: 0 !important; }
+    #main-home .hero-copy { position: absolute !important; inset: 0 !important; max-width: none !important; margin: 0 !important; text-align: left !important; color: var(--nafs-cream) !important; }
+    #main-home .nafs-eyebrow { position: absolute; top: 17vh; left: 5vw; display: flex; align-items: baseline; gap: 8px; margin: 0; color: #d3b78f !important; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .nafs-eyebrow [lang="ar"] { color: var(--nafs-cream); font: 400 18px/1 var(--arabic); letter-spacing: 0; }
+    #main-home .hero-greeting { position: absolute; top: calc(17vh + 34px); left: 5vw; color: rgba(246,233,207,.76) !important; font-size: 10px; letter-spacing: .1em; }
+    #main-home .nafs-word { position: absolute; left: 4vw; bottom: max(5vh,30px); z-index: 1; display: flex; align-items: flex-end; margin: 0 !important; color: var(--nafs-cream) !important; font: 600 clamp(5.5rem,28.8vw,29rem)/.69 var(--display) !important; letter-spacing: -.075em !important; white-space: nowrap; }
+    #main-home .nafs-letter { display: inline-block; transform: translateY(115%); animation: nafs-letter-rise 1.08s cubic-bezier(.18,.72,.2,1) 1.24s forwards; }
+    #main-home .nafs-letter:nth-of-type(2) { animation-delay: 1.38s; }
+    #main-home .nafs-letter:nth-of-type(3) { animation-delay: 1.52s; }
+    #main-home .nafs-letter:nth-of-type(4) { animation-delay: 1.66s; }
+    #main-home .nafs-a { transform: translateY(115%); animation: nafs-letter-rise 1.08s cubic-bezier(.18,.72,.2,1) 1.38s forwards; }
+    @keyframes nafs-letter-rise { to { transform: translateY(0); } }
+    #main-home .nafs-a { display: inline-block; width: .67em; height: .78em; margin: 0 .015em .015em .02em; overflow: visible; }
+    #main-home .nafs-a path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linejoin: miter; }
+    #main-home .hero-copy > p[data-i18n="hero.subtitle"] { position: absolute; top: 25vh; left: 5vw; max-width: min(465px,44vw); margin: 0 !important; color: rgba(246,233,207,.78) !important; font-size: clamp(12px,1vw,15px); line-height: 1.8; text-align: left !important; }
+    #main-home .hero-actions { position: absolute; top: 39vh; left: 5vw; justify-content: flex-start !important; margin: 0 !important; gap: 9px !important; }
+    #main-home .hero-actions a, .pill { display: inline-flex; min-height: 34px; align-items: center; justify-content: center; gap: 10px; border: 1px solid transparent !important; border-radius: 999px !important; padding: 8px 16px !important; background: var(--nafs-tan) !important; color: #fff8eb !important; font-size: 9px !important; font-weight: 600 !important; letter-spacing: .11em; line-height: 1; text-transform: uppercase; text-decoration: none; transition: background .25s,color .25s,transform .25s; }
+    #main-home .hero-actions a:hover, .pill:hover { transform: translateY(-2px); background: var(--nafs-brown) !important; }
+    #main-home .hero-actions a:last-child { border-color: rgba(246,233,207,.6) !important; background: transparent !important; color: var(--nafs-cream) !important; }
+    #main-home .hero-caption { position: absolute !important; right: 5vw !important; bottom: max(5vh,30px) !important; z-index: 2; display: block !important; width: min(235px,26vw) !important; color: var(--nafs-cream) !important; text-align: left !important; }
+    #main-home .hero-caption-ar { display: block; margin-bottom: 7px; color: var(--nafs-cream); font: 400 32px/1 var(--arabic); }
+    #main-home .hero-metrics { display: flex; gap: 17px; margin-bottom: 13px; }
+    #main-home .hero-metrics > div { display: grid; gap: 2px; }
+    #main-home .hero-metrics strong { color: #d1af7f; font: 500 17px/1 var(--display); }
+    #main-home .hero-metrics span, #main-home .hero-caption-copy strong { color: rgba(246,233,207,.68) !important; font-size: 8px !important; letter-spacing: .12em; text-transform: uppercase; }
+    #main-home .hero-caption-copy p { margin: 4px 0 0 !important; color: rgba(246,233,207,.78) !important; font-size: 10px; line-height: 1.6; }
+    #main-home .hero-caption-copy a { display: none; }
+    #main-home .nafs-scroll-note { display: flex; align-items: center; gap: 9px; margin-top: 15px; color: #d1af7f; font-size: 8px; letter-spacing: .16em; }
+    #main-home .nafs-scroll-note span { font-size: 15px; line-height: 1; }
+    #main-home .hero-safety { max-width: none; margin: 9px 0 0; border: 0; border-top: 1px solid rgba(246,233,207,.22); border-radius: 0; padding: 8px 0 0; background: transparent; color: rgba(246,233,207,.6) !important; font-size: 9px; line-height: 1.55; backdrop-filter: none; }
+    #main-home .hero-dock { position: absolute !important; top: 17vh; right: 5vw; display: grid !important; width: min(245px,25vw); gap: 0 !important; }
+    #main-home .hero-dock-card { border: 0 !important; border-top: 1px solid rgba(246,233,207,.28) !important; border-radius: 0 !important; padding: 13px 0 !important; background: transparent !important; color: var(--nafs-cream) !important; box-shadow: none !important; text-decoration: none; }
+    #main-home .hero-dock-kicker { color: rgba(246,233,207,.61) !important; font-size: 8px !important; letter-spacing: .13em; text-transform: uppercase; }
+    #main-home .hero-dock-value strong, #main-home .hero-dock-breathing strong { color: #d1af7f !important; font: 500 22px/1.2 var(--display) !important; }
+    #main-home #hero-progress-bar { height: 2px; background: rgba(246,233,207,.2); }
+    #main-home #hero-progress-bar span { background: var(--nafs-tan); }
+    #main-home .hero-wave i { background: var(--nafs-tan) !important; }
+
+    #daily-note { position: relative; z-index: 2; padding: 10vw 7vw 0 !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important; }
+    .nafs-story-intro { max-width: 1420px; margin: 0 auto; }
+    .nafs-story-heading { max-width: 990px; margin: 28px 0 0; color: var(--nafs-ink) !important; font: 500 clamp(3.8rem,10.5vw,10.5rem)/.86 var(--display) !important; letter-spacing: -.05em !important; text-transform: uppercase; }
+    #daily-note-card { position: relative; display: grid !important; min-height: min(65svh,700px); grid-template-columns: .78fr .85fr 1fr; align-items: center; gap: 5vw; max-width: 1420px; margin: 0 auto !important; padding: 6vw 0 5vw !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; color: var(--nafs-ink) !important; box-shadow: none !important; }
+    #daily-note-card::before { grid-column: 1; grid-row: 1; align-self: stretch; min-height: 390px; background: linear-gradient(155deg,#bb9565,#80603e); content: ""; }
+    #daily-note-card::after { position: absolute; top: 0; left: 0; color: var(--nafs-brown); content: "MIND COACH  ·  A MOMENT"; font: 500 8px/1.4 var(--sans); letter-spacing: .16em; }
+    #daily-note-card > div { grid-column: 2; grid-row: 1; }
+    #daily-note-period { margin: 0 0 17px !important; color: var(--nafs-brown) !important; font-size: 9px !important; letter-spacing: .15em; text-transform: uppercase; }
+    #daily-note-heading { margin: 0 0 16px !important; color: var(--nafs-ink) !important; font: 500 clamp(2.3rem,4.3vw,5rem)/.95 var(--display) !important; letter-spacing: -.04em !important; }
+    #daily-note-advice { margin: 0; color: #5c4934 !important; font-size: 12px; line-height: 1.9; }
+    #daily-note-quote { grid-column: 3; grid-row: 1; margin: 0 !important; border: 0 !important; border-left: 1px solid var(--nafs-line) !important; border-radius: 0 !important; padding: 18px 0 18px 25px !important; background: transparent !important; color: var(--nafs-brown) !important; font: 500 clamp(1.2rem,2vw,2.2rem)/1.25 var(--display) !important; }
+    .nafs-gallery-band { display: grid; grid-template-columns: .8fr 1fr .72fr; align-items: center; gap: 7vw; max-width: 1200px; min-height: 265px; margin: 0 auto; padding: 23px 0 50px; border-top: 1px solid var(--nafs-line); }
+    .nafs-gallery-art { position: relative; min-height: 170px; overflow: hidden; background-color: #8e6945; transform: translate3d(0,var(--nafs-y,0px),0); }
+    .nafs-gallery-art::before, .nafs-gallery-art::after { position: absolute; content: ""; }
+    .nafs-gallery-art.arch { min-height: 210px; background: linear-gradient(145deg,#b7966c,#765334); }
+    .nafs-gallery-art.arch::before { inset: 15% 20% -20%; border: 1px solid rgba(246,233,207,.68); border-bottom: 0; border-radius: 50% 50% 0 0 / 34% 34% 0 0; background: linear-gradient(160deg,rgba(246,233,207,.25),rgba(27,18,9,.16)); }
+    .nafs-gallery-art.moon { min-height: 150px; border-radius: 50%; background: radial-gradient(circle at 40% 45%,#d4b17d 0 20%,transparent 20.6%),linear-gradient(150deg,#47321f,#16100a); }
+    .nafs-gallery-art.moon::after { top: 17%; left: 45%; width: 30%; aspect-ratio: 1; border-radius: 50%; background: #47321f; }
+    .nafs-gallery-art.tree { min-height: 185px; background: linear-gradient(180deg,#a98458,#49341f); }
+    .nafs-gallery-art.tree::before { left: 50%; bottom: 0; width: 1px; height: 66%; background: rgba(246,233,207,.65); box-shadow: -32px -18px 0 -0.2px rgba(246,233,207,.55),31px -37px 0 -0.2px rgba(246,233,207,.55),-17px -60px 0 -0.2px rgba(246,233,207,.55),21px -79px 0 -0.2px rgba(246,233,207,.55); }
+    .nafs-gallery-art.tree::after { left: 21%; top: 13%; width: 62%; height: 44%; border-radius: 50%; background: rgba(27,18,9,.38); filter: blur(1px); }
+
+    #nafs-listening { position: relative; z-index: 2; display: grid; min-height: 100svh; place-items: center; overflow: hidden; padding: 13vw 7vw !important; background: var(--nafs-ink) !important; color: var(--nafs-cream) !important; text-align: center; }
+    .nafs-section-label { display: inline-flex; align-items: baseline; gap: 8px; color: var(--nafs-brown); font: 500 9px/1.4 var(--sans); letter-spacing: .13em; text-transform: uppercase; }
+    .nafs-section-label [lang="ar"] { font: 400 17px/1 var(--arabic); letter-spacing: 0; text-transform: none; }
+    .nafs-section-label .roman { color: var(--nafs-brown); }
+    #nafs-listening > .nafs-section-label { position: absolute; top: 8vw; left: 7vw; color: rgba(246,233,207,.72); }
+    #nafs-listening > .nafs-section-label .roman { color: #c19e70; }
+    .nafs-listening-title { position: relative; z-index: 2; max-width: 1180px; margin: 0; color: var(--nafs-cream) !important; font: 500 clamp(3.7rem,11vw,11rem)/.87 var(--display) !important; letter-spacing: -.05em !important; text-transform: uppercase; }
+    .nafs-scatter-word { display: inline-block; white-space: nowrap; }
+    .nafs-scatter-letter { display: inline-block; }
+    .nafs-float-art { position: absolute; z-index: 1; width: clamp(100px,16vw,235px); aspect-ratio: 1; overflow: hidden; border-radius: 50%; transform: translate3d(0,var(--nafs-y,0px),0); }
+    .nafs-float-art::before, .nafs-float-art::after { position: absolute; content: ""; }
+    .nafs-float-art.moon { top: 18%; right: 10%; background: radial-gradient(circle at 40% 45%,#d3b581 0 22%,#80603e 22.5% 100%); }
+    .nafs-float-art.moon::after { top: 16%; left: 49%; width: 54%; aspect-ratio: 1; border-radius: 50%; background: #42301e; }
+    .nafs-float-art.tree { bottom: 8%; left: 9%; background: linear-gradient(155deg,#a98458,#49341f); }
+    .nafs-float-art.tree::before { left: 50%; bottom: -4%; width: 2px; height: 61%; background: rgba(246,233,207,.65); box-shadow: -26px -26px 0 0 rgba(246,233,207,.33),25px -48px 0 0 rgba(246,233,207,.4),-9px -70px 0 0 rgba(246,233,207,.4),34px -86px 0 0 rgba(246,233,207,.32); }
+
+    #home-dashboard { position: relative; z-index: 2; display: grid !important; grid-template-columns: .7fr 1fr 1fr; align-items: stretch; gap: 2vw !important; padding: 10vw 7vw !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important; }
+    .nafs-dashboard-intro { align-self: start; padding: 8px 0; }
+    .nafs-dashboard-intro h2 { max-width: 270px; margin: 24px 0 13px !important; color: var(--nafs-ink) !important; font: 500 clamp(2.8rem,5vw,5.4rem)/.9 var(--display) !important; }
+    .nafs-dashboard-intro p { max-width: 220px; color: #614b32; font-size: 11px; line-height: 1.8; }
+    #home-dashboard .sanctuary-card { min-height: 450px; justify-content: space-between; gap: 23px; border: 1px solid var(--nafs-line) !important; border-radius: 0 !important; padding: clamp(20px,3vw,40px) !important; background: var(--nafs-paper) !important; color: var(--nafs-ink) !important; box-shadow: none !important; }
+    #home-dashboard .sanctuary-card h2, #home-dashboard .sanctuary-card h3 { color: var(--nafs-ink) !important; font: 500 clamp(1.7rem,2.5vw,2.7rem)/.98 var(--display) !important; }
+    #home-dashboard .sanctuary-card p, #home-dashboard .sanctuary-card li { color: #614b32 !important; font-size: 11px !important; line-height: 1.75; }
+    .sanctuary-eyebrow { color: var(--nafs-brown) !important; font-size: 8px !important; letter-spacing: .13em; text-transform: uppercase; }
+    #home-journal { min-height: 140px; border: 1px solid var(--nafs-line) !important; border-radius: 0 !important; padding: 13px !important; background: rgba(246,233,207,.56) !important; color: var(--nafs-ink) !important; font-size: 12px; resize: vertical; }
+    #home-dashboard button, #home-dashboard .sanctuary-action { border: 1px solid var(--nafs-brown) !important; border-radius: 999px !important; padding: 9px 15px !important; background: transparent !important; color: var(--nafs-brown) !important; font-size: 9px !important; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+    .home-progress-track { background: rgba(107,74,38,.16) !important; }
+    .home-progress-track > span { background: var(--nafs-tan) !important; }
+
+    #home-tests { position: relative; z-index: 2; width: 100% !important; max-width: none !important; margin: 0 !important; padding: 9vw 7vw !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important; }
+    #home-tests > div:first-child { max-width: 800px; margin: 0 auto 38px !important; }
+    #home-tests > div:first-child p { color: var(--nafs-brown) !important; font-size: 9px !important; letter-spacing: .13em; }
+    #home-tests-title { margin: 12px 0 !important; color: var(--nafs-ink) !important; font: 500 clamp(3.3rem,8vw,8rem)/.9 var(--display) !important; }
+    #home-tests > div:first-child > p:last-child { color: #614b32 !important; font-size: 12px; }
+    #home-tests #full-assessment-card { display: flex !important; max-width: 1180px; min-height: 56vh; align-items: flex-end; margin: 0 auto 18px !important; border: 0 !important; border-radius: 0 !important; padding: clamp(26px,6vw,82px) !important; background: radial-gradient(ellipse at 78% 20%,rgba(168,127,78,.29),transparent 31%),var(--nafs-ink) !important; color: var(--nafs-cream) !important; box-shadow: none !important; }
+    #full-assessment-card h3 { color: var(--nafs-cream) !important; font: 500 clamp(2.8rem,7vw,7rem)/.9 var(--display) !important; }
+    #full-assessment-card p { color: rgba(246,233,207,.75) !important; font-size: 11px; }
+    #full-assessment-card a { border-radius: 999px !important; background: var(--nafs-tan) !important; color: #fff8eb !important; font-size: 9px !important; letter-spacing: .1em; text-transform: uppercase; }
+    #home-tests > .grid { grid-template-columns: repeat(3,minmax(0,1fr)) !important; gap: 1px !important; max-width: 1420px; margin: 0 auto; background: var(--nafs-cream) !important; }
+    #home-tests > .grid > article { display: flex; min-height: 52vh; flex-direction: column; align-items: flex-start; border: 0 !important; border-radius: 0 !important; padding: clamp(22px,3.5vw,48px) !important; background: var(--nafs-menu) !important; color: var(--nafs-cream) !important; box-shadow: none !important; }
+    #home-tests > .grid > article:nth-child(2) { background: #332315 !important; }
+    #home-tests > .grid > article:nth-child(3) { background: #24190f !important; }
+    #home-tests > .grid > article:nth-child(4) { background: #40301e !important; }
+    #home-tests > .grid > article h3 { margin: 19px 0 9px !important; color: var(--nafs-cream) !important; font: 500 clamp(1.8rem,3.4vw,3.4rem)/.94 var(--display) !important; }
+    #home-tests > .grid > article p { color: rgba(246,233,207,.73) !important; font-size: 11px; line-height: 1.8; }
+    #home-tests > .grid > article a { margin-top: auto !important; border-radius: 999px !important; padding: 9px 15px !important; background: var(--nafs-tan) !important; color: #fff8eb !important; font-size: 9px !important; letter-spacing: .1em; text-transform: uppercase; }
+    #home-tests > p:last-child { max-width: 1420px; margin: 22px auto 0 !important; color: var(--nafs-brown) !important; font-size: 10px !important; }
+
+    .nafs-privacy { position: relative; z-index: 2; display: grid; min-height: 90svh; align-items: center; justify-items: center; overflow: hidden; padding: 13vw 7vw !important; background: var(--nafs-paper) !important; text-align: center; }
+    .nafs-privacy > .nafs-section-label { position: absolute; top: 8vw; left: 7vw; }
+    .nafs-privacy h2 { max-width: 1200px; margin: 0; color: var(--nafs-ink) !important; font: 500 clamp(3.7rem,11.7vw,11.5rem)/.92 var(--display) !important; letter-spacing: -.05em !important; text-transform: uppercase; }
+    .nafs-privacy-copy { max-width: 420px; margin: 30px auto 0; color: #594632; font-size: 11px; line-height: 1.9; }
+    .nafs-moon { position: relative; display: inline-block; width: .72em; height: .68em; margin: 0 .025em -.05em .045em; overflow: hidden; border-radius: 50%; background: #88633f; vertical-align: baseline; }
+    .nafs-moon::before { position: absolute; top: 9%; left: 25%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: #e7c998; box-shadow: .14em .13em 0 .015em rgba(27,18,9,.55); content: ""; }
+    #nafs-now { position: relative; z-index: 2; display: flex; min-height: 100svh; align-items: flex-end; overflow: hidden; padding: 10vw 7vw !important; background: repeating-linear-gradient(90deg,rgba(4,3,2,.42) 0 3px,transparent 3px 38px),repeating-linear-gradient(90deg,#4d341e 0 7px,#775432 7px 34px,#392716 34px 39px) !important; color: var(--nafs-cream) !important; }
+    #nafs-now::before { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(12,8,4,.35),rgba(12,8,4,.7)),linear-gradient(0deg,rgba(12,8,4,.8),transparent 60%); content: ""; }
+    .nafs-now-copy { position: relative; z-index: 1; width: min(1180px,100%); margin: 0 auto; }
+    .nafs-now-copy h2 { margin: 0 0 17px; color: var(--nafs-cream) !important; font: 500 clamp(4rem,11vw,10rem)/.9 var(--display) !important; text-transform: uppercase; }
+    .nafs-now-copy p { max-width: 340px; margin: 0 0 0 auto; color: rgba(246,233,207,.8); font-size: 11px; line-height: 1.9; }
+    #nafs-begin { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr .75fr; align-items: center; gap: 8vw; padding: 11vw 8vw !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important; }
+    #nafs-begin h2 { max-width: 800px; margin: 25px 0 18px; color: var(--nafs-ink) !important; font: 500 clamp(3.6rem,8vw,8rem)/.9 var(--display) !important; }
+    #nafs-begin p { max-width: 430px; color: #594632; font-size: 11px; line-height: 1.9; }
+    .nafs-begin-art { position: relative; min-height: 460px; overflow: hidden; background: linear-gradient(155deg,#b7966c,#6d4d2e); }
+    .nafs-begin-art::before { position: absolute; inset: 10% 13% -15%; border: 1px solid rgba(246,233,207,.66); border-bottom: 0; border-radius: 50% 50% 0 0 / 31% 31% 0 0; background: linear-gradient(155deg,rgba(246,233,207,.34),rgba(27,18,9,.24)); content: ""; }
+    .nafs-begin-art::after { position: absolute; inset: 24% 29% -15%; border: 1px solid rgba(246,233,207,.4); border-bottom: 0; border-radius: 50% 50% 0 0 / 31% 31% 0 0; content: ""; }
+
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now):not(.nafs-privacy):not(#nafs-begin) { max-width: 1120px; margin: 0 auto !important; padding: clamp(34px,6vw,80px) 0 !important; color: var(--nafs-ink) !important; }
+    body:not(.theme-light) main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now):not(.nafs-privacy):not(#nafs-begin) { max-width: 1120px; margin: 0 auto !important; padding: clamp(34px,6vw,80px) 0 !important; color: var(--nafs-ink) !important; }
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="bg-slate-"], body:not(.theme-light) main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="bg-slate-"] { border-color: var(--nafs-line) !important; background-color: var(--nafs-paper) !important; color: var(--nafs-ink) !important; box-shadow: none !important; }
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="text-slate-"], body:not(.theme-light) main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="text-slate-"] { color: var(--nafs-brown) !important; }
+    body.theme-light main#top > section:not([hidden]) input:not([type="radio"]):not([type="checkbox"]), body.theme-light main#top > section:not([hidden]) textarea, body.theme-light main#top > section:not([hidden]) select,
+    body:not(.theme-light) main#top > section:not([hidden]) input:not([type="radio"]):not([type="checkbox"]), body:not(.theme-light) main#top > section:not([hidden]) textarea, body:not(.theme-light) main#top > section:not([hidden]) select {
+      border-color: var(--nafs-line) !important; border-radius: 2px !important; background: #fbf3e5 !important; color: var(--nafs-ink) !important;
+    }
+    body.theme-light main#top > section:not([hidden]) button, body:not(.theme-light) main#top > section:not([hidden]) button { border-radius: 999px; }
+    .page-cover { position: relative; min-height: clamp(280px,40vw,470px); overflow: hidden; border-radius: 0 !important; background: radial-gradient(ellipse at 77% 32%,rgba(168,127,78,.36),transparent 27%),linear-gradient(135deg,#392919,#1b1209) !important; color: var(--nafs-cream) !important; box-shadow: none !important; }
+    .page-cover::before { position: absolute; top: 8%; right: 11%; bottom: -18%; width: 35%; border: 1px solid rgba(246,233,207,.28); border-bottom: 0; border-radius: 50% 50% 0 0 / 30% 30% 0 0; background: linear-gradient(150deg,rgba(246,233,207,.18),rgba(107,74,38,.2)); content: ""; }
+    .page-cover-copy { position: relative; z-index: 1; padding: clamp(28px,5vw,70px) !important; color: var(--nafs-cream) !important; }
+    .page-cover h1 { max-width: 900px; margin: 0 0 10px; color: var(--nafs-cream) !important; font: 500 clamp(3rem,7.5vw,7rem)/.9 var(--display) !important; }
+    .page-cover p, .page-cover label, .page-cover span { color: rgba(246,233,207,.78) !important; }
+    .page-cover select { color: var(--nafs-ink) !important; }
+    #assessment-form, #schema-form, #reflection-form, #mental-health-form { border: 1px solid var(--nafs-line) !important; border-radius: 0 !important; padding: clamp(18px,4vw,42px) !important; background: var(--nafs-paper) !important; color: var(--nafs-ink) !important; box-shadow: none !important; }
+    body.theme-light main#top #assessment-form fieldset, body.theme-light main#top #schema-form fieldset, body.theme-light main#top #reflection-form fieldset, body.theme-light main#top #mental-health-form fieldset,
+    body:not(.theme-light) main#top #assessment-form fieldset, body:not(.theme-light) main#top #schema-form fieldset, body:not(.theme-light) main#top #reflection-form fieldset, body:not(.theme-light) main#top #mental-health-form fieldset {
+      border: 1px solid rgba(107,74,38,.26) !important; border-radius: 2px !important; background: var(--nafs-cream) !important; color: var(--nafs-ink) !important;
+    }
+    body.theme-light main#top #assessment-form legend, body.theme-light main#top #schema-form legend, body.theme-light main#top #reflection-form legend, body.theme-light main#top #mental-health-form legend,
+    body:not(.theme-light) main#top #assessment-form legend, body:not(.theme-light) main#top #schema-form legend, body:not(.theme-light) main#top #reflection-form legend, body:not(.theme-light) main#top #mental-health-form legend {
+      padding: 0 6px !important; color: var(--nafs-ink) !important; font: 600 13px/1.6 var(--sans) !important; letter-spacing: 0 !important;
+    }
+    body.theme-light main#top #assessment-form fieldset label, body.theme-light main#top #schema-form fieldset label, body.theme-light main#top #reflection-form fieldset label, body.theme-light main#top #mental-health-form fieldset label,
+    body:not(.theme-light) main#top #assessment-form fieldset label, body:not(.theme-light) main#top #schema-form fieldset label, body:not(.theme-light) main#top #reflection-form fieldset label, body:not(.theme-light) main#top #mental-health-form fieldset label {
+      border: 1px solid rgba(107,74,38,.27) !important; border-radius: 999px !important; background: #f9efd9 !important; color: var(--nafs-brown) !important;
+      font: 400 12px/1.45 var(--sans) !important; transition: transform .2s ease,border-color .2s ease,background-color .2s ease,color .2s ease;
+    }
+    body.theme-light main#top #assessment-form fieldset label:hover, body.theme-light main#top #schema-form fieldset label:hover, body.theme-light main#top #reflection-form fieldset label:hover, body.theme-light main#top #mental-health-form fieldset label:hover,
+    body:not(.theme-light) main#top #assessment-form fieldset label:hover, body:not(.theme-light) main#top #schema-form fieldset label:hover, body:not(.theme-light) main#top #reflection-form fieldset label:hover, body:not(.theme-light) main#top #mental-health-form fieldset label:hover {
+      transform: translateY(-1px); border-color: var(--nafs-tan) !important; background: #eddbbb !important; color: var(--nafs-ink) !important;
+    }
+    body.theme-light main#top #assessment-form fieldset label.answer-option-selected, body.theme-light main#top #schema-form fieldset label.answer-option-selected, body.theme-light main#top #reflection-form fieldset label.answer-option-selected,
+    body:not(.theme-light) main#top #assessment-form fieldset label.answer-option-selected, body:not(.theme-light) main#top #schema-form fieldset label.answer-option-selected, body:not(.theme-light) main#top #reflection-form fieldset label.answer-option-selected {
+      border-color: var(--nafs-brown) !important; background: var(--nafs-tan) !important; color: #fff8eb !important;
+    }
+    body.theme-light main#top #assessment-form fieldset label.answer-option-selected:hover, body.theme-light main#top #schema-form fieldset label.answer-option-selected:hover, body.theme-light main#top #reflection-form fieldset label.answer-option-selected:hover,
+    body:not(.theme-light) main#top #assessment-form fieldset label.answer-option-selected:hover, body:not(.theme-light) main#top #schema-form fieldset label.answer-option-selected:hover, body:not(.theme-light) main#top #reflection-form fieldset label.answer-option-selected:hover {
+      background: var(--nafs-brown) !important; color: var(--nafs-cream) !important;
+    }
+    @supports selector(label:has(input:checked)) {
+      body.theme-light main#top #mental-health-form fieldset label:has(input:checked), body:not(.theme-light) main#top #mental-health-form fieldset label:has(input:checked) {
+        border-color: var(--nafs-brown) !important; background: var(--nafs-tan) !important; color: #fff8eb !important;
+      }
+      body.theme-light main#top #mental-health-form fieldset label:has(input:checked):hover, body:not(.theme-light) main#top #mental-health-form fieldset label:has(input:checked):hover {
+        background: var(--nafs-brown) !important; color: var(--nafs-cream) !important;
+      }
+    }
+    body.theme-light main#top #assessment-form input[type="radio"], body.theme-light main#top #schema-form input[type="radio"], body.theme-light main#top #reflection-form input[type="radio"], body.theme-light main#top #mental-health-form input[type="radio"], body.theme-light main#top #mental-health-form input[type="checkbox"],
+    body:not(.theme-light) main#top #assessment-form input[type="radio"], body:not(.theme-light) main#top #schema-form input[type="radio"], body:not(.theme-light) main#top #reflection-form input[type="radio"], body:not(.theme-light) main#top #mental-health-form input[type="radio"], body:not(.theme-light) main#top #mental-health-form input[type="checkbox"] { accent-color: var(--nafs-brown); }
+    .orb { background: radial-gradient(circle at 30% 30%,#f1d3a5,#a87f4e 68%) !important; box-shadow: 0 0 0 12px rgba(168,127,78,.1),0 0 55px rgba(168,127,78,.22) !important; }
+    .orb.expand { box-shadow: 0 0 0 26px rgba(168,127,78,.08),0 0 85px rgba(168,127,78,.3) !important; }
+    footer { position: relative; z-index: 2; border-color: var(--nafs-line) !important; padding: 38px max(7vw,env(safe-area-inset-right)) max(38px,env(safe-area-inset-bottom)) max(7vw,env(safe-area-inset-left)) !important; background: var(--nafs-menu) !important; color: rgba(246,233,207,.74) !important; }
+    footer [data-i18n="global.disclaimer"] { margin: 0; color: var(--nafs-cream) !important; font: 500 1.2rem/1.3 var(--display) !important; }
+    footer [data-i18n="global.safety"] { color: #d4b481 !important; font-size: 10px !important; }
+    .nafs-emergency-notice { max-width: 760px; margin: 16px auto 0; color: rgba(246,233,207,.64); font-size: 9px; line-height: 1.7; }
+
+    .nafs-loader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; background: var(--nafs-cream); transition: opacity .55s ease,visibility .55s ease; }
+    .nafs-loader.is-gone { visibility: hidden; opacity: 0; }
+    .nafs-loader-mark { position: relative; z-index: 1; display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--nafs-ink); border-radius: 50%; background: var(--nafs-cream); }
+    .nafs-loader-mark span { font: 600 10px/1 var(--sans); letter-spacing: .08em; }
+    .nafs-loader-lines { position: absolute; top: 50%; left: 50%; display: flex; height: 112px; gap: 10px; transform: translate(-50%,-50%); }
+    .nafs-loader-lines i { width: 1px; height: 100%; background: var(--nafs-brown); transform: scaleY(0); transform-origin: top; animation: nafs-draw-line 1s cubic-bezier(.2,.7,.2,1) forwards; }
+    .nafs-loader-lines i:nth-child(2) { animation-delay: .12s; }
+    .nafs-loader-lines i:nth-child(3) { animation-delay: .24s; }
+    @keyframes nafs-draw-line { to { transform: scaleY(1); } }
+    .nafs-reveal-word { display: inline-block; opacity: 0; transform: translateY(115%); transition: opacity .55s ease,transform .75s cubic-bezier(.18,.72,.2,1); transition-delay: var(--nafs-line-delay,0ms); }
+    .nafs-lines-revealed .nafs-reveal-word { opacity: 1; transform: translateY(0); }
+    #nafs-listening .nafs-scatter-letter { opacity: 1; transform: none; }
+    .route-entering { animation: nafs-route-enter .55s cubic-bezier(.2,.7,.2,1) var(--route-enter-delay,0ms) both !important; }
+    @keyframes nafs-route-enter { from { opacity: .65; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 1000px) {
+      #home-dashboard { grid-template-columns: 1fr 1fr !important; }
+      .nafs-dashboard-intro { grid-column: 1/-1; }
+      .nafs-dashboard-intro h2 { max-width: 600px; }
+      .nafs-dashboard-intro p { max-width: 420px; }
+      #home-tests > .grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+      #home-tests > .grid > article { min-height: 43vh; }
+    }
+    @media (max-width: 1200px) and (min-width: 901px) {
+      #main-home .nafs-word { font-size: clamp(12rem,23vw,18rem) !important; }
+    }
+    @media (max-width: 900px) and (min-width: 761px) {
+      #main-home .nafs-word { font-size: clamp(8rem,23vw,12rem) !important; }
+      #main-home .hero-caption { width: min(215px,24vw) !important; }
+    }
+    @media (max-width: 760px) {
+      .orbite-navbar { min-height: 66px; }
+      #main-home { min-height: 650px !important; height: 100svh; }
+      #main-home .nafs-eyebrow { top: 16vh; }
+      #main-home .hero-greeting { top: calc(16vh + 32px); }
+      #main-home .hero-copy > p[data-i18n="hero.subtitle"] { top: 26vh; max-width: 55vw; }
+      #main-home .hero-actions { top: 43vh; flex-direction: column; align-items: flex-start; }
+      #main-home .hero-dock { top: 16vh; right: 5vw; width: 27vw; }
+      #main-home .hero-dock-card { padding: 9px 0 !important; }
+      #main-home .hero-caption { width: 33vw !important; }
+      #main-home .hero-safety { display: none; }
+      #main-home .nafs-word { bottom: 7vh; font-size: clamp(4.5rem,21vw,10rem) !important; }
+      #daily-note { padding: 18vw 7vw 0 !important; }
+      .nafs-story-heading { max-width: 720px; margin-top: 25px; font-size: clamp(3.5rem,13vw,7.6rem) !important; }
+      #daily-note-card { grid-template-columns: 1fr 1fr; gap: 19px 6vw; padding: 11vw 0 8vw !important; }
+      #daily-note-card::before { grid-column: 1; grid-row: 1; min-height: 330px; }
+      #daily-note-card > div { grid-column: 2; grid-row: 1; align-self: end; }
+      #daily-note-quote { grid-column: 1/-1; grid-row: 2; border-top: 1px solid var(--nafs-line) !important; border-left: 0 !important; padding: 16px 0 0 !important; }
+      .nafs-gallery-band { min-height: 210px; gap: 5vw; padding-bottom: 34px; }
+      .nafs-gallery-art { min-height: 130px; }
+      .nafs-gallery-art.arch { min-height: 165px; }
+      .nafs-gallery-art.moon { min-height: 110px; }
+      .nafs-gallery-art.tree { min-height: 140px; }
+      #nafs-listening { min-height: 78svh; padding: 22vw 5vw !important; }
+      #nafs-listening > .nafs-section-label { top: 9vw; left: 7vw; }
+      .nafs-listening-title { font-size: clamp(3.5rem,14vw,7.5rem) !important; }
+      .nafs-float-art.moon { top: 20%; right: 7%; width: 22vw; }
+      .nafs-float-art.tree { bottom: 8%; left: 6%; width: 25vw; }
+      #home-dashboard { grid-template-columns: 1fr 1fr !important; padding: 17vw 7vw !important; }
+      #home-dashboard .sanctuary-card { min-height: 390px; padding: 20px !important; }
+      #home-tests { padding: 17vw 7vw !important; }
+      #home-tests #full-assessment-card { min-height: 48vh; }
+      #home-tests > .grid { grid-template-columns: 1fr 1fr !important; }
+      #home-tests > .grid > article { min-height: 44vh; }
+      .nafs-privacy { min-height: 78svh; padding: 22vw 7vw 15vw !important; }
+      .nafs-privacy > .nafs-section-label { top: 9vw; left: 7vw; }
+      .nafs-privacy h2 { font-size: clamp(3.5rem,13vw,8rem) !important; }
+      #nafs-now { min-height: 85svh; padding: 16vw 7vw !important; }
+      #nafs-begin { grid-template-columns: 1fr .8fr; gap: 5vw; padding: 17vw 7vw !important; }
+      .nafs-begin-art { min-height: 360px; }
+      #top-nav > div { grid-template-columns: 1fr .55fr; gap: 14px 5vw; padding-right: 6vw !important; padding-left: 6vw !important; }
+      #primary-nav { grid-template-columns: 1fr 1fr !important; }
+      #top-nav a.sidebar-link { font-size: clamp(1.2rem,4vw,1.8rem) !important; }
+      .nafs-menu-info { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
+      .nafs-menu-info p { font-size: 9px; }
+      body:not([data-page="home"]) main#top { padding: 5rem 6vw 3rem !important; }
+      body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now):not(.nafs-privacy):not(#nafs-begin),
+      body:not(.theme-light) main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now):not(.nafs-privacy):not(#nafs-begin) { padding: 30px 0 !important; }
+    }
+    @media (max-width: 480px) {
+      #main-home { min-height: 650px !important; }
+      #main-home .nafs-eyebrow { top: 15vh; }
+      #main-home .hero-greeting { top: calc(15vh + 31px); }
+      #main-home .hero-copy > p[data-i18n="hero.subtitle"] { top: 24vh; max-width: 61vw; font-size: 11px; }
+      #main-home .hero-actions { top: 40vh; }
+      #main-home .hero-dock { top: auto; right: 5vw; bottom: 26vh; width: 34vw; }
+      #main-home .hero-dock-card { padding: 7px 0 !important; }
+      #main-home .hero-dock-private { display: none !important; }
+      #main-home .hero-caption { right: 5vw !important; bottom: 5vh !important; width: 34vw !important; }
+      #main-home .hero-metrics { flex-wrap: wrap; gap: 8px 13px; }
+      #main-home .hero-caption-copy p { font-size: 9px; }
+      #main-home .nafs-word { left: 5vw; bottom: 6vh; font-size: clamp(4rem,20vw,6.3rem) !important; }
+      #daily-note-card { grid-template-columns: .95fr 1.05fr; }
+      .nafs-story-heading { margin-top: 20px; font-size: clamp(2.9rem,12vw,4rem) !important; }
+      #daily-note-card::before { min-height: 260px; }
+      #daily-note-heading { font-size: clamp(2rem,9vw,3.4rem) !important; }
+      #daily-note-advice { font-size: 10px; line-height: 1.75; }
+      #daily-note-quote { font-size: 1.2rem !important; }
+      .nafs-gallery-band { min-height: 165px; gap: 4vw; }
+      .nafs-gallery-art { min-height: 105px; }
+      .nafs-gallery-art.arch { min-height: 133px; }
+      .nafs-gallery-art.moon { min-height: 89px; }
+      .nafs-gallery-art.tree { min-height: 112px; }
+      #home-dashboard { grid-template-columns: 1fr !important; }
+      .nafs-dashboard-intro h2 { font-size: 3.6rem !important; }
+      #home-dashboard .sanctuary-card { min-height: 350px; }
+      #home-tests > .grid { grid-template-columns: 1fr !important; }
+      #home-tests > .grid > article { min-height: 360px; }
+      .nafs-privacy h2 { font-size: clamp(2.7rem,12vw,3.9rem) !important; }
+      #nafs-begin { grid-template-columns: 1fr; }
+      .nafs-begin-art { min-height: 300px; }
+      #top-nav > div { display: block !important; overflow: visible; padding-top: max(86px,calc(env(safe-area-inset-top) + 78px)) !important; }
+      #top-nav > div::after { position: absolute; top: 92px; right: 7vw; font-size: 5.6rem; }
+      #top-nav .sidebar-search { width: 100%; }
+      #primary-nav { grid-template-columns: 1fr !important; margin-top: 24px; }
+      #top-nav a.sidebar-link { padding: 7px 0 !important; font-size: 1.55rem !important; }
+      #top-nav .sidebar-settings { margin-top: 20px !important; }
+      .nafs-menu-info { grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: 18px; }
+      .page-cover { min-height: 290px; }
+      .page-cover-copy { padding: 25px !important; }
+      .page-cover h1 { font-size: clamp(2.6rem,12vw,4rem) !important; }
+      footer { text-align: left !important; }
+    }
+    @media (min-width: 481px) and (max-width: 900px) {
+      #top-nav > div::after {
+        max-width: 100%;
+        font-size: clamp(2.4rem,5.5vw,3.8rem);
+        line-height: .9;
+        text-align: center;
+        text-wrap: balance;
+      }
+    }
+    @media (max-width: 600px) {
+      #top-nav > div::after { display: none !important; }
+    }
+    html:has(#top-nav:not(.hidden)),
+    body:has(#top-nav:not(.hidden)) { overflow: hidden !important; }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .nafs-loader-lines { display: none !important; }
+      #main-home .nafs-letter { transform: none !important; animation: none !important; }
+      .nafs-reveal-word { opacity: 1 !important; transform: none !important; }
+      #nafs-listening .nafs-scatter-letter { opacity: 1 !important; transform: none !important; }
+      .fade-up,.scroll-reveal { opacity: 1 !important; transform: none !important; }
+    }
+    /* Mind Coach has its own identity; Nafs remains a separate check-in. */
+    #main-home .mind-coach-word { position: absolute; left: 4vw; bottom: max(5vh,30px); z-index: 1; display: block; width: 90vw; margin: 0 !important; color: var(--nafs-cream) !important; font: 600 clamp(4rem,15vw,15rem)/.72 var(--display) !important; letter-spacing: -.055em !important; white-space: normal; text-transform: uppercase; }
+    #main-home .mind-word-line { display: block; width: fit-content; overflow: hidden; line-height: .78; }
+    #main-home .mind-word-letter { display: inline-block; transform: translateY(115%); animation: nafs-letter-rise 1.08s cubic-bezier(.18,.72,.2,1) forwards; }
+    #main-home .mind-word-line:first-child .mind-word-letter:nth-child(1) { animation-delay: 1.24s; }
+    #main-home .mind-word-line:first-child .mind-word-letter:nth-child(2) { animation-delay: 1.31s; }
+    #main-home .mind-word-line:first-child .mind-word-letter:nth-child(3) { animation-delay: 1.38s; }
+    #main-home .mind-word-line:first-child .mind-word-letter:nth-child(4) { animation-delay: 1.45s; }
+    #main-home .mind-word-line:last-child .mind-word-letter:nth-child(1) { animation-delay: 1.52s; }
+    #main-home .mind-word-line:last-child .mind-word-letter:nth-child(2) { animation-delay: 1.59s; }
+    #main-home .mind-word-line:last-child .mind-word-letter:nth-child(3) { animation-delay: 1.66s; }
+    #main-home .mind-word-line:last-child .mind-word-letter:nth-child(4) { animation-delay: 1.73s; }
+    #main-home .mind-word-line:last-child .mind-word-letter:nth-child(5) { animation-delay: 1.8s; }
+    @media (max-width: 760px) {
+      #main-home .mind-coach-word { left: 5vw; bottom: 7vh; width: 90vw; font-size: clamp(3.25rem,16vw,8rem) !important; }
+      #main-home .hero-caption { width: min(30vw,145px) !important; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #main-home .mind-word-letter { transform: none !important; animation: none !important; }
+    }
+
+    /* Modern, warm question cards for the Mind Coach forms. */
+    body.theme-light main#top #assessment-form, body.theme-light main#top #schema-form, body.theme-light main#top #reflection-form, body.theme-light main#top #mental-health-form,
+    body:not(.theme-light) main#top #assessment-form, body:not(.theme-light) main#top #schema-form, body:not(.theme-light) main#top #reflection-form, body:not(.theme-light) main#top #mental-health-form {
+      border: 1px solid rgba(107,74,38,.2) !important;
+      border-radius: 20px !important;
+      padding: clamp(16px,3vw,30px) !important;
+      background: linear-gradient(145deg,#fff9ed,#f2e4ca) !important;
+      box-shadow: 0 16px 42px rgba(27,18,9,.09) !important;
+      color: var(--nafs-ink) !important;
+    }
+    body.theme-light main#top #questions, body.theme-light main#top #schema-questions, body.theme-light main#top #reflection-questions,
+    body:not(.theme-light) main#top #questions, body:not(.theme-light) main#top #schema-questions, body:not(.theme-light) main#top #reflection-questions {
+      display: grid !important;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 14px !important;
+    }
+    body.theme-light main#top #questions > .q-enter, body.theme-light main#top #schema-questions > .q-enter, body.theme-light main#top #reflection-questions > .q-enter,
+    body:not(.theme-light) main#top #questions > .q-enter, body:not(.theme-light) main#top #schema-questions > .q-enter, body:not(.theme-light) main#top #reflection-questions > .q-enter {
+      min-width: 0;
+      margin: 0 !important;
+      border: 1px solid rgba(107,74,38,.19) !important;
+      border-inline-start: 3px solid var(--nafs-tan) !important;
+      border-radius: 15px !important;
+      padding: 1.15rem !important;
+      background: rgba(255,250,240,.86) !important;
+      box-shadow: 0 5px 16px rgba(27,18,9,.045);
+      transition: transform .2s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease;
+    }
+    body.theme-light main#top #questions > .q-enter:hover, body.theme-light main#top #schema-questions > .q-enter:hover, body.theme-light main#top #reflection-questions > .q-enter:hover,
+    body:not(.theme-light) main#top #questions > .q-enter:hover, body:not(.theme-light) main#top #schema-questions > .q-enter:hover, body:not(.theme-light) main#top #reflection-questions > .q-enter:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168,127,78,.58) !important;
+      box-shadow: 0 10px 24px rgba(27,18,9,.08);
+    }
+    body.theme-light main#top #questions > .q-enter:focus-within, body.theme-light main#top #schema-questions > .q-enter:focus-within, body.theme-light main#top #reflection-questions > .q-enter:focus-within,
+    body:not(.theme-light) main#top #questions > .q-enter:focus-within, body:not(.theme-light) main#top #schema-questions > .q-enter:focus-within, body:not(.theme-light) main#top #reflection-questions > .q-enter:focus-within {
+      border-color: var(--nafs-tan) !important;
+      background: #fffaf0 !important;
+      box-shadow: 0 0 0 3px rgba(168,127,78,.16),0 10px 24px rgba(27,18,9,.07);
+    }
+    body.theme-light main#top #questions > .q-enter legend, body.theme-light main#top #schema-questions > .q-enter legend, body.theme-light main#top #reflection-questions > .q-enter legend,
+    body:not(.theme-light) main#top #questions > .q-enter legend, body:not(.theme-light) main#top #schema-questions > .q-enter legend, body:not(.theme-light) main#top #reflection-questions > .q-enter legend {
+      display: flex;
+      width: 100%;
+      max-width: none;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: 0 !important;
+      color: var(--nafs-ink) !important;
+      font: 500 .95rem/1.55 var(--sans) !important;
+      letter-spacing: -.01em !important;
+    }
+    .question-index {
+      display: inline-grid;
+      width: 2rem;
+      height: 2rem;
+      flex: 0 0 2rem;
+      place-items: center;
+      border: 1px solid rgba(107,74,38,.16);
+      border-radius: 50%;
+      background: #efe0c3;
+      color: var(--nafs-brown);
+      font: 600 .66rem/1 var(--sans);
+      letter-spacing: .06em;
+    }
+    body.theme-light main#top #questions > .q-enter > div.mt-3, body.theme-light main#top #schema-questions > .q-enter > div.mt-3, body.theme-light main#top #reflection-questions > .q-enter > div.mt-3,
+    body:not(.theme-light) main#top #questions > .q-enter > div.mt-3, body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3, body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 {
+      display: grid !important;
+      grid-template-columns: repeat(4,minmax(0,1fr));
+      gap: .5rem !important;
+      margin-top: 1rem !important;
+    }
+    body.theme-light main#top #questions > .q-enter > div.mt-3 label, body.theme-light main#top #schema-questions > .q-enter > div.mt-3 label, body.theme-light main#top #reflection-questions > .q-enter > div.mt-3 label,
+    body:not(.theme-light) main#top #questions > .q-enter > div.mt-3 label, body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3 label, body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 label {
+      display: flex;
+      min-width: 0;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      border: 1px solid rgba(107,74,38,.2) !important;
+      border-radius: 11px !important;
+      padding: .55rem .45rem !important;
+      background: #f7ecd7 !important;
+      color: var(--nafs-brown) !important;
+      font: 500 .72rem/1.3 var(--sans) !important;
+      text-align: center;
+      transition: transform .18s ease,border-color .18s ease,background-color .18s ease,color .18s ease,box-shadow .18s ease;
+    }
+    body.theme-light main#top #questions > .q-enter > div.mt-3 label:hover, body.theme-light main#top #schema-questions > .q-enter > div.mt-3 label:hover, body.theme-light main#top #reflection-questions > .q-enter > div.mt-3 label:hover,
+    body:not(.theme-light) main#top #questions > .q-enter > div.mt-3 label:hover, body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3 label:hover, body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 label:hover {
+      transform: translateY(-1px);
+      border-color: var(--nafs-tan) !important;
+      background: #efe0c3 !important;
+      color: var(--nafs-ink) !important;
+    }
+    body.theme-light main#top #questions > .q-enter > div.mt-3 label.answer-option-selected, body.theme-light main#top #schema-questions > .q-enter > div.mt-3 label.answer-option-selected, body.theme-light main#top #reflection-questions > .q-enter > div.mt-3 label.answer-option-selected,
+    body:not(.theme-light) main#top #questions > .q-enter > div.mt-3 label.answer-option-selected, body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3 label.answer-option-selected, body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 label.answer-option-selected {
+      border-color: var(--nafs-brown) !important;
+      background: var(--nafs-brown) !important;
+      color: #fff8eb !important;
+      box-shadow: 0 4px 12px rgba(107,74,38,.2);
+    }
+    body.theme-light main#top #questions label:focus-within, body.theme-light main#top #schema-questions label:focus-within, body.theme-light main#top #reflection-questions label:focus-within,
+    body:not(.theme-light) main#top #questions label:focus-within, body:not(.theme-light) main#top #schema-questions label:focus-within, body:not(.theme-light) main#top #reflection-questions label:focus-within {
+      outline: 2px solid var(--nafs-tan);
+      outline-offset: 2px;
+    }
+    body.theme-light main#top #assessment-form .assessment-progress-panel, body:not(.theme-light) main#top #assessment-form .assessment-progress-panel {
+      border: 1px solid rgba(107,74,38,.16);
+      border-radius: 13px;
+      padding: .85rem 1rem;
+      background: rgba(246,233,207,.55);
+      --board-muted: var(--nafs-brown);
+    }
+    body.theme-light main#top #assessment-form .assessment-progress-head strong, body:not(.theme-light) main#top #assessment-form .assessment-progress-head strong { color: var(--nafs-ink); }
+    body.theme-light main#top #assessment-form .assessment-progress-track, body:not(.theme-light) main#top #assessment-form .assessment-progress-track { background: rgba(107,74,38,.14); }
+    body.theme-light main#top #assessment-form .assessment-progress-track > span, body:not(.theme-light) main#top #assessment-form .assessment-progress-track > span { background: linear-gradient(90deg,var(--nafs-tan),var(--nafs-brown)); }
+    body.theme-light main#top #assessment-form > div:last-of-type, body.theme-light main#top #schema-form > div:last-of-type, body.theme-light main#top #reflection-form > div:last-of-type,
+    body:not(.theme-light) main#top #assessment-form > div:last-of-type, body:not(.theme-light) main#top #schema-form > div:last-of-type, body:not(.theme-light) main#top #reflection-form > div:last-of-type {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      margin-top: 1.4rem !important;
+      border-top: 1px solid rgba(107,74,38,.16);
+      padding-top: 1.1rem;
+    }
+    body.theme-light main#top #assessment-form button[type="submit"], body.theme-light main#top #schema-form button[type="submit"], body.theme-light main#top #reflection-form button[type="submit"], body.theme-light main#top #mental-health-form button[type="submit"],
+    body:not(.theme-light) main#top #assessment-form button[type="submit"], body:not(.theme-light) main#top #schema-form button[type="submit"], body:not(.theme-light) main#top #reflection-form button[type="submit"], body:not(.theme-light) main#top #mental-health-form button[type="submit"] {
+      min-height: 48px;
+      border: 1px solid var(--nafs-brown) !important;
+      border-radius: 999px !important;
+      padding: .75rem 1.35rem !important;
+      background: var(--nafs-brown) !important;
+      color: #fff8eb !important;
+      font-size: .72rem !important;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: transform .2s ease,background-color .2s ease;
+    }
+    body.theme-light main#top #assessment-form button[type="submit"]:hover, body.theme-light main#top #schema-form button[type="submit"]:hover, body.theme-light main#top #reflection-form button[type="submit"]:hover, body.theme-light main#top #mental-health-form button[type="submit"]:hover,
+    body:not(.theme-light) main#top #assessment-form button[type="submit"]:hover, body:not(.theme-light) main#top #schema-form button[type="submit"]:hover, body:not(.theme-light) main#top #reflection-form button[type="submit"]:hover, body:not(.theme-light) main#top #mental-health-form button[type="submit"]:hover {
+      transform: translateY(-2px);
+      background: var(--nafs-tan) !important;
+    }
+    body.theme-light main#top #assessment-form button[type="button"], body.theme-light main#top #schema-form button[type="button"], body.theme-light main#top #reflection-form button[type="button"],
+    body:not(.theme-light) main#top #assessment-form button[type="button"], body:not(.theme-light) main#top #schema-form button[type="button"], body:not(.theme-light) main#top #reflection-form button[type="button"] {
+      min-height: 48px;
+      border: 1px solid rgba(107,74,38,.35) !important;
+      border-radius: 999px !important;
+      padding: .7rem 1.15rem !important;
+      background: transparent !important;
+      color: var(--nafs-brown) !important;
+      font-size: .72rem !important;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    body.theme-light main#top #mental-health-form fieldset, body:not(.theme-light) main#top #mental-health-form fieldset {
+      border: 1px solid rgba(107,74,38,.18) !important;
+      border-radius: 14px !important;
+      padding: 1rem !important;
+      background: rgba(255,250,240,.82) !important;
+    }
+    body.theme-light main#top #mental-health-form legend, body:not(.theme-light) main#top #mental-health-form legend { padding: 0 .35rem !important; color: var(--nafs-ink) !important; font-weight: 600; }
+    body.theme-light main#top #mental-health-form #mental-health-concerns label, body.theme-light main#top #mental-health-form #mental-health-safety-options label,
+    body:not(.theme-light) main#top #mental-health-form #mental-health-concerns label, body:not(.theme-light) main#top #mental-health-form #mental-health-safety-options label {
+      min-height: 48px;
+      border: 1px solid rgba(107,74,38,.19) !important;
+      border-radius: 11px !important;
+      background: #f7ecd7 !important;
+      color: var(--nafs-brown) !important;
+      transition: border-color .18s ease,background-color .18s ease,color .18s ease;
+    }
+    body.theme-light main#top #mental-health-form #mental-health-concerns label:has(input:checked), body.theme-light main#top #mental-health-form #mental-health-safety-options label:has(input:checked),
+    body:not(.theme-light) main#top #mental-health-form #mental-health-concerns label:has(input:checked), body:not(.theme-light) main#top #mental-health-form #mental-health-safety-options label:has(input:checked) {
+      border-color: var(--nafs-brown) !important;
+      background: var(--nafs-brown) !important;
+      color: #fff8eb !important;
+    }
+    body.theme-light main#top #mental-health-form input[type="radio"], body.theme-light main#top #mental-health-form input[type="checkbox"], body:not(.theme-light) main#top #mental-health-form input[type="radio"], body:not(.theme-light) main#top #mental-health-form input[type="checkbox"] { accent-color: var(--nafs-tan); }
+    body.theme-light main#top #mental-health-form input:focus-visible, body.theme-light main#top #mental-health-form select:focus-visible, body.theme-light main#top #mental-health-form textarea:focus-visible,
+    body:not(.theme-light) main#top #mental-health-form input:focus-visible, body:not(.theme-light) main#top #mental-health-form select:focus-visible, body:not(.theme-light) main#top #mental-health-form textarea:focus-visible {
+      outline: 2px solid var(--nafs-tan);
+      outline-offset: 2px;
+    }
+    @media (max-width: 900px) {
+      body.theme-light main#top #questions > .q-enter > div.mt-3, body.theme-light main#top #schema-questions > .q-enter > div.mt-3, body.theme-light main#top #reflection-questions > .q-enter > div.mt-3,
+      body:not(.theme-light) main#top #questions > .q-enter > div.mt-3, body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3, body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 700px) {
+      body.theme-light main#top #questions, body.theme-light main#top #schema-questions, body.theme-light main#top #reflection-questions,
+      body:not(.theme-light) main#top #questions, body:not(.theme-light) main#top #schema-questions, body:not(.theme-light) main#top #reflection-questions { grid-template-columns: minmax(0,1fr); gap: 10px !important; }
+      body.theme-light main#top #questions > .q-enter, body.theme-light main#top #schema-questions > .q-enter, body.theme-light main#top #reflection-questions > .q-enter,
+      body:not(.theme-light) main#top #questions > .q-enter, body:not(.theme-light) main#top #schema-questions > .q-enter, body:not(.theme-light) main#top #reflection-questions > .q-enter { padding: 1rem !important; }
+      body.theme-light main#top #mental-health-form, body:not(.theme-light) main#top #mental-health-form { gap: 14px; }
+      body.theme-light main#top #mental-health-form #mental-health-concerns, body:not(.theme-light) main#top #mental-health-form #mental-health-concerns { grid-template-columns: minmax(0,1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      body.theme-light main#top #questions > .q-enter, body.theme-light main#top #schema-questions > .q-enter, body.theme-light main#top #reflection-questions > .q-enter,
+      body:not(.theme-light) main#top #questions > .q-enter, body:not(.theme-light) main#top #schema-questions > .q-enter, body:not(.theme-light) main#top #reflection-questions > .q-enter { transition: none; }
+      body.theme-light main#top #questions > .q-enter:hover, body.theme-light main#top #schema-questions > .q-enter:hover, body.theme-light main#top #reflection-questions > .q-enter:hover,
+      body:not(.theme-light) main#top #questions > .q-enter:hover, body:not(.theme-light) main#top #schema-questions > .q-enter:hover, body:not(.theme-light) main#top #reflection-questions > .q-enter:hover,
+      body.theme-light main#top #questions label:hover, body.theme-light main#top #schema-questions label:hover, body.theme-light main#top #reflection-questions label:hover,
+      body:not(.theme-light) main#top #questions label:hover, body:not(.theme-light) main#top #schema-questions label:hover, body:not(.theme-light) main#top #reflection-questions label:hover { transform: none; }
+    }
+
+    /* Keep the Nafs colors, but give the application real light and dark surfaces. */
+    :root {
+      --nafs-ui-bg: #f6e9cf;
+      --nafs-ui-surface: #efe0c3;
+      --nafs-ui-card: #fbf3e5;
+      --nafs-ui-input: #fffaf0;
+      --nafs-ui-text: #1b1209;
+      --nafs-ui-muted: #6b4a26;
+      --nafs-ui-line: rgba(107,74,38,.22);
+    }
+    body.theme-light {
+      --nafs-ui-bg: #f6e9cf;
+      --nafs-ui-surface: #efe0c3;
+      --nafs-ui-card: #fbf3e5;
+      --nafs-ui-input: #fffaf0;
+      --nafs-ui-text: #1b1209;
+      --nafs-ui-muted: #6b4a26;
+      --nafs-ui-line: rgba(107,74,38,.22);
+      color-scheme: light !important;
+    }
+    body:not(.theme-light) {
+      --nafs-ui-bg: #1b1209;
+      --nafs-ui-surface: #251a0f;
+      --nafs-ui-card: #302115;
+      --nafs-ui-input: #21170d;
+      --nafs-ui-text: #f6e9cf;
+      --nafs-ui-muted: #d0b894;
+      --nafs-ui-line: rgba(246,233,207,.22);
+      color-scheme: dark !important;
+    }
+    html { background: var(--nafs-ui-bg) !important; }
+    body, body.theme-light, body:not(.theme-light) {
+      background: var(--nafs-ui-bg) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) main#top > section:not(#main-home):not(#daily-note):not(#nafs-listening):not(#home-dashboard):not(#home-tests):not(.nafs-privacy):not(#nafs-now):not(#nafs-begin) {
+      background-color: var(--nafs-ui-bg) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) main#top > section:not([hidden]) [class*="bg-slate-"] {
+      border-color: var(--nafs-ui-line) !important;
+      background-color: var(--nafs-ui-surface) !important;
+      color: var(--nafs-ui-text) !important;
+      box-shadow: none !important;
+    }
+    body:not(.theme-light) main#top > section:not([hidden]) [class*="text-slate-"] { color: var(--nafs-ui-muted) !important; }
+    body:not(.theme-light) main#top [class*="border-white"] { border-color: var(--nafs-ui-line) !important; }
+    body:not(.theme-light) main#top h1,
+    body:not(.theme-light) main#top h2,
+    body:not(.theme-light) main#top h3,
+    body:not(.theme-light) main#top h4,
+    body:not(.theme-light) main#top h5,
+    body:not(.theme-light) main#top label,
+    body:not(.theme-light) main#top legend { color: var(--nafs-ui-text) !important; }
+
+    body:not(.theme-light) #daily-note,
+    body:not(.theme-light) #home-dashboard,
+    body:not(.theme-light) #home-tests,
+    body:not(.theme-light) .nafs-privacy,
+    body:not(.theme-light) #nafs-begin {
+      background: var(--nafs-ui-bg) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #daily-note-heading,
+    body:not(.theme-light) .nafs-dashboard-intro h2,
+    body:not(.theme-light) #home-tests-title,
+    body:not(.theme-light) .nafs-privacy h2,
+    body:not(.theme-light) #nafs-begin h2 { color: var(--nafs-ui-text) !important; }
+    body:not(.theme-light) #daily-note-period,
+    body:not(.theme-light) #daily-note-advice,
+    body:not(.theme-light) #daily-note-quote,
+    body:not(.theme-light) .nafs-dashboard-intro p,
+    body:not(.theme-light) #home-dashboard .sanctuary-card p,
+    body:not(.theme-light) #home-dashboard .sanctuary-card li,
+    body:not(.theme-light) #nafs-begin p { color: var(--nafs-ui-muted) !important; }
+    body:not(.theme-light) #home-dashboard .sanctuary-card {
+      border-color: var(--nafs-ui-line) !important;
+      background: var(--nafs-ui-surface) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #home-dashboard .sanctuary-card h2,
+    body:not(.theme-light) #home-dashboard .sanctuary-card h3 { color: var(--nafs-ui-text) !important; }
+    body:not(.theme-light) #home-journal { border-color: var(--nafs-ui-line) !important; background: var(--nafs-ui-input) !important; color: var(--nafs-ui-text) !important; }
+
+    body:not(.theme-light) #assessment-form,
+    body:not(.theme-light) #schema-form,
+    body:not(.theme-light) #reflection-form,
+    body:not(.theme-light) #mental-health-form {
+      border-color: var(--nafs-ui-line) !important;
+      background: linear-gradient(145deg, #2a1d11, #21170d) !important;
+      color: var(--nafs-ui-text) !important;
+      box-shadow: 0 18px 44px rgba(0,0,0,.2) !important;
+    }
+    body:not(.theme-light) #assessment-form fieldset,
+    body:not(.theme-light) #schema-form fieldset,
+    body:not(.theme-light) #reflection-form fieldset,
+    body:not(.theme-light) #mental-health-form fieldset {
+      border-color: var(--nafs-ui-line) !important;
+      background: var(--nafs-ui-surface) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #assessment-form fieldset label,
+    body:not(.theme-light) #schema-form fieldset label,
+    body:not(.theme-light) #reflection-form fieldset label,
+    body:not(.theme-light) #mental-health-form fieldset label,
+    body:not(.theme-light) #questions > .q-enter,
+    body:not(.theme-light) #schema-questions > .q-enter,
+    body:not(.theme-light) #reflection-questions > .q-enter {
+      border-color: var(--nafs-ui-line) !important;
+      background: var(--nafs-ui-card) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #assessment-form fieldset label *,
+    body:not(.theme-light) #schema-form fieldset label *,
+    body:not(.theme-light) #reflection-form fieldset label *,
+    body:not(.theme-light) #mental-health-form fieldset label * { color: inherit !important; }
+    body:not(.theme-light) #assessment-form fieldset label.answer-option-selected,
+    body:not(.theme-light) #schema-form fieldset label.answer-option-selected,
+    body:not(.theme-light) #reflection-form fieldset label.answer-option-selected,
+    body:not(.theme-light) #mental-health-form fieldset label:has(input:checked) {
+      border-color: var(--nafs-tan) !important;
+      background: var(--nafs-tan) !important;
+      color: #fff8eb !important;
+    }
+    body:not(.theme-light) #assessment-form input:not([type="radio"]):not([type="checkbox"]),
+    body:not(.theme-light) #assessment-form textarea,
+    body:not(.theme-light) #assessment-form select,
+    body:not(.theme-light) #schema-form input:not([type="radio"]):not([type="checkbox"]),
+    body:not(.theme-light) #schema-form textarea,
+    body:not(.theme-light) #schema-form select,
+    body:not(.theme-light) #reflection-form input:not([type="radio"]):not([type="checkbox"]),
+    body:not(.theme-light) #reflection-form textarea,
+    body:not(.theme-light) #reflection-form select,
+    body:not(.theme-light) #mental-health-form input:not([type="radio"]):not([type="checkbox"]),
+    body:not(.theme-light) #mental-health-form textarea,
+    body:not(.theme-light) #mental-health-form select {
+      border-color: var(--nafs-ui-line) !important;
+      background: var(--nafs-ui-input) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #assessment-form .assessment-progress-panel { border-color: var(--nafs-ui-line) !important; background: var(--nafs-ui-card) !important; }
+    body:not(.theme-light) #assessment-form .assessment-progress-head,
+    body:not(.theme-light) #assessment-form .assessment-mode-description { color: var(--nafs-ui-muted) !important; }
+    body:not(.theme-light) #assessment-form .assessment-progress-head strong { color: var(--nafs-ui-text) !important; }
+    body:not(.theme-light) #assessment-form .assessment-progress-track { background: rgba(246,233,207,.12) !important; }
+    body:not(.theme-light) #assessment-form .assessment-progress-track > span { background: linear-gradient(90deg, var(--nafs-tan), #d8b784) !important; }
+
+    body:not(.theme-light) #assessment-result,
+    body:not(.theme-light) #combined-results article,
+    body:not(.theme-light) #schema-results,
+    body:not(.theme-light) #reflection-results,
+    body:not(.theme-light) #clinical-report,
+    body:not(.theme-light) #account-panel {
+      border-color: var(--nafs-ui-line) !important;
+      background: var(--nafs-ui-surface) !important;
+      color: var(--nafs-ui-text) !important;
+    }
+    body:not(.theme-light) #assessment-result-title,
+    body:not(.theme-light) .assessment-board-kpis article > strong,
+    body:not(.theme-light) .assessment-board-section-heading h4,
+    body:not(.theme-light) .assessment-focus-card > strong,
+    body:not(.theme-light) .assessment-guidance-heading h4 { color: var(--nafs-ui-text) !important; }
+    body:not(.theme-light) .assessment-board-summary,
+    body:not(.theme-light) .assessment-guidance-card p,
+    body:not(.theme-light) .assessment-guidance-card li,
+    body:not(.theme-light) .assessment-board-date,
+    body:not(.theme-light) .assessment-history-entry,
+    body:not(.theme-light) .assessment-comparison-note { color: var(--nafs-ui-muted) !important; }
+    body:not(.theme-light) .assessment-board-scores,
+    body:not(.theme-light) .assessment-board-history,
+    body:not(.theme-light) .assessment-guidance-panel,
+    body:not(.theme-light) .assessment-guidance-card,
+    body:not(.theme-light) .assessment-board-kpis article,
+    body:not(.theme-light) .assessment-comparison-panel,
+    body:not(.theme-light) .assessment-comparison-area,
+    body:not(.theme-light) .assessment-comparison-date { border-color: var(--nafs-ui-line) !important; background: var(--nafs-ui-card) !important; }
+    body:not(.theme-light) .assessment-comparison-heading h4,
+    body:not(.theme-light) .assessment-comparison-area-heading h5,
+    body:not(.theme-light) .assessment-comparison-date time,
+    body:not(.theme-light) .assessment-comparison-track-meta strong,
+    body:not(.theme-light) .assessment-comparison-difference strong { color: var(--nafs-ui-text) !important; }
+    body:not(.theme-light) .assessment-comparison-track { background: rgba(246,233,207,.12) !important; }
+    body:not(.theme-light) .assessment-comparison-track-row.is-previous .assessment-comparison-track > span { background: var(--nafs-brown) !important; }
+    body:not(.theme-light) .assessment-comparison-track-row.is-current .assessment-comparison-track > span { background: #d8b784 !important; }
+    body:not(.theme-light) #analysis-mode,
+    body:not(.theme-light) #theme-select,
+    body:not(.theme-light) #top-nav .sidebar-settings select { border-color: var(--nafs-ui-line) !important; background: var(--nafs-ui-input) !important; color: var(--nafs-ui-text) !important; color-scheme: dark; }
+    body:not(.theme-light) #analysis-mode option,
+    body:not(.theme-light) #theme-select option,
+    body:not(.theme-light) #top-nav .sidebar-settings select option { background: var(--nafs-ui-surface); color: var(--nafs-ui-text); }
+
+    html[data-theme="light"] { background: #f6e9cf !important; }
+    html[data-theme="dark"] { background: #1b1209 !important; }
+    html body.theme-light { background: #f6e9cf !important; color: #1b1209 !important; }
+    html body:not(.theme-light) { background: #1b1209 !important; color: #f6e9cf !important; }
+    html body:not(.theme-light) main#top #assessment-form,
+    html body:not(.theme-light) main#top #schema-form,
+    html body:not(.theme-light) main#top #reflection-form,
+    html body:not(.theme-light) main#top #mental-health-form {
+      border-color: rgba(246,233,207,.22) !important;
+      background: linear-gradient(145deg, #2a1d11, #21170d) !important;
+      color: #f6e9cf !important;
+    }
+    html body:not(.theme-light) main#top #assessment-form fieldset,
+    html body:not(.theme-light) main#top #schema-form fieldset,
+    html body:not(.theme-light) main#top #reflection-form fieldset,
+    html body:not(.theme-light) main#top #mental-health-form fieldset {
+      border-color: rgba(246,233,207,.22) !important;
+      background: #251a0f !important;
+      color: #f6e9cf !important;
+    }
+    html body:not(.theme-light) main#top #questions > .q-enter,
+    html body:not(.theme-light) main#top #schema-questions > .q-enter,
+    html body:not(.theme-light) main#top #reflection-questions > .q-enter {
+      border-color: rgba(246,233,207,.2) !important;
+      background: #302115 !important;
+      color: #f6e9cf !important;
+    }
+    html body:not(.theme-light) main#top #questions > .q-enter > div.mt-3 label,
+    html body:not(.theme-light) main#top #schema-questions > .q-enter > div.mt-3 label,
+    html body:not(.theme-light) main#top #reflection-questions > .q-enter > div.mt-3 label,
+    html body:not(.theme-light) main#top #assessment-form fieldset label,
+    html body:not(.theme-light) main#top #schema-form fieldset label,
+    html body:not(.theme-light) main#top #reflection-form fieldset label,
+    html body:not(.theme-light) main#top #mental-health-form fieldset label {
+      border-color: rgba(246,233,207,.2) !important;
+      background: #21170d !important;
+      color: #e4d3b5 !important;
+    }
+    html body:not(.theme-light) main#top #questions label.answer-option-selected,
+    html body:not(.theme-light) main#top #schema-questions label.answer-option-selected,
+    html body:not(.theme-light) main#top #reflection-questions label.answer-option-selected,
+    html body:not(.theme-light) main#top #assessment-form fieldset label.answer-option-selected,
+    html body:not(.theme-light) main#top #schema-form fieldset label.answer-option-selected,
+    html body:not(.theme-light) main#top #reflection-form fieldset label.answer-option-selected,
+    html body:not(.theme-light) main#top #mental-health-form fieldset label:has(input:checked) {
+      border-color: #d2aa76 !important;
+      background: #a87f4e !important;
+      color: #fff8eb !important;
+    }
+    html body:not(.theme-light) main#top #assessment-form input:not([type="radio"]):not([type="checkbox"]),
+    html body:not(.theme-light) main#top #assessment-form textarea,
+    html body:not(.theme-light) main#top #assessment-form select,
+    html body:not(.theme-light) main#top #schema-form input:not([type="radio"]):not([type="checkbox"]),
+    html body:not(.theme-light) main#top #schema-form textarea,
+    html body:not(.theme-light) main#top #schema-form select,
+    html body:not(.theme-light) main#top #reflection-form input:not([type="radio"]):not([type="checkbox"]),
+    html body:not(.theme-light) main#top #reflection-form textarea,
+    html body:not(.theme-light) main#top #reflection-form select,
+    html body:not(.theme-light) main#top #mental-health-form input:not([type="radio"]):not([type="checkbox"]),
+    html body:not(.theme-light) main#top #mental-health-form textarea,
+    html body:not(.theme-light) main#top #mental-health-form select {
+      border-color: rgba(246,233,207,.2) !important;
+      background: #21170d !important;
+      color: #f6e9cf !important;
+      color-scheme: dark;
+    }
+    html body:not(.theme-light) main#top #assessment-form .assessment-progress-panel { border-color: rgba(246,233,207,.2) !important; background: #302115 !important; }
+    html body:not(.theme-light) main#top #assessment-form .assessment-progress-head,
+    html body:not(.theme-light) main#top #assessment-form .assessment-mode-description { color: #d0b894 !important; }
+    html body:not(.theme-light) main#top #assessment-form .assessment-progress-head strong { color: #f6e9cf !important; }
+    html body:not(.theme-light) main#top #assessment-form .assessment-progress-track { background: rgba(246,233,207,.12) !important; }
+    html body:not(.theme-light) main#top #assessment-form .assessment-progress-track > span { background: linear-gradient(90deg, #a87f4e, #d8b784) !important; }
+
+    /* Keep the check-in controls legible after every theme switch. */
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="bg-slate-"] {
+      border-color: var(--nafs-ui-line) !important;
+      background-color: var(--nafs-ui-surface) !important;
+      color: var(--nafs-ui-text) !important;
+      box-shadow: none !important;
+    }
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) [class*="text-slate-"] { color: var(--nafs-ui-muted) !important; }
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #assessment-form,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #schema-form,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #reflection-form,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #mental-health-form {
+      border-color: rgba(246,233,207,.22) !important;
+      background: linear-gradient(145deg,#2a1d11,#21170d) !important;
+      background-color: #21170d !important;
+      color: #f6e9cf !important;
+    }
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #assessment-form legend,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #schema-form legend,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #reflection-form legend,
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #mental-health-form legend { color: #f6e9cf !important; }
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #analysis-mode,
+    body.theme-dark main#top #theme-select,
+    body.theme-dark main#top #top-nav .sidebar-settings select {
+      border-color: rgba(246,233,207,.24) !important;
+      background: #21170d !important;
+      color: #f6e9cf !important;
+      color-scheme: dark;
+    }
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #analysis-mode option,
+    body.theme-dark main#top #theme-select option,
+    body.theme-dark main#top #top-nav .sidebar-settings select option { background: #251a0f; color: #f6e9cf; }
+
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #assessment-form button[type="submit"],
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #schema-form button[type="submit"],
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #reflection-form button[type="submit"],
+    body.theme-light main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #mental-health-form button[type="submit"],
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #assessment-form button[type="submit"],
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #schema-form button[type="submit"],
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #reflection-form button[type="submit"],
+    body.theme-dark main#top > section:not([hidden]):not(#main-home):not(#home-tests):not(#nafs-listening):not(#nafs-now) #mental-health-form button[type="submit"] {
+      border-color: #6b4a26 !important;
+      background: #6b4a26 !important;
+      color: #fff8eb !important;
+    }
+
+    /* Give the assessment cover a clear title area and a fully visible mode picker. */
+    #assessment .page-cover {
+      display: block !important;
+      min-height: clamp(350px,42vw,470px) !important;
+      border: 1px solid rgba(246,233,207,.2) !important;
+      border-radius: 2px !important;
+      background: radial-gradient(ellipse at 83% 24%,rgba(168,127,78,.28),transparent 29%),linear-gradient(135deg,#3b2b1b,#1b1209) !important;
+      box-shadow: none !important;
+    }
+    #assessment .page-cover::before {
+      inset: 7% 3% -19% auto !important;
+      width: 27% !important;
+      border: 1px solid rgba(246,233,207,.3) !important;
+      border-bottom: 0 !important;
+      border-radius: 50% 50% 0 0 / 32% 32% 0 0 !important;
+      background: linear-gradient(150deg,rgba(246,233,207,.1),rgba(107,74,38,.16)) !important;
+      filter: none !important;
+      opacity: .62;
+      transform: none !important;
+    }
+    #assessment .page-cover .page-cover-copy {
+      position: relative !important;
+      inset: auto !important;
+      display: grid !important;
+      width: 100%;
+      min-height: inherit;
+      grid-template-columns: minmax(0,1fr) minmax(165px,190px);
+      align-items: end !important;
+      justify-content: stretch !important;
+      gap: clamp(18px,4vw,48px) !important;
+      padding: clamp(25px,5vw,62px) !important;
+      color: #f6e9cf !important;
+      text-align: start !important;
+      text-shadow: none !important;
+    }
+    #assessment .page-cover-copy > div { position: relative; z-index: 1; max-width: 560px; }
+    #assessment .page-cover-copy h1 {
+      max-width: 12ch !important;
+      margin: 0 0 14px !important;
+      color: #f6e9cf !important;
+      font-size: clamp(2.8rem,6.5vw,5.2rem) !important;
+      line-height: .9 !important;
+      text-wrap: balance;
+    }
+    #assessment .page-cover-copy p {
+      max-width: 43ch !important;
+      margin: 0 !important;
+      color: rgba(246,233,207,.78) !important;
+      font-size: clamp(.9rem,1.35vw,1rem) !important;
+      line-height: 1.65 !important;
+    }
+    #assessment .page-cover-copy .page-cover-mode {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      width: 100%;
+      max-width: 190px;
+      gap: 9px;
+      margin: 0 !important;
+      color: #d0b894 !important;
+      font-size: .68rem !important;
+      font-weight: 600;
+      letter-spacing: .13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      text-shadow: none !important;
+    }
+    body.theme-light main#top #assessment .page-cover .page-cover-copy .page-cover-mode,
+    body.theme-light main#top #assessment .page-cover .page-cover-copy .page-cover-mode > span,
+    body.theme-dark main#top #assessment .page-cover .page-cover-copy .page-cover-mode,
+    body.theme-dark main#top #assessment .page-cover .page-cover-copy .page-cover-mode > span { color: #d0b894 !important; }
+    #assessment .page-cover-copy .page-cover-mode select {
+      width: 100%;
+      min-height: 48px;
+      margin: 0 !important;
+      border: 1px solid rgba(246,233,207,.42) !important;
+      border-radius: 999px !important;
+      padding: .7rem 2.2rem .7rem 1rem !important;
+      background: #f6e9cf !important;
+      color: #1b1209 !important;
+      font: 600 .78rem/1.3 var(--sans) !important;
+      letter-spacing: .01em;
+      text-transform: none;
+    }
+    #assessment .page-cover-copy .page-cover-mode select:focus-visible {
+      outline: 2px solid #d8b784 !important;
+      outline-offset: 3px;
+    }
+    @media (max-width: 760px) {
+      #assessment .page-cover { min-height: 0 !important; }
+      #assessment .page-cover::before { right: -5% !important; width: 42% !important; opacity: .38; }
+      #assessment .page-cover .page-cover-copy {
+        grid-template-columns: minmax(0,1fr) !important;
+        align-content: start !important;
+        min-height: 0 !important;
+        gap: 20px !important;
+        padding: clamp(22px,6vw,34px) !important;
+      }
+      #assessment .page-cover-copy h1 { max-width: 18ch !important; font-size: clamp(2.4rem,7.5vw,3.35rem) !important; }
+      #assessment .page-cover-copy .page-cover-mode { max-width: 230px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, html { transition: none !important; }
+    }
+  </style>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased font-dm-sans">
+  <div class="nafs-loader" aria-hidden="true"><div class="nafs-loader-lines"><i></i><i></i><i></i></div><div class="nafs-loader-mark"><span>MC</span></div></div>
   <div id="presentation-transition" aria-hidden="true"></div>
   <a class="skip-link" href="#top" data-i18n="nav.skip"></a>
   <header class="orbite-navbar">
+    <a class="nafs-brand" href="?page=home" aria-label="Mind Coach home">MIND COACH</a>
     <button id="menu-btn" type="button" aria-controls="top-nav" aria-expanded="false" aria-label="Menu">
       <span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span>
     </button>
@@ -34,6 +1126,7 @@
       </form>
       <span id="nav-search-status" class="top-search-status" role="status" aria-live="polite"></span>
       <nav id="primary-nav" aria-label="Main sections" data-i18n-aria-label="nav.primary">
+        <a class="sidebar-link" href="/" aria-label="Choose between Nafs and Mind Coach"><span class="side-icon" aria-hidden="true">◉</span><span>Choose your space</span></a>
         <a class="sidebar-link" href="?page=home" data-nav-page="home"><span class="side-icon" aria-hidden="true">&#x2302;</span><span data-i18n="nav.home"></span></a>
         <a class="sidebar-link" href="?page=assessment" data-nav-page="assessment"><span class="side-icon" aria-hidden="true">&#x25C9;</span><span data-i18n="nav.assessment"></span></a>
         <a class="sidebar-link" href="?page=schemas" data-nav-page="schemas"><span class="side-icon" aria-hidden="true">&#x223F;</span><span data-i18n="nav.schemas"></span></a>
@@ -59,6 +1152,12 @@
           </label>
         </div>
       </div>
+      <div class="nafs-menu-info" aria-label="Mind Coach information">
+        <section><h2>Mind Coach</h2><p>Self-reflection at your pace.</p></section>
+        <section><h2>Tools</h2><p>Check-ins, reflection, breathing, and sleep.</p></section>
+        <section><h2>Languages</h2><p>English, French, Arabic, and Darija.</p></section>
+        <section><h2>A note</h2><p>For wellbeing support, not diagnosis or emergency care.</p></section>
+      </div>
     </div>
   </div>
   <div id="scroll-progress" aria-hidden="true"></div>
@@ -76,19 +1175,20 @@
       <div class="workspace-topbar-meta"><time class="workspace-date" id="workspace-date"></time><span class="workspace-private" data-i18n="homeDashboard.privateLabel"></span></div>
     </header>
     <section id="main-home" class="hero-section relative min-h-[90vh] overflow-hidden">
-      <img fetchpriority="high" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=85" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover">
+      <div class="nafs-hero-art" aria-hidden="true"></div>
       <div class="hero-overlay absolute inset-0"></div>
       <div class="hero-content relative mx-auto grid min-h-[90vh] max-w-6xl items-center px-5 py-10">
         <div class="hero-copy fade-up">
+          <p class="nafs-eyebrow"><span lang="ar" dir="rtl">العقل</span><span>(AL-AQL)</span><span>MIND COACH</span></p>
           <span class="hero-greeting"><span aria-hidden="true">✦</span><span data-i18n="homeDashboard.greeting"></span></span>
-          <h1 class="mt-4 text-4xl font-semibold leading-tight md:text-5xl" data-i18n="hero.title" tabindex="-1"></h1>
+          <h1 class="mind-coach-word" aria-label="Mind Coach" tabindex="-1"><span class="mind-word-line" aria-hidden="true"><span class="mind-word-letter">M</span><span class="mind-word-letter">I</span><span class="mind-word-letter">N</span><span class="mind-word-letter">D</span></span><span class="mind-word-line" aria-hidden="true"><span class="mind-word-letter">C</span><span class="mind-word-letter">O</span><span class="mind-word-letter">A</span><span class="mind-word-letter">C</span><span class="mind-word-letter">H</span></span></h1>
           <p class="mt-4 max-w-xl" data-i18n="hero.subtitle"></p>
           <div class="hero-actions mt-6 flex flex-wrap gap-3">
             <a href="?page=mental-health" class="rounded-md bg-cyan-400 px-5 py-2.5 font-medium" id="mental-health-hero-action"></a>
             <a href="?page=breathing" class="rounded-md border border-white/30 px-5 py-2.5"><span aria-hidden="true">≋</span> <span data-i18n="homeDashboard.breathingLink"></span></a>
           </div>
         </div>
-        <div class="hero-caption">
+        <div class="hero-caption"><span class="hero-caption-ar" lang="ar" dir="rtl">وعي</span>
           <div class="hero-metrics">
             <div><strong id="hero-progress-count">0/3</strong><span data-i18n="homeDashboard.progressLabel"></span></div>
             <div><strong>4–4–6</strong><span data-i18n="breathing.title"></span></div>
@@ -99,6 +1199,7 @@
             <a class="mt-4" href="#home-tests" data-i18n="hero.captionLink"></a>
           </div>
           <p class="hero-safety" data-i18n="global.safety"></p>
+          <div class="nafs-scroll-note">SCROLL <span aria-hidden="true">↓</span></div>
         </div>
         <div class="hero-dock" data-i18n-aria-label="homeDashboard.sectionLabel">
           <article class="hero-dock-card hero-dock-progress">
@@ -121,7 +1222,26 @@
       </div>
     </section>
 
+    <section id="need-picker" class="need-picker" aria-labelledby="need-picker-title">
+      <div class="need-picker-inner">
+        <header class="need-picker-heading">
+          <p class="need-picker-eyebrow"><span lang="ar" dir="rtl">&#x0627;&#x062D;&#x062A;&#x064A;&#x0627;&#x062C;&#x0643; &#x0627;&#x0644;&#x0622;&#x0646;</span><span>(AL-AN)</span><span id="need-picker-kicker">CHOOSE YOUR NEXT STEP</span></p>
+          <div><h2 id="need-picker-title"></h2><p id="need-picker-intro"></p></div>
+        </header>
+        <div class="need-picker-layout">
+          <div id="need-picker-options" class="need-picker-options" role="group" aria-label="Choose what you need right now"></div>
+          <aside class="need-picker-result" aria-live="polite">
+            <div class="need-picker-art" aria-hidden="true"><span></span><i></i></div>
+            <p id="need-picker-result-label" class="need-picker-result-label"></p>
+            <h3 id="need-picker-result-title"></h3>
+            <p id="need-picker-result-copy"></p>
+            <a id="need-picker-result-link" href="?page=breathing" hidden></a>
+          </aside>
+        </div>
+      </div>
+    </section>
     <section id="daily-note" aria-labelledby="daily-note-heading">
+      <div class="nafs-story-intro"><p class="nafs-section-label"><span lang="ar" dir="rtl">حكاية</span><span class="roman">(HIKAYA)</span><span>YOUR STORY</span></p><h2 class="nafs-story-heading">Every mind holds a story</h2></div>
       <div id="daily-note-card">
         <div>
           <p id="daily-note-period"></p>
@@ -130,10 +1250,42 @@
         </div>
         <blockquote id="daily-note-quote" aria-live="polite"></blockquote>
       </div>
+      <div class="nafs-gallery-band" aria-label="Abstract scenes in warm natural tones">
+        <div class="nafs-gallery-art arch" role="img" aria-label="A stone arch"></div>
+        <div class="nafs-gallery-art moon" role="img" aria-label="A warm moon above a quiet horizon"></div>
+        <div class="nafs-gallery-art tree" role="img" aria-label="A tree silhouette in evening light"></div>
+      </div>
     </section>
-
-    <section id="home-dashboard" data-i18n-aria-label="homeDashboard.sectionLabel">
-      <article class="sanctuary-card flex flex-col justify-between gap-5">
+    <section id="daily-checkin" class="daily-checkin" aria-labelledby="daily-checkin-title">
+      <div class="daily-checkin-inner">
+        <header class="daily-checkin-heading">
+          <p class="daily-checkin-eyebrow"><span lang="ar" dir="rtl">&#x0644;&#x062D;&#x0638;&#x0629; &#x0627;&#x0644;&#x064A;&#x0648;&#x0645;</span><span>(LAHZAT AL-YAWM)</span><span id="daily-checkin-kicker">DAILY CHECK-IN</span></p>
+          <div><h2 id="daily-checkin-title"></h2><p id="daily-checkin-intro"></p></div>
+        </header>
+        <div class="daily-checkin-layout">
+          <form id="daily-checkin-form" class="daily-checkin-form">
+            <div id="daily-checkin-fields" class="daily-checkin-fields"></div>
+            <div class="daily-checkin-form-foot"><p id="daily-checkin-status" role="status" aria-live="polite"></p><button id="daily-checkin-save" type="submit" disabled></button></div>
+          </form>
+          <aside class="daily-checkin-side" aria-labelledby="daily-checkin-suggestion-title">
+            <div class="daily-checkin-art" aria-hidden="true"><span></span><i></i></div>
+            <p id="daily-checkin-suggestion-label" class="daily-checkin-side-label"></p>
+            <h3 id="daily-checkin-suggestion-title"></h3><p id="daily-checkin-suggestion-copy" aria-live="polite"></p>
+            <a id="daily-checkin-suggestion-link" href="?page=breathing"></a>
+            <div class="daily-checkin-history"><p id="daily-checkin-history-label"></p><ol id="daily-checkin-history" aria-label="Recent check-ins"></ol></div>
+            <p id="daily-checkin-privacy" class="daily-checkin-privacy"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section id="nafs-listening" aria-labelledby="nafs-listening-title">
+      <p class="nafs-section-label"><span lang="ar" dir="rtl">فنّ الإصغاء</span><span class="roman">(FANN AL-ISGHA)</span><span>LISTENING</span></p>
+      <div class="nafs-float-art moon" data-nafs-parallax="0.07" role="img" aria-label="A warm crescent moon"></div>
+      <div class="nafs-float-art tree" data-nafs-parallax="0.04" role="img" aria-label="A softly silhouetted tree"></div>
+      <h2 id="nafs-listening-title" class="nafs-listening-title" aria-label="The art of listening"><span class="nafs-scatter-word" aria-hidden="true"><span class="nafs-scatter-letter">T</span><span class="nafs-scatter-letter">H</span><span class="nafs-scatter-letter">E</span></span> <span class="nafs-scatter-word" aria-hidden="true"><span class="nafs-scatter-letter">A</span><span class="nafs-scatter-letter">R</span><span class="nafs-scatter-letter">T</span></span><br><span class="nafs-scatter-word" aria-hidden="true"><span class="nafs-scatter-letter">O</span><span class="nafs-scatter-letter">F</span></span> <span class="nafs-scatter-word" aria-hidden="true"><span class="nafs-scatter-letter">L</span><span class="nafs-scatter-letter">I</span><span class="nafs-scatter-letter">S</span><span class="nafs-scatter-letter">T</span><span class="nafs-scatter-letter">E</span><span class="nafs-scatter-letter">N</span><span class="nafs-scatter-letter">I</span><span class="nafs-scatter-letter">N</span><span class="nafs-scatter-letter">G</span></span></h2>
+    </section><section id="home-dashboard" data-i18n-aria-label="homeDashboard.sectionLabel">
+      <header class="nafs-dashboard-intro"><span class="nafs-section-label"><span lang="ar" dir="rtl">رِفْق</span><span class="roman">(RIFQ)</span><span>SELF-REFLECTION</span></span><h2>Care that respects your pace</h2><p>Make room to notice what is present, then choose what feels useful.</p></header>
+      <article id="home-journal-card" class="sanctuary-card flex flex-col justify-between gap-5">
         <div>
           <div class="mb-5 flex items-center justify-between gap-4">
             <span class="sanctuary-eyebrow"><span aria-hidden="true">✦</span><span data-i18n="homeDashboard.reflectionLabel"></span></span>
@@ -213,9 +1365,18 @@
       </div>
       <p class="mt-5 text-xs text-slate-400" data-i18n="homeTests.note"></p>
     </section>
-
-    <section id="mental-health-checkin" class="hidden fade-up mx-auto max-w-3xl px-5 py-16" aria-labelledby="mental-health-title">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80')">
+    <section id="nafs-privacy" class="nafs-privacy" aria-labelledby="nafs-privacy-title">
+      <p class="nafs-section-label"><span lang="ar" dir="rtl">خصوصية</span><span class="roman">(KHUSUSIYYA)</span><span>PRIVACY</span></p>
+      <div><h2 id="nafs-privacy-title">Privacy in every <span class="nafs-moon" aria-hidden="true"></span> session</h2><p class="nafs-privacy-copy">Move through the questions at your own pace. Mind Coach offers reflection tools for wellbeing; its questionnaires are not clinical diagnoses.</p></div>
+    </section>
+    <section id="nafs-now" aria-labelledby="nafs-now-title">
+      <div class="nafs-now-copy"><p class="nafs-section-label"><span lang="ar" dir="rtl">الآن وهنا</span><span class="roman">(AL-AN WA HUNA)</span><span>PAUSE</span></p><h2 id="nafs-now-title">Here and now</h2><p>Take a slow breath. You can pause, skip an exercise, or return when you feel ready. This space is for reflection and wellbeing support.</p></div>
+    </section>
+    <section id="nafs-begin" aria-labelledby="nafs-begin-title">
+      <div><p class="nafs-section-label"><span lang="ar" dir="rtl">بداية</span><span class="roman">(BIDAYAH)</span><span>BEGIN</span></p><h2 id="nafs-begin-title">Begin your first reflection</h2><p>Start with a short check-in or explore the longer self-reflection questions. You can use the tools without signing in.</p><p><a class="pill" href="checkin.htm#/book">Request a listening session with Nafs <span aria-hidden="true">↗</span></a> <a class="pill" href="?page=assessment">Start a reflection <span aria-hidden="true">↗</span></a> <a class="pill" href="?page=mental-health">Wellbeing check-in <span aria-hidden="true">↗</span></a></p></div>
+      <div class="nafs-begin-art" role="img" aria-label="A quiet arched opening in warm stone" data-nafs-parallax="0.045"></div>
+    </section>    <section id="mental-health-checkin" class="hidden fade-up mx-auto max-w-3xl px-5 py-16" aria-labelledby="mental-health-title">
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)">
         <div class="page-cover-copy"><p class="page-cover-eyebrow" id="mental-health-eyebrow"></p><h1 id="mental-health-title"></h1><p id="mental-health-intro"></p></div>
       </div>
       <form id="mental-health-form" class="mt-6 space-y-5 rounded-xl border border-white/10 bg-slate-900/60 p-5">
@@ -244,7 +1405,7 @@
 
     <section id="combined-results" class="hidden fade-up mx-auto max-w-6xl px-5 py-16" aria-labelledby="combined-results-title">
       <div id="results-overview">
-        <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=80')">
+        <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)">
           <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="dashboard.combinedEyebrow"></p><h1 id="combined-results-title" data-i18n="dashboard.combinedTitle"></h1><p data-i18n="dashboard.combinedSubtitle"></p></div>
         </div>
         <section id="results-path" class="mt-6 rounded-2xl border border-white/10 bg-slate-950/55 p-5 shadow-2xl shadow-black/20 sm:p-7" aria-labelledby="results-path-title">
@@ -335,6 +1496,19 @@
             <div class="assessment-focus-card"><span id="assessment-focus-card-label"></span><strong id="assessment-focus-card-value">—</strong><small id="assessment-focus-card-hint"></small></div>
           </aside>
         </div>
+        <section id="assessment-comparison-panel" class="assessment-comparison-panel" hidden aria-labelledby="assessment-comparison-title">
+          <div class="assessment-comparison-heading">
+            <div>
+              <p id="assessment-comparison-eyebrow" class="assessment-board-eyebrow"></p>
+              <h4 id="assessment-comparison-title"></h4>
+              <p id="assessment-comparison-intro"></p>
+            </div>
+            <span class="assessment-comparison-mark" aria-hidden="true">↔</span>
+          </div>
+          <div id="assessment-comparison-dates" class="assessment-comparison-dates"></div>
+          <div id="assessment-comparison-areas" class="assessment-comparison-areas"></div>
+          <p id="assessment-comparison-note" class="assessment-comparison-note"></p>
+        </section>
         <section class="assessment-guidance-panel" aria-labelledby="assessment-guidance-title">
           <div class="assessment-guidance-heading">
             <div>
@@ -471,7 +1645,7 @@
     </section>
 
     <section id="assessment" class="fade-up mx-auto max-w-6xl px-5 py-16">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80')">
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)">
         <div class="page-cover-copy flex flex-wrap items-end justify-between gap-4">
           <div><h1 data-i18n="assessment.title"></h1><p id="assessment-subtitle" data-i18n="assessment.subtitle"></p></div>
           <label class="page-cover-mode text-sm"><span data-i18n="assessment.mode"></span>
@@ -510,7 +1684,7 @@
     </section>
 
     <section id="schema-test" class="fade-up mx-auto max-w-6xl px-5 pb-16">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="schemas.title"></h1></div></div>
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="schemas.title"></h1></div></div>
       <aside class="exercise-guide" aria-labelledby="schema-guide-title">
         <h3 id="schema-guide-title" class="exercise-guide-title" data-i18n="exerciseGuide.title"></h3>
         <dl class="exercise-guide-grid">
@@ -566,7 +1740,7 @@
     </section>
 
     <section id="reflection-test" class="fade-up mx-auto max-w-6xl px-5 py-16">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80')">
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)">
         <div class="page-cover-copy"><p class="page-cover-eyebrow" data-i18n="reflection.optionalLabel"></p><h1 data-i18n="reflection.title"></h1><p data-i18n="reflection.subtitle"></p></div>
       </div>
       <aside class="exercise-guide mb-6" aria-labelledby="reflection-guide-title">
@@ -606,7 +1780,7 @@
 
     <section id="dashboard" class="fade-up border-y border-white/10 bg-slate-900/40 py-16">
       <div class="mx-auto max-w-6xl px-5">
-        <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="dashboard.title"></h1><p id="result-summary"></p></div></div>
+        <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="dashboard.title"></h1><p id="result-summary"></p></div></div>
         <div id="score-bars" class="mt-6 space-y-3"></div>
         <div class="mt-6 grid gap-5 md:grid-cols-2">
           <div class="rounded-xl border border-white/10 bg-slate-950/65 p-4">
@@ -634,7 +1808,7 @@
     </section>
 
     <section id="methods" class="fade-up mx-auto max-w-6xl px-5 py-16">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="methods.title"></h1><p data-i18n="methods.subtitle"></p></div></div>
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="methods.title"></h1><p data-i18n="methods.subtitle"></p></div></div>
       <div class="mt-6 grid gap-4 md:grid-cols-4">
         <button class="method-tab rounded-md border border-white/20 px-3 py-2" data-key="stress" data-i18n="common.stress"></button>
         <button class="method-tab rounded-md border border-white/20 px-3 py-2" data-key="anxiety" data-i18n="common.anxiety"></button>
@@ -669,7 +1843,7 @@
 
     <section id="breathing" class="fade-up border-y border-white/10 bg-slate-900/40 py-16">
       <div class="mx-auto max-w-6xl px-5">
-        <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="breathing.title"></h1><p data-i18n="breathing.subtitle"></p></div></div>
+        <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="breathing.title"></h1><p data-i18n="breathing.subtitle"></p></div></div>
         <div class="mt-7 flex flex-col items-center rounded-xl border border-white/10 bg-slate-950/60 p-8">
           <div id="breath-orb" class="orb"></div>
           <p id="breath-phase" class="mt-5 text-xl font-semibold"></p>
@@ -683,7 +1857,7 @@
     </section>
 
     <section id="sleep" class="fade-up mx-auto max-w-6xl px-5 py-16">
-      <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="sleep.title"></h1><p data-i18n="sleep.subtitle"></p><p data-i18n="sleep.context"></p></div></div>
+      <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="sleep.title"></h1><p data-i18n="sleep.subtitle"></p><p data-i18n="sleep.context"></p></div></div>
       <div class="mt-6 rounded-xl border border-white/10 bg-slate-900/55 p-5">
         <ul id="sleep-list" class="space-y-3"></ul>
         <p class="mt-4 border-t border-white/10 pt-3 text-xs leading-relaxed text-slate-400"><span data-i18n="sleep.sourceIntro"></span> <a href="https://www.cdc.gov/sleep/about/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2" data-i18n="sleep.cdc"></a> · <a href="https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2" data-i18n="sleep.nhs"></a></p>
@@ -696,7 +1870,7 @@
 
     <section id="references" class="fade-up border-t border-white/10 bg-slate-900/40 py-16">
       <div class="mx-auto max-w-6xl px-5">
-        <div class="page-cover" style="--page-cover:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=80')"><div class="page-cover-copy"><h1 data-i18n="references.title"></h1><p data-i18n="references.subtitle"></p></div></div>
+        <div class="page-cover" style="--page-cover:linear-gradient(140deg,#765638 0%,#3a2919 58%,#1b1209 100%)"><div class="page-cover-copy"><h1 data-i18n="references.title"></h1><p data-i18n="references.subtitle"></p></div></div>
         <p id="reference-library-status" class="mt-4 hidden rounded-md border border-rose-300/30 bg-rose-500/10 p-3 text-sm text-rose-100" role="alert"></p>
         <div id="reference-library" class="mt-6 grid gap-4 md:grid-cols-2"></div>
       </div>
@@ -706,8 +1880,177 @@
   <footer class="border-t border-white/10 py-8 text-center text-sm text-slate-400">
     <p data-i18n="global.disclaimer"></p>
     <p class="mx-auto mt-3 max-w-3xl px-5 text-xs text-amber-200" data-i18n="global.safety"></p>
+    <p class="nafs-emergency-notice">Mind Coach is not an emergency service. If you may be in immediate danger, contact local emergency services now.</p>
   </footer>
 
-  <script src="./app.js?v=20261012-smooth-parallax-v2" defer></script>
+  <script>
+    (() => {
+      try { sessionStorage.setItem("mc-welcome-intro-seen", "true"); } catch {}
+      const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+      const closeMenuForAnchor = () => {
+        const panel = document.getElementById("top-nav");
+        const button = document.getElementById("menu-btn");
+        panel?.addEventListener("click", (event) => {
+          const link = event.target.closest('a[href^="#"]');
+          if (!link) return;
+          panel.classList.add("hidden");
+          panel.setAttribute("aria-hidden", "true");
+          button?.setAttribute("aria-expanded", "false");
+        });
+      };
+      const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+      const startMotion = () => {
+        const loader = document.querySelector(".nafs-loader");
+        if (reducedMotion) loader?.remove();
+        else if (loader) window.setTimeout(() => loader.classList.add("is-gone"), 1250);
+        closeMenuForAnchor();
+
+        const lineHeadings = [...document.querySelectorAll(".nafs-story-heading, #daily-note-heading, #home-tests-title, .nafs-dashboard-intro h2")];
+        const wrapHeadingWords = (heading) => {
+          const content = heading.textContent.trim();
+          if (!content || heading.dataset.nafsWrappedText === content) return;
+          heading.dataset.nafsWrappedText = content;
+          heading.setAttribute("aria-label", content);
+          if (reducedMotion) return;
+          const words = content.split(/\s+/);
+          const fragment = document.createDocumentFragment();
+          const spans = words.map((word, index) => {
+            const span = document.createElement("span");
+            span.className = "nafs-reveal-word";
+            span.textContent = word;
+            span.setAttribute("aria-hidden", "true");
+            fragment.append(span);
+            if (index < words.length - 1) fragment.append(document.createTextNode(" "));
+            return span;
+          });
+          heading.replaceChildren(fragment);
+          let currentLine = -1;
+          let previousTop = Number.NaN;
+          spans.forEach((span) => {
+            const top = Math.round(span.getBoundingClientRect().top);
+            if (!Number.isFinite(previousTop) || Math.abs(top - previousTop) > 2) currentLine += 1;
+            span.style.setProperty("--nafs-line-delay", `${Math.max(0,currentLine) * 145}ms`);
+            previousTop = top;
+          });
+        };
+        lineHeadings.forEach(wrapHeadingWords);
+        const observeLines = (root = document) => {
+          lineHeadings.forEach((heading) => {
+            if (heading.textContent.trim()) wrapHeadingWords(heading);
+          });
+          const targets = [...root.querySelectorAll(".nafs-listening-title, .nafs-story-heading, #daily-note-heading, #home-tests-title, .nafs-dashboard-intro h2")];
+          if (!("IntersectionObserver" in window)) {
+            targets.forEach((target) => target.classList.add("nafs-lines-revealed"));
+            return;
+          }
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("nafs-lines-revealed");
+              observer.unobserve(entry.target);
+            });
+          }, { threshold: .35 });
+          targets.forEach((target) => observer.observe(target));
+        };
+        observeLines();
+        document.getElementById("lang-select")?.addEventListener("change", () => requestAnimationFrame(() => requestAnimationFrame(() => observeLines())));
+
+        const scatterLetters = [...document.querySelectorAll(".nafs-scatter-letter")];
+        const scatterHeading = document.querySelector(".nafs-listening-title");
+        const scatterStarts = scatterLetters.map((letter) => ({
+          letter,
+          x: (Math.random() - .5) * Math.min(190, window.innerWidth * .25),
+          y: (Math.random() - .5) * Math.min(145, window.innerHeight * .2),
+          r: (Math.random() - .5) * 60
+        }));
+        const parallaxItems = [...document.querySelectorAll("[data-nafs-parallax]")];
+        let parallaxGeometry = [];
+        let scatterGeometry = null;
+        let frame = 0;
+        let layoutFrame = 0;
+        let lastScatterProgress = Number.NaN;
+        const refreshMotionLayout = () => {
+          layoutFrame = 0;
+          const scrollY = window.scrollY;
+          parallaxGeometry = parallaxItems.map((item) => {
+            const rect = item.getBoundingClientRect();
+            return {
+              item,
+              top: rect.top + scrollY,
+              height: rect.height,
+              speed: Number(item.dataset.nafsParallax) || .05,
+              lastOffset: Number.NaN
+            };
+          });
+          if (scatterHeading) {
+            const rect = scatterHeading.getBoundingClientRect();
+            scatterGeometry = { top: rect.top + scrollY, height: rect.height };
+          }
+          lastScatterProgress = Number.NaN;
+          queueMotion();
+        };
+        const queueLayoutRefresh = () => {
+          if (!layoutFrame) layoutFrame = requestAnimationFrame(refreshMotionLayout);
+        };
+        const paintMotion = () => {
+          frame = 0;
+          if (reducedMotion) return;
+          const scrollY = window.scrollY;
+          const viewportHeight = window.innerHeight;
+          parallaxGeometry.forEach((item) => {
+            const top = item.top - scrollY;
+            if (top > viewportHeight + 120 || top + item.height < -120) return;
+            const offset = clamp((top + item.height / 2 - viewportHeight / 2) * item.speed, -55, 55);
+            const roundedOffset = Math.round(offset * 10) / 10;
+            if (roundedOffset === item.lastOffset) return;
+            item.lastOffset = roundedOffset;
+            item.item.style.setProperty("--nafs-y", `${roundedOffset}px`);
+          });
+          if (scatterHeading && scatterGeometry) {
+            const start = scatterGeometry.top - viewportHeight * .82;
+            const travel = viewportHeight * .72 + scatterGeometry.height * .58;
+            const progress = clamp((scrollY - start) / travel, 0, 1);
+            if (Math.abs(progress - lastScatterProgress) < .001) return;
+            lastScatterProgress = progress;
+            const loose = 1 - progress;
+            scatterStarts.forEach(({ letter,x,y,r }) => {
+              letter.style.transform = `translate3d(${(x * loose).toFixed(1)}px,${(y * loose).toFixed(1)}px,0) rotate(${(r * loose).toFixed(1)}deg)`;
+              letter.style.opacity = (1 - .34 * loose).toFixed(2);
+            });
+          }
+        };
+        const queueMotion = () => {
+          if (!frame) frame = requestAnimationFrame(paintMotion);
+        };
+        if (!reducedMotion) {
+          window.addEventListener("scroll", queueMotion, { passive: true });
+          window.addEventListener("resize", queueLayoutRefresh, { passive: true });
+          refreshMotionLayout();
+          if ("ResizeObserver" in window) {
+            const motionResizeObserver = new ResizeObserver(queueLayoutRefresh);
+            [...parallaxItems, ...(scatterHeading ? [scatterHeading] : [])].forEach((item) => motionResizeObserver.observe(item));
+          }
+          document.fonts?.ready?.then(queueLayoutRefresh);
+        }
+        const noteHeading = document.getElementById("daily-note-heading");
+        if (noteHeading && !reducedMotion && "MutationObserver" in window) {
+          let mutationFrame = 0;
+          const noteObserver = new MutationObserver(() => {
+            if (mutationFrame) return;
+            mutationFrame = requestAnimationFrame(() => {
+              mutationFrame = 0;
+              wrapHeadingWords(noteHeading);
+              observeLines(noteHeading.parentElement || document);
+            });
+          });
+          noteObserver.observe(noteHeading, { childList: true, characterData: true, subtree: true });
+        }
+      };
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", startMotion, { once: true });
+      else startMotion();
+    })();
+
+  </script>
+  <script src="./app.js?v=20261017-theme-contrast" defer></script>
 </body>
 </html>

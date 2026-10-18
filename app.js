@@ -8,7 +8,7 @@
         assessment: { title: "Auto-évaluation et bien-être", subtitle: "12 questions fixes sur le stress, l'anxiété, l'humeur et le sommeil. Réponds selon ton vécu des deux dernières semaines. Questionnaire maison de réflexion personnelle, non valide cliniquement.", mode: "Mode", quick: "Rapide", detailed: "Détaillé", comparative: "Comparatif", compareFirst: "Termine un autre test pour pouvoir comparer tes réponses. Cette comparaison reste un outil de réflexion, pas une évaluation clinique.", comparePrevious: "évolution depuis le test précédent (écart de points, sans interpretation clinique)", submit: "Analyser", reset: "Réinitialiser", analyzing: "Tes réponses sont en cours d?analyse. Ton résultat s?affichera ici dans quelques secondes.", resultTitle: "Ton résultat", fullReport: "Voir le rapport complet", resultNote: "Outil de réflexion personnelle, non valide cliniquement et non diagnostique. Les scores ne remplacent pas l?avis d?un professionnel.", resultLow: "Indicateur bas", resultModerate: "Indicateur modéré", resultHigh: "Indicateur élevé", resultSevere: "Indicateur très élevé" },
         schemas: { title: "Réflexion sur les schémas émotionnels", submit: "Analyser mes réponses", reset: "Recommencer", analyzing: "Tes réponses sont en cours d?analyse. Ton résultat s?affichera ici dans quelques secondes.", resultTitle: "Ton résumé", ethic: "Exercice de réflexion personnelle, non valide cliniquement. Les causes evoquees sont des pistes possibles, pas une évaluation ni un diagnostic." },
         reflection: { title: "Mieux comprendre tes ressources", optionalLabel: "Exercice facultatif · 24 questions", cardDescription: "Explore les ressources qui te soutiennent au quotidien et les aspects que tu aimerais renforcer.", open: "Faire la réflexion approfondie", subtitle: "Pour les deux dernières semaines, indique à quelle fréquence chaque expérience correspondait à ton vécu. Aucun détail personnel libre n’est demandé.", method: "Comment le résumé est construit : 4 réponses par domaine sont moyennées sur une échelle descriptive de 0 a 9. Le profil presente les ressources les plus souvent et le moins souvent rapportees, puis propose des pistes de réflexion. Ces domaines ne sont ni un test psychologique valide ni des traits de personnalité.", submit: "Voir mon profil de ressources", reset: "Recommencer", analyzing: "Nous organisons tes réponses par domaine. Ton résumé apparaîtra dans quelques secondes.", resultTitle: "Ton profil de ressources", summary: "Dans tes réponses, les ressources les plus souvent disponibles concernent", profile: "Les ressources moins souvent présentes dans tes réponses sont des pistes possibles à explorer, pas des faiblesses.", dimensionsTitle: "Ressources rapportées par domaine", promptsTitle: "Pistes adaptees a tes réponses", strength: "Le plus souvent rapporte", explore: "A explorer si tu le souhaites", scoreMethod: "Moyenne descriptive sur 9", complete: "Réflexion terminée", pending: "Terminez la réflexion approfondie pour afficher son résumé ici.", date: "Date de la réflexion approfondie", prompts: { emotion_awareness: "Qu'est-ce qui t'aide à nommer une ?motion avant de reagir ?", stress_recovery: "Quelle petite pause ou activite t'aide ? r?cup?rer après une journée chargée ?", social_support: "Y a-t-il une personne de confiance à qui tu pourrais parler cette semaine ?", boundaries: "Dans quelle situation aimerais-tu exprimer un besoin ou une limite plus clairement ?", daily_rhythm: "Quel ajustement réaliste rendrait ton sommeil ou ton rythme quotidien un peu plus soutenant ?", values_direction: "Quelle petite action cette semaine serait en accord avec ce qui compte pour toi ?" }, disclaimer: "Ce questionnaire maison sert uniquement a la réflexion personnelle. Les scores ne mesurent pas la santé mentale, ne permettent pas de connaitre la personnalité et ne constituent ni un diagnostic ni une évaluation clinique." },
-        dashboard: { title: "Tableau de bord", interpretationTitle: "Synthèse et pistes", history: "Progression", reportTitle: "Pistes de réflexion", reportEthic: "Outil de réflexion personnelle uniquement. Ce résultat n'est ni valide cliniquement ni un diagnostic.", combinedEyebrow: "Synthèse personnelle", combinedTitle: "Vos résultats combines", combinedSubtitle: "Retrouvez ici les résultats de vos deux tests. Chaque résultat apparaît après avoir terminé le test correspondant.", takeAssessment: "Faire le test 1", takeSchemas: "Faire le test 2", assessmentPending: "Terminez le test 1 pour afficher ses résultats ici.", assessmentComplete: "Résultat du test 1", schemaPending: "Terminez le test 2 pour afficher ses résultats ici.", schemaComplete: "Résultat du test 2", assessmentRefresh: "Les résultats précédents utilisent une ancienne methode de calcul. Refaites le test 1 pour obtenir un résultat comparable.", schemaRefresh: "Les résultats précédents utilisent une ancienne methode de calcul. Refaites le test 2 pour obtenir un résultat comparable.", privacyNotice: "Les résultats visiteurs restent dans ce navigateur. Ils ne sont transmis a la base de données du compte qu'après création du compte et consentement.", clearData: "Effacer mes données", confirmClear: "Effacer toutes les données Mind Coach enregistrées dans ce navigateur ?", dataCleared: "Les données locales de Mind Coach ont ete effacees.", assessmentDate: "Date du test 1", schemaDate: "Date du test 2" },
+        dashboard: { title: "Tableau de bord", interpretationTitle: "Synthèse et pistes", history: "Progression", reportTitle: "Pistes de réflexion", reportEthic: "Outil de réflexion personnelle uniquement. Ce résultat n'est ni valide cliniquement ni un diagnostic.", combinedEyebrow: "Synthèse personnelle", combinedTitle: "Vos résultats combinés", combinedSubtitle: "Retrouvez ici les résultats de vos trois exercices. Chaque synthèse apparaît après avoir terminé l’exercice correspondant.", takeAssessment: "Faire le test 1", takeSchemas: "Faire le test 2", assessmentPending: "Terminez le test 1 pour afficher ses résultats ici.", assessmentComplete: "Résultat du test 1", schemaPending: "Terminez le test 2 pour afficher ses résultats ici.", schemaComplete: "Résultat du test 2", assessmentRefresh: "Les résultats précédents utilisent une ancienne méthode de calcul. Refaites le test 1 pour obtenir un résultat comparable.", schemaRefresh: "Les résultats précédents utilisent une ancienne méthode de calcul. Refaites le test 2 pour obtenir un résultat comparable.", privacyNotice: "Les résultats des visiteurs restent dans ce navigateur. Ils ne sont transmis à la base de données du compte qu’après la création d’un compte, avec ton consentement.", clearData: "Effacer mes données", confirmClear: "Effacer toutes les données Mind Coach enregistrées dans ce navigateur ?", dataCleared: "Les données locales de Mind Coach ont été effacées.", assessmentDate: "Date du test 1", schemaDate: "Date du test 2" },
         account: { title: "Votre espace privé", intro: "Un compte vous permet de retrouver vos résultats sur vos appareils et de consulter des synthèses hebdomadaires privées. La création du compte est facultative.", createTitle: "Créer un compte", loginTitle: "J'ai déjà un compte", email: "Adresse e-mail", password: "Mot de passe", passwordGuidance: "Choisis une phrase unique d’au moins 15 caractères. Les symboles au hasard ne sont pas nécessaires.", consent: "J'accepte de sauvegarder les scores de mes deux tests et mon historique dans mon compte privé pour consulter mes résultats sur mes appareils. Je peux supprimer mon compte et ses données à tout moment.", weeklyOptIn: "Je souhaite activer les synthèses hebdomadaires privées. Je peux désactiver cette option à tout moment.", createAction: "Créer mon compte", loginAction: "Se connecter", signedInAs: "Connect? en tant que", logout: "Se deconnecter", delete: "Supprimer le compte et les données", weeklyTitle: "Synthèses hebdomadaires", weeklyHelp: "Les rapports comparent la dernière mesure de la semaine passee a celle de la semaine précédente, si les deux existent. Aucune conclusion medicale ou clinique n'est produite.", savedResults: "Mes résultats enregistres", noSavedResults: "Aucun résultat enregistre dans le compte pour le moment.", noReports: "Aucune synthèse hebdomadaire n'est encore disponible.", latestOnly: "Deux semaines de résultats sont necessaires pour afficher une comparaison.", reportAssessmentCount: "Auto-evaluations cette semaine", reportSchemaCount: "Réflexions cette semaine", reportStart: "Semaine du", reportChange: "Variation par rapport a la semaine précédente", reportNote: "Synthèse descriptive de réflexion personnelle uniquement; ce n'est pas une mesure clinique de progression ni un diagnostic.", accountCreated: "Compte cree et connecté.", loginSuccess: "Connexion reussie.", logoutSuccess: "Vous etes déconnecté.", weeklyUpdated: "Preference hebdomadaire mise a jour.", accountDeleted: "Votre compte et ses résultats ont ete supprimes.", consentRequired: "Acceptez la sauvegarde des scores avant de créer un compte.", saveSuccess: "Résultat sauvegarde dans votre compte.", saveFailed: "Le résultat n'a pas pu etre sauvegarde dans le compte. Il reste disponible dans ce navigateur.", confirmDelete: "Supprimer definitivement votre compte et tous les scores et rapports associes ?", serverUnavailable: "Le compte est temporairement indisponible. Votre résultat reste disponible dans ce navigateur.", changeLower: "scores plus bas", changeHigher: "scores plus hauts", changeSame: "scores inchangés" },
         methods: { title: "Méthodes d'amélioration", subtitle: "Approche pratique et non-jugeante.", definitionTitle: "De quoi s'agit-il ?", influencesTitle: "Facteurs possibles", effectsTitle: "Effets possibles", howTitle: "Comment appliquer ces pistes" },
         breathing: { title: "Respiration guidée 4-4-6", subtitle: "Inspire 4s, bloque 4s, expire 6s pour calmer le systeme nerveux.", start: "Demarrer", stop: "Arreter", ready: "Prêt", cycles: "cycle(s)", phases: ["Inspire", "Bloque", "Expire"] },
@@ -1010,7 +1010,7 @@
 
     function animateRouteContent() {
       if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-      const homeTargets = ["main-home", "daily-note", "home-dashboard", "home-tests"]
+      const homeTargets = ["main-home", "need-picker", "daily-note", "daily-checkin", "home-dashboard", "home-tests"]
         .map((id) => document.getElementById(id));
       const pageTargetIds = {
         assessment: "assessment",
@@ -1614,6 +1614,306 @@
       return path.split(".").reduce((acc, key) => acc?.[key], i18n[state.lang]);
     }
 
+    const dailyCheckinCopy = {
+      en: {
+        kicker: "DAILY CHECK-IN", title: "What is present for you today?", intro: "A few gentle check-ins can help you choose one useful next step.",
+        questions: ["How does your mood feel?", "How much pressure is present?", "How is your energy?", "How restful was your sleep?"],
+        options: [["Hard", "Mixed", "Okay"], ["A little", "Some", "A lot"], ["Low", "In between", "Good"], ["Restless", "Mixed", "Restful"]],
+        save: "Save today's check-in", update: "Update today's check-in", saved: "Saved privately on this device.", savedToday: "Today's check-in is saved on this device. You can update it below.",
+        incomplete: "Choose one answer in each row to get a suggestion.", saveFailed: "This browser could not save your check-in. Please try again.",
+        suggestionLabel: "A SMALL NEXT STEP", defaultTitle: "Make a little space", defaultCopy: "Choose one answer in each row and I will suggest a practice you can try today.", action: "Explore this practice",
+        history: "YOUR LAST SEVEN DAYS", privacy: "Private to this browser. Your answers are not sent anywhere.", daySaved: "Check-in saved", dayEmpty: "No check-in saved",
+        suggestions: {
+          stress: ["Pause and breathe", "A short guided breathing pause may help you slow down and reconnect with the present.", "?page=breathing"],
+          sleep: ["Make room for rest", "Explore a few gentle sleep routine ideas and choose only what feels realistic.", "?page=sleep"],
+          energy: ["Notice what restores you", "A short reflection can help you notice which small things give you energy or take it away.", "?page=reflection"],
+          mood: ["Put a feeling into words", "A few private lines can help you make room for what you are feeling, without needing to solve it now.", "#home-journal-card"],
+          steady: ["Stay with what helps", "Try a brief breathing pause, or simply keep the small routine that is already supporting you.", "?page=breathing"]
+        }
+      },
+      fr: {
+        kicker: "POINT DU JOUR", title: "Qu'est-ce qui est présent pour toi aujourd'hui ?", intro: "Quelques repères doux peuvent t'aider à choisir une petite prochaine étape.",
+        questions: ["Comment te sens-tu aujourd'hui ?", "Quelle pression ressens-tu ?", "Comment est ton énergie ?", "Comment as-tu dormi ?"],
+        options: [["Difficile", "Mitigé", "Plutôt bien"], ["Un peu", "Moyenne", "Beaucoup"], ["Basse", "Moyenne", "Bonne"], ["Agité", "Mitigé", "Reposant"]],
+        save: "Enregistrer le point du jour", update: "Modifier le point du jour", saved: "Enregistré en privé sur cet appareil.", savedToday: "Le point du jour est enregistré ici. Tu peux le modifier ci-dessous.",
+        incomplete: "Choisis une réponse dans chaque ligne pour recevoir une idée.", saveFailed: "Ce navigateur n'a pas pu enregistrer tes réponses. Réessaie.",
+        suggestionLabel: "UNE PETITE PISTE", defaultTitle: "Faire un peu de place", defaultCopy: "Choisis une réponse dans chaque ligne et je te proposerai une pratique pour aujourd'hui.", action: "Découvrir cette pratique",
+        history: "TES SEPT DERNIERS JOURS", privacy: "Privé à ce navigateur. Tes réponses ne sont pas envoyées.", daySaved: "Point enregistré", dayEmpty: "Aucun point enregistré",
+        suggestions: {
+          stress: ["Faire une pause et respirer", "Une courte respiration guidée peut aider à ralentir et à revenir au moment présent.", "?page=breathing"],
+          sleep: ["Faire une place au repos", "Parcours quelques idées de routine du soir et garde seulement celles qui te semblent réalistes.", "?page=sleep"],
+          energy: ["Repérer ce qui te ressource", "Une courte réflexion peut t'aider à remarquer ce qui te donne de l'énergie ou t'en prend.", "?page=reflection"],
+          mood: ["Mettre un ressenti en mots", "Quelques lignes privées peuvent accueillir ce que tu ressens, sans devoir le résoudre maintenant.", "#home-journal-card"],
+          steady: ["Garder ce qui t'aide", "Essaie une courte respiration guidée ou garde simplement une petite habitude qui te soutient déjà.", "?page=breathing"]
+        }
+      },
+      ar: {
+        kicker: "Ù„Ø­Ø¸Ø© ÙŠÙˆÙ…ÙŠØ©", title: "Ù…Ø§Ø°Ø§ ØªØ´Ø¹Ø± Ø¨Ù‡ Ø§Ù„ÙŠÙˆÙ…ØŸ", intro: "Ø£Ø³Ø¦Ù„Ø© Ø¨Ø³ÙŠØ·Ø© Ù‚Ø¯ ØªØ³Ø§Ø¹Ø¯Ùƒ Ø¹Ù„Ù‰ Ø§Ø®ØªÙŠØ§Ø± Ø®Ø·ÙˆØ© Ù…Ù†Ø§Ø³Ø¨Ø©.",
+        questions: ["ÙƒÙŠÙ ØªØ´Ø¹Ø± Ø¨Ù…Ø²Ø§Ø¬ÙƒØŸ", "ÙƒÙ… Ù…Ù† Ø§Ù„Ø¶ØºØ· ØªØ´Ø¹Ø± Ø¨Ù‡ØŸ", "ÙƒÙŠÙ Ù…Ø³ØªÙˆÙ‰ Ø·Ø§Ù‚ØªÙƒØŸ", "ÙƒÙŠÙ ÙƒØ§Ù† Ù†ÙˆÙ…ÙƒØŸ"],
+        options: [["ØµØ¹Ø¨", "Ù…ØªÙ‚Ù„Ø¨", "Ø¨Ø®ÙŠØ±"], ["Ù‚Ù„ÙŠÙ„", "Ø¨Ø¹Ø¶ Ø§Ù„Ø´ÙŠØ¡", "ÙƒØ«ÙŠØ±"], ["Ù…Ù†Ø®ÙØ¶Ø©", "Ù…ØªÙˆØ³Ø·Ø©", "Ø¬ÙŠØ¯Ø©"], ["Ù…ØªÙ‚Ø·Ø¹", "Ù…ØªÙ‚Ù„Ø¨", "Ù…Ø±ÙŠØ­"]],
+        save: "Ø­ÙØ¸ Ù…Ù„Ø§Ø­Ø¸Ø© Ø§Ù„ÙŠÙˆÙ…", update: "ØªØ­Ø¯ÙŠØ« Ù…Ù„Ø§Ø­Ø¸Ø© Ø§Ù„ÙŠÙˆÙ…", saved: "ØªÙ… Ø§Ù„Ø­ÙØ¸ Ø¨Ø®ØµÙˆØµÙŠØ© Ø¹Ù„Ù‰ Ù‡Ø°Ø§ Ø§Ù„Ø¬Ù‡Ø§Ø².", savedToday: "Ù…Ù„Ø§Ø­Ø¸Ø© Ø§Ù„ÙŠÙˆÙ… Ù…Ø­ÙÙˆØ¸Ø© Ù‡Ù†Ø§. ÙŠÙ…ÙƒÙ†Ùƒ ØªØ­Ø¯ÙŠØ«Ù‡Ø§ Ø£Ø¯Ù†Ø§Ù‡.",
+        incomplete: "Ø§Ø®ØªØ± Ø¥Ø¬Ø§Ø¨Ø© ÙÙŠ ÙƒÙ„ Ø³Ø·Ø± Ù„ØªØ¸Ù‡Ø± Ù„Ùƒ ÙÙƒØ±Ø©.", saveFailed: "Ù„Ù… ÙŠØªÙ…ÙƒÙ† Ø§Ù„Ù…ØªØµÙØ­ Ù…Ù† Ø§Ù„Ø­ÙØ¸. Ø­Ø§ÙˆÙ„ Ù…Ø¬Ø¯Ø¯Ø§Ù‹.",
+        suggestionLabel: "Ø®Ø·ÙˆØ© ØµØºÙŠØ±Ø©", defaultTitle: "Ù…Ø³Ø§Ø­Ø© Ù„Ù„ØªØ£Ù…Ù„", defaultCopy: "Ø§Ø®ØªØ± Ø¥Ø¬Ø§Ø¨Ø© ÙÙŠ ÙƒÙ„ Ø³Ø·Ø± Ù„Ø£Ù‚ØªØ±Ø­ Ø¹Ù„ÙŠÙƒ Ù…Ù…Ø§Ø±Ø³Ø© Ù…Ù†Ø§Ø³Ø¨Ø© Ù„Ù„ÙŠÙˆÙ….", action: "Ø§ÙƒØªØ´Ù Ù‡Ø°Ù‡ Ø§Ù„Ù…Ù…Ø§Ø±Ø³Ø©",
+        history: "Ø¢Ø®Ø± Ø³Ø¨Ø¹Ø© Ø£ÙŠØ§Ù…", privacy: "Ø®Ø§ØµØ© Ø¨Ù‡Ø°Ø§ Ø§Ù„Ù…ØªØµÙØ­. Ù„Ø§ ÙŠØªÙ… Ø¥Ø±Ø³Ø§Ù„ Ø¥Ø¬Ø§Ø¨Ø§ØªÙƒ.", daySaved: "Ù…Ù„Ø§Ø­Ø¸Ø© Ù…Ø­ÙÙˆØ¸Ø©", dayEmpty: "Ù„Ø§ ØªÙˆØ¬Ø¯ Ù…Ù„Ø§Ø­Ø¸Ø© Ù…Ø­ÙÙˆØ¸Ø©",
+        suggestions: {
+          stress: ["Ù‚Ù Ù‚Ù„ÙŠÙ„Ø§Ù‹ ÙˆØªÙ†ÙØ³", "Ù‚Ø¯ ØªØ³Ø§Ø¹Ø¯Ùƒ Ø§Ø³ØªØ±Ø§Ø­Ø© Ù‚ØµÙŠØ±Ø© Ù…ÙˆØ¬Ù‡Ø© Ù„Ù„ØªÙ†ÙØ³ Ø¹Ù„Ù‰ Ø§Ù„Ø¹ÙˆØ¯Ø© Ù„Ù„Ø­Ø¸Ø© Ø§Ù„Ø­Ø§Ø¶Ø±Ø©.", "?page=breathing"],
+          sleep: ["Ù…Ø³Ø§Ø­Ø© Ù„Ù„Ø±Ø§Ø­Ø©", "Ø§Ø³ØªÙƒØ´Ù Ø£ÙÙƒØ§Ø±Ø§Ù‹ Ø¨Ø³ÙŠØ·Ø© Ù„Ø±ÙˆØªÙŠÙ† Ù…Ø³Ø§Ø¦ÙŠØŒ ÙˆØ§Ø®ØªØ± Ù…Ø§ ÙŠÙ†Ø§Ø³Ø¨Ùƒ ÙÙ‚Ø·.", "?page=sleep"],
+          energy: ["Ù„Ø§Ø­Ø¸ Ù…Ø§ ÙŠØ¹ÙŠØ¯ Ø·Ø§Ù‚ØªÙƒ", "Ù‚Ø¯ ØªØ³Ø§Ø¹Ø¯Ùƒ Ù…Ù„Ø§Ø­Ø¸Ø© Ù‚ØµÙŠØ±Ø© Ø¹Ù„Ù‰ Ø§ÙƒØªØ´Ø§Ù Ù…Ø§ ÙŠÙ…Ø¯Ùƒ Ø¨Ø§Ù„Ø·Ø§Ù‚Ø©.", "?page=reflection"],
+          mood: ["Ø¹Ø¨Ù‘Ø± Ø¹Ù…Ø§ ØªØ´Ø¹Ø± Ø¨Ù‡", "Ø³Ø·ÙˆØ± Ø®Ø§ØµØ© Ù‚Ø¯ ØªØ³Ø§Ø¹Ø¯Ùƒ Ø¹Ù„Ù‰ Ø¥Ø¹Ø·Ø§Ø¡ Ù…Ø³Ø§Ø­Ø© Ù„Ù…Ø´Ø§Ø¹Ø±Ùƒ Ø¨Ù„Ø§ Ø¶ØºØ· Ù„Ø­Ù„Ù‡Ø§ Ø§Ù„Ø¢Ù†.", "#home-journal-card"],
+          steady: ["Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù…Ø§ ÙŠØ³Ø§Ø¹Ø¯Ùƒ", "Ø¬Ø±Ø¨ ÙˆÙ‚ÙØ© Ù‚ØµÙŠØ±Ø© Ù„Ù„ØªÙ†ÙØ³ Ø£Ùˆ Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø¹Ø§Ø¯Ø© ØµØºÙŠØ±Ø© ØªØ¯Ø¹Ù…Ùƒ.", "?page=breathing"]
+        }
+      },
+      darija: {
+        kicker: "Ù†Ù‚Ø·Ø© Ø¯ÙŠØ§Ù„ Ø§Ù„ÙŠÙˆÙ…", title: "Ø´Ù†Ùˆ Ø­Ø§Ø³ Ø¨ÙŠÙ‡ Ø§Ù„ÙŠÙˆÙ…ØŸ", intro: "Ø´ÙˆÙŠØ© Ø¯ÙŠØ§Ù„ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© ØªÙ‚Ø¯Ø± ØªØ¹Ø§ÙˆÙ†Ùƒ ØªØ®ØªØ§Ø± Ø®Ø·ÙˆØ© Ù…Ù†Ø§Ø³Ø¨Ø©.",
+        questions: ["ÙƒÙŠÙØ§Ø´ Ø§Ù„Ù…Ø²Ø§Ø¬ Ø¯ÙŠØ§Ù„ÙƒØŸ", "Ø´Ø­Ø§Ù„ ÙƒØ§ÙŠÙ† Ù…Ù† Ø§Ù„Ø¶ØºØ·ØŸ", "ÙƒÙŠÙØ§Ø´ Ø§Ù„Ø·Ø§Ù‚Ø© Ø¯ÙŠØ§Ù„ÙƒØŸ", "ÙƒÙŠÙØ§Ø´ Ù†Ø¹Ø³ØªÙŠØŸ"],
+        options: [["ØµØ¹Ø¨", "Ù…ØªÙ‚Ù„Ø¨", "Ù„Ø¨Ø§Ø³"], ["Ø´ÙˆÙŠØ©", "Ù…Ø¹Ù‚ÙˆÙ„", "Ø¨Ø²Ø§Ù"], ["Ù‚Ù„ÙŠÙ„Ø©", "ÙˆØ³Ø·", "Ù…Ø²ÙŠØ§Ù†Ø©"], ["Ù…Ù‚Ø·Ø¹", "Ù…ØªÙ‚Ù„Ø¨", "Ù…Ø±ÙŠØ­"]],
+        save: "Ø­ÙØ¸ Ù†Ù‚Ø·Ø© Ø§Ù„ÙŠÙˆÙ…", update: "Ø¨Ø¯Ù„ Ù†Ù‚Ø·Ø© Ø§Ù„ÙŠÙˆÙ…", saved: "ØªØ­ÙØ¸Ø§Øª Ø¨Ø®ØµÙˆØµÙŠØ© ÙÙ‡Ø§Ø¯ Ø§Ù„Ø¬Ù‡Ø§Ø².", savedToday: "Ù†Ù‚Ø·Ø© Ø§Ù„ÙŠÙˆÙ… Ù…Ø­ÙÙˆØ¸Ø© ÙÙ‡Ø§Ø¯ Ø§Ù„Ø¬Ù‡Ø§Ø². ØªÙ‚Ø¯Ø± ØªØ¨Ø¯Ù„Ù‡Ø§ Ù„ØªØ­Øª.",
+        incomplete: "Ø®ØªØ§Ø± Ø¬ÙˆØ§Ø¨ ÙÙƒÙ„ Ø³Ø·Ø± Ø¨Ø§Ø´ Ù†Ù‚ØªØ±Ø­Ùˆ Ø¹Ù„ÙŠÙƒ ÙÙƒØ±Ø©.", saveFailed: "Ù…ØªÙ‚Ø¯Ø±Ø´ Ø§Ù„Ù…ØªØµÙØ­ ÙŠØ­ÙØ¸ Ø¯Ø§Ø¨Ø§. Ø¹Ø§ÙˆØ¯ Ø¬Ø±Ø¨.",
+        suggestionLabel: "Ø®Ø·ÙˆØ© ØµØºÙŠØ±Ø©", defaultTitle: "Ø®Ø¯ Ù„ÙŠÙƒ ÙˆÙ‚Øª", defaultCopy: "Ø®ØªØ§Ø± Ø¬ÙˆØ§Ø¨ ÙÙƒÙ„ Ø³Ø·Ø± ÙˆØºØ§Ù†Ù‚ØªØ±Ø­ Ø¹Ù„ÙŠÙƒ ØªÙ…Ø±ÙŠÙ† ÙŠÙ†Ø§Ø³Ø¨Ùƒ Ø§Ù„ÙŠÙˆÙ… .", action: "Ø´ÙˆÙ Ù‡Ø§Ø¯ Ø§Ù„ØªÙ…Ø±ÙŠÙ†",
+        history: "Ø¢Ø®Ø± Ø³Ø¨Ø¹Ø© Ø¯ÙŠØ§Ù„ Ø§Ù„Ø£ÙŠØ§Ù…", privacy: "ØºÙŠØ± ÙÙ‡Ø§Ø¯ Ø§Ù„Ù…ØªØµÙØ­. Ø§Ù„Ø£Ø¬ÙˆØ¨Ø© Ù…Ø§ ÙƒØªØªØµÙŠÙØ· Ø­ØªÙ‰ Ù„ÙŠÙ†.", daySaved: "Ù†Ù‚Ø·Ø© Ù…Ø­ÙÙˆØ¸Ø©", dayEmpty: "Ù…Ø§ÙƒØ§ÙŠÙ†Ø§Ø´ Ø­ÙØ¸",
+        suggestions: {
+          stress: ["ÙˆÙ‚Ù Ø´ÙˆÙŠØ© ÙˆØªÙ†ÙØ³", "ØªÙ…Ø±ÙŠÙ† Ù‚ØµÙŠØ± Ø¯ÙŠØ§Ù„ Ø§Ù„ØªÙ†ÙØ³ ÙŠÙ‚Ø¯Ø± ÙŠØ¹Ø§ÙˆÙ†Ùƒ ØªØ¨Ø·Ø£ ÙˆØªØ±Ø¬Ø¹ Ù„Ù„Ø¯Ù‚ÙŠÙ‚Ø© Ø¯Ø§Ø¨Ø§.", "?page=breathing"],
+          sleep: ["Ø®Ù„ÙŠ Ù…Ø³Ø§Ø­Ø© Ù„Ù„Ø±Ø§Ø­Ø©", "Ø´ÙˆÙ Ø´ÙˆÙŠØ© Ø¯ÙŠØ§Ù„ Ø§Ù„Ø£ÙÙƒØ§Ø± Ù„Ø±ÙˆØªÙŠÙ† Ø§Ù„Ø¹Ø´ÙŠØ© ÙˆØ®Ø¯ ØºÙŠØ± Ø§Ù„Ù„ÙŠ Ù…Ù†Ø§Ø³Ø¨ Ù„ÙŠÙƒ.", "?page=sleep"],
+          energy: ["Ù†Ù„Ø§Ø­Ø¸Ùˆ Ø´Ù†Ùˆ ÙƒÙŠØ±Ø¬Ø¹ Ù„ÙŠÙƒ Ø§Ù„Ø·Ø§Ù‚Ø©", "ØªÙ…Ø±ÙŠÙ† ØµØºÙŠØ± ÙŠÙ‚Ø¯Ø± ÙŠØ¹Ø§ÙˆÙ†Ùƒ ØªÙ„Ø­Ø¸ Ø´Ù†Ùˆ ÙƒÙŠØ¹Ø·ÙŠÙƒ Ø§Ù„Ø·Ø§Ù‚Ø©.", "?page=reflection"],
+          mood: ["ÙƒØªØ¨ Ø´Ù†Ùˆ Ø­Ø§Ø³", "Ø³Ø·ÙˆØ± Ø®Ø§ØµÙŠÙ† ÙŠÙ‚Ø¯Ø±Ùˆ ÙŠØ¹Ø§ÙˆÙ†ÙˆÙƒ ØªØ®Ù„ÙŠ Ù…Ø³Ø§Ø­Ø© Ù„Ù„Ù…Ø´Ø§Ø¹Ø± Ø¯ÙŠØ§Ù„Ùƒ Ø¨Ù„Ø§ Ù…Ø§ØªØ¶Ø·Ø± ØªØ­Ù„Ù‡Ù… Ø¯Ø§Ø¨Ø§.", "#home-journal-card"],
+          steady: ["Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ø§Ù„Ù„ÙŠ ÙƒÙŠØ¹Ø§ÙˆÙ†Ùƒ", "Ø¬Ø±Ø¨ ÙˆÙ‚ÙØ© ØµØºÙŠØ±Ø© Ù„Ù„ØªÙ†ÙØ³ Ø£Ùˆ Ø¨Ù‚Ù‰ Ø¹Ù„Ù‰ Ø¹Ø§Ø¯Ø© ØµØºÙŠØ±Ø© ÙƒØªØ³Ø§Ø¹Ø¯Ùƒ.", "?page=breathing"]
+        }
+      }
+    };
+
+    const dailyCheckinAreas = ["mood", "stress", "energy", "sleep"];
+    const dailyCheckinStorageKey = "mc-daily-checkin-history-v1";
+    function repairLegacyArabic(value) {
+      const windows1252 = new Map([["€", 0x80], ["‚", 0x82], ["ƒ", 0x83], ["„", 0x84], ["…", 0x85], ["†", 0x86], ["‡", 0x87], ["ˆ", 0x88], ["‰", 0x89], ["Š", 0x8a], ["‹", 0x8b], ["Œ", 0x8c], ["Ž", 0x8e], ["‘", 0x91], ["’", 0x92], ["“", 0x93], ["”", 0x94], ["•", 0x95], ["–", 0x96], ["—", 0x97], ["˜", 0x98], ["™", 0x99], ["š", 0x9a], ["›", 0x9b], ["œ", 0x9c], ["ž", 0x9e], ["Ÿ", 0x9f]]);
+      try {
+        const bytes = Array.from(value, (character) => {
+          const code = character.codePointAt(0);
+          return code <= 0xff ? code : windows1252.get(character);
+        });
+        if (bytes.some((byte) => byte === undefined)) return value;
+        return new TextDecoder("utf-8", { fatal: true }).decode(new Uint8Array(bytes));
+      } catch { return value; }
+    }
+    function normalizeArabicCopy(value) {
+      if (typeof value === "string") return repairLegacyArabic(value);
+      if (Array.isArray(value)) return value.map(normalizeArabicCopy);
+      if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeArabicCopy(item)]));
+      return value;
+    }
+    dailyCheckinCopy.ar = normalizeArabicCopy(dailyCheckinCopy.ar);
+    dailyCheckinCopy.darija = normalizeArabicCopy(dailyCheckinCopy.darija);
+
+    const needPickerCopy = {
+      en: {
+        kicker: "CHOOSE YOUR NEXT STEP", group: "Choose what you need right now", title: "What would feel useful right now?",
+        intro: "Pick one place to begin. You can change your choice at any time.", resultLabel: "A PLACE TO START",
+        defaultTitle: "Choose what feels closest", defaultCopy: "There is no right answer. Choose what might help in this moment.", open: "Go to this practice",
+        choices: [
+          ["I want to feel calmer", "Pause and breathe", "Try a short guided breathing exercise and return to the present at your own pace.", "?page=breathing", "Start breathing"],
+          ["I want to sort my thoughts", "Make room for your thoughts", "Write privately for a moment, without pressure to explain or solve everything.", "#home-journal-card", "Open my reflection"],
+          ["I want help winding down", "Make space for rest", "Explore a few gentle evening ideas and keep only what feels right for you.", "?page=sleep", "Explore sleep ideas"],
+          ["I want to talk to someone", "Talk with Nafs", "Learn about a listening session and decide if speaking with someone feels right for you.", "checkin.htm#/book", "Explore a Nafs session"]
+        ]
+      },
+      fr: {
+        kicker: "CHOISIR UNE PISTE", group: "Choisis ce dont tu as besoin", title: "De quoi aurais-tu besoin maintenant ?",
+        intro: "Choisis un point de départ. Tu peux changer d'avis à tout moment.", resultLabel: "UN POINT DE DÉPART",
+        defaultTitle: "Choisis ce qui te parle", defaultCopy: "Il n'y a pas de bonne réponse. Choisis ce qui pourrait t'aider maintenant.", open: "Ouvrir cette pratique",
+        choices: [
+          ["Me sentir plus calme", "Faire une pause et respirer", "Essaie un court exercice guidé et reviens au moment présent à ton rythme.", "?page=breathing", "Commencer la respiration"],
+          ["Mettre mes idées au clair", "Faire une place à tes pensées", "Écris quelques instants en privé, sans devoir tout expliquer ni tout résoudre.", "#home-journal-card", "Ouvrir mon espace d'écriture"],
+          ["M'aider à me détendre", "Faire une place au repos", "Parcours quelques idées pour le soir et garde seulement celles qui te conviennent.", "?page=sleep", "Voir les idées sommeil"],
+          ["Parler à quelqu'un", "Échanger avec Nafs", "Découvre les séances d'écoute et vois si parler à quelqu'un te conviendrait.", "checkin.htm#/book", "Découvrir une séance Nafs"]
+        ]
+      },
+      ar: {
+        kicker: "اختر خطوتك التالية", group: "اختر ما تحتاجه الآن", title: "ما الذي قد يساعدك الآن؟",
+        intro: "اختر نقطة بداية واحدة، ويمكنك تغيير اختيارك في أي وقت.", resultLabel: "بداية مناسبة",
+        defaultTitle: "اختر ما يناسبك", defaultCopy: "لا توجد إجابة صحيحة. اختر ما قد يساعدك في هذه اللحظة.", open: "افتح هذه الممارسة",
+        choices: [
+          ["أريد أن أهدأ", "توقف وتنفس", "جرّب تمرين تنفس قصيرًا وعد إلى اللحظة الحالية بالوتيرة التي تناسبك.", "?page=breathing", "ابدأ التنفس"],
+          ["أريد ترتيب أفكاري", "مساحة لأفكارك", "اكتب قليلًا لنفسك، دون ضغط لشرح كل شيء أو إيجاد حل الآن.", "#home-journal-card", "افتح مساحة التأمل"],
+          ["أريد الاستعداد للنوم", "تمهّل نحو الراحة", "اكتشف بعض الأفكار الهادئة للمساء واختر ما يناسبك منها.", "?page=sleep", "اكتشف أفكار النوم"],
+          ["أريد التحدث مع شخص", "تحدث مع نفس", "اطّلع على جلسات الإصغاء وقرّر إن كان الحديث مع شخص مناسبًا لك.", "checkin.htm#/book", "اكتشف جلسة نفس"]
+        ]
+      },
+      darija: {
+        kicker: "ختار الخطوة الجاية", group: "ختار شنو محتاج دابا", title: "شنو يقدر ينفعك دابا؟",
+        intro: "ختار منين تبدا، وتقدر تبدل الاختيار ديالك فأي وقت.", resultLabel: "بداية مناسبة",
+        defaultTitle: "ختار شنو قريب ليك", defaultCopy: "ما كاينش جواب صحيح. ختار شنو يقدر يعاونك فهاد اللحظة.", open: "مشي لهاد التمرين",
+        choices: [
+          ["بغيت نهدأ", "نوقف ونتنفس", "جرب تمرين تنفس قصير ورجع للحظة دابا بالوتيرة اللي مناسبة ليك.", "?page=breathing", "بدا التنفس"],
+          ["بغيت نرتب أفكاري", "نعطي مساحة لأفكاري", "كتب شوية على راحتك، بلا ضغط تشرح كلشي ولا تلقى الحل دابا.", "#home-journal-card", "نفتح دفتر التأمل"],
+          ["بغيت نوجد للنعاس", "نخليو بلاصة للراحة", "شوف أفكار هادئة للعشية وخد غير اللي مناسب ليك.", "?page=sleep", "نشوف أفكار النوم"],
+          ["بغيت نهضر مع شي حد", "نهضر مع نفس", "شوف جلسات الإصغاء وقرر واش الهضرة مع شي حد مناسبة ليك.", "checkin.htm#/book", "نشوف جلسة نفس"]
+        ]
+      }
+    };
+    let selectedNeedChoice = -1;
+
+    function renderNeedPicker() {
+      const root = document.getElementById("need-picker");
+      if (!root) return;
+      const copy = needPickerCopy[state.lang] || needPickerCopy.en;
+      document.getElementById("need-picker-kicker").textContent = copy.kicker;
+      document.getElementById("need-picker-title").textContent = copy.title;
+      document.getElementById("need-picker-intro").textContent = copy.intro;
+      document.getElementById("need-picker-result-label").textContent = copy.resultLabel;
+      const options = document.getElementById("need-picker-options");
+      options.setAttribute("aria-label", copy.group);
+      options.replaceChildren();
+      copy.choices.forEach((choice, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "need-picker-option";
+        button.dataset.needChoice = String(index);
+        button.setAttribute("aria-pressed", String(index === selectedNeedChoice));
+        const number = document.createElement("span");
+        number.className = "need-picker-option-number";
+        number.textContent = `0${index + 1}`;
+        const label = document.createElement("span");
+        label.className = "need-picker-option-label";
+        label.textContent = choice[0];
+        const arrow = document.createElement("span");
+        arrow.className = "need-picker-option-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "↗";
+        button.append(number, label, arrow);
+        options.append(button);
+      });
+      updateNeedPickerResult(copy, selectedNeedChoice);
+    }
+
+    function updateNeedPickerResult(copy, index) {
+      const title = document.getElementById("need-picker-result-title");
+      const body = document.getElementById("need-picker-result-copy");
+      const link = document.getElementById("need-picker-result-link");
+      if (index < 0 || index >= copy.choices.length) {
+        title.textContent = copy.defaultTitle;
+        body.textContent = copy.defaultCopy;
+        link.hidden = true;
+        return;
+      }
+      const choice = copy.choices[index];
+      title.textContent = choice[1];
+      body.textContent = choice[2];
+      link.href = choice[3];
+      link.textContent = choice[4] || copy.open;
+      link.hidden = false;
+    }
+
+    function localDateKey(date = new Date()) {
+      return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+    }
+
+    function getDailyCheckinHistory() {
+      try {
+        const data = JSON.parse(localStorage.getItem(dailyCheckinStorageKey) || "[]");
+        return Array.isArray(data) ? data.filter((entry) => /^\d{4}-\d{2}-\d{2}$/.test(entry?.day) && dailyCheckinAreas.every((area) => [0, 1, 2].includes(entry?.answers?.[area]))) : [];
+      } catch { return []; }
+    }
+
+    function renderDailyCheckin() {
+      const root = document.getElementById("daily-checkin");
+      if (!root) return;
+      const language = dailyCheckinCopy[state.lang] ? state.lang : "en";
+      const copy = dailyCheckinCopy[language];
+      const fields = document.getElementById("daily-checkin-fields");
+      const savedToday = getDailyCheckinHistory().find((entry) => entry.day === localDateKey());
+      const draft = Object.fromEntries(dailyCheckinAreas.map((area) => {
+        const selected = fields.querySelector(`input[name="${area}"]:checked`);
+        return [area, selected ? Number(selected.value) : null];
+      }));
+      const hasDraft = Object.values(draft).some((value) => value !== null);
+      const values = hasDraft ? draft : (savedToday?.answers || {});
+
+      document.getElementById("daily-checkin-kicker").textContent = copy.kicker;
+      document.getElementById("daily-checkin-title").textContent = copy.title;
+      document.getElementById("daily-checkin-intro").textContent = copy.intro;
+      document.getElementById("daily-checkin-suggestion-label").textContent = copy.suggestionLabel;
+      document.getElementById("daily-checkin-history-label").textContent = copy.history;
+      document.getElementById("daily-checkin-privacy").textContent = copy.privacy;
+
+      fields.replaceChildren();
+      dailyCheckinAreas.forEach((area, index) => {
+        const fieldset = document.createElement("fieldset");
+        fieldset.className = "daily-checkin-question";
+        const legend = document.createElement("legend");
+        legend.textContent = copy.questions[index];
+        const choices = document.createElement("div");
+        choices.className = "daily-checkin-options";
+        copy.options[index].forEach((label, optionIndex) => {
+          const choice = document.createElement("label");
+          choice.className = "daily-checkin-choice";
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = area;
+          input.value = String(optionIndex);
+          input.checked = values[area] === optionIndex;
+          const text = document.createElement("span");
+          text.textContent = label;
+          choice.append(input, text);
+          choices.append(choice);
+        });
+        fieldset.append(legend, choices);
+        fields.append(fieldset);
+      });
+
+      const complete = dailyCheckinAreas.every((area) => values[area] === 0 || values[area] === 1 || values[area] === 2);
+      const saveButton = document.getElementById("daily-checkin-save");
+      saveButton.disabled = !complete;
+      saveButton.textContent = savedToday ? copy.update : copy.save;
+      const status = document.getElementById("daily-checkin-status");
+      const hasChanged = savedToday && hasDraft && dailyCheckinAreas.some((area) => draft[area] !== savedToday.answers[area]);
+      status.textContent = savedToday && !hasChanged ? copy.savedToday : (complete ? "" : copy.incomplete);
+      updateDailyCheckinSuggestion(copy, values, complete);
+      renderDailyCheckinHistory(copy);
+    }
+
+    function updateDailyCheckinSuggestion(copy, values, complete) {
+      const title = document.getElementById("daily-checkin-suggestion-title");
+      const body = document.getElementById("daily-checkin-suggestion-copy");
+      const link = document.getElementById("daily-checkin-suggestion-link");
+      if (!complete) {
+        title.textContent = copy.defaultTitle;
+        body.textContent = copy.defaultCopy;
+        link.hidden = true;
+        return;
+      }
+      const needs = { mood: 2 - values.mood, stress: values.stress, energy: 2 - values.energy, sleep: 2 - values.sleep };
+      const focusArea = ["stress", "sleep", "energy", "mood"].reduce((best, area) => needs[area] > needs[best] ? area : best, "stress");
+      const suggestion = copy.suggestions[needs[focusArea] === 0 ? "steady" : focusArea];
+      title.textContent = suggestion[0];
+      body.textContent = suggestion[1];
+      link.href = suggestion[2];
+      link.textContent = copy.action;
+      link.hidden = false;
+    }
+
+    function renderDailyCheckinHistory(copy) {
+      const list = document.getElementById("daily-checkin-history");
+      list.setAttribute("aria-label", copy.history);
+      const history = getDailyCheckinHistory();
+      const savedDays = new Set(history.map((entry) => entry.day));
+      const today = new Date();
+      const formatter = new Intl.DateTimeFormat(document.documentElement.lang, { weekday: "short" });
+      list.replaceChildren();
+      for (let offset = 6; offset >= 0; offset -= 1) {
+        const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - offset);
+        const key = localDateKey(date);
+        const isSaved = savedDays.has(key);
+        const item = document.createElement("li");
+        item.className = isSaved ? "has-checkin" : "";
+        item.setAttribute("aria-label", `${formatter.format(date)}: ${isSaved ? copy.daySaved : copy.dayEmpty}`);
+        const day = document.createElement("span");
+        day.textContent = formatter.format(date);
+        const mark = document.createElement("i");
+        mark.setAttribute("aria-hidden", "true");
+        item.append(day, mark);
+        list.append(item);
+      }
+    }
+
     function renderHomeProgress() {
       const completed = [
         ["assessment", "mc-combined-assessment"],
@@ -1656,11 +1956,41 @@
       $("#daily-note-quote").textContent = `“${note.quote}”`;
     }
 
+    const autoDirectionSelector = "p,h1,h2,h3,h4,h5,h6,li,label,legend,blockquote,summary,dt,dd,th,td,button,a,input:not([type=radio]):not([type=checkbox]),textarea,select";
+
+    function syncTextDirections(root = document) {
+      const rtl = state.lang === "ar" || state.lang === "darija";
+      const elements = [];
+      if (root instanceof Element && root.matches(autoDirectionSelector)) elements.push(root);
+      if (root.querySelectorAll) elements.push(...root.querySelectorAll(autoDirectionSelector));
+
+      elements.forEach((element) => {
+        if (element.classList.contains("mind-coach-word")) {
+          element.setAttribute("dir", "ltr");
+          return;
+        }
+        const currentDirection = element.getAttribute("dir");
+        if (currentDirection && currentDirection !== "auto") return;
+        if (rtl) element.setAttribute("dir", "auto");
+        else if (currentDirection === "auto") element.removeAttribute("dir");
+      });
+    }
+
+    const textDirectionObserver = new MutationObserver((records) => {
+      if (state.lang !== "ar" && state.lang !== "darija") return;
+      records.forEach((record) => record.addedNodes.forEach((node) => {
+        if (node instanceof Element) syncTextDirections(node);
+      }));
+    });
+    textDirectionObserver.observe(document.body, { childList: true, subtree: true });
+
     function applyTranslations() {
       const rtl = state.lang === "ar" || state.lang === "darija";
       $("#lang-select").value = state.lang;
       document.documentElement.lang = state.lang === "darija" ? "ar" : state.lang;
       document.documentElement.dir = rtl ? "rtl" : "ltr";
+      renderNeedPicker();
+      renderDailyCheckin();
       renderWelcomeIntro();
       renderFullAssessmentCard();
       renderFullAssessmentProgress();
@@ -1744,6 +2074,7 @@
       renderDaypartNote();
       renderMentalHealthCopy();
       updateWorkspaceHeader();
+      syncTextDirections();
     }
 
     function renderMentalHealthCopy() {
@@ -2030,6 +2361,14 @@
       });
     }
 
+    function setQuestionLegend(legend, text, index) {
+      const marker = document.createElement("span");
+      marker.className = "question-index";
+      marker.setAttribute("aria-hidden", "true");
+      marker.textContent = String(index + 1).padStart(2, "0");
+      legend.replaceChildren(marker, document.createTextNode(text));
+    }
+
     function renderQuestions() {
       const wrap = $("#questions");
       const current = { ...state.assessmentAnswers, ...Object.fromEntries(new FormData($("#assessment-form")).entries()) };
@@ -2040,7 +2379,7 @@
         fs.style.animationDelay = `${idx * 40}ms`;
         const legend = document.createElement("legend");
         legend.className = "px-1 text-sm text-slate-200";
-        legend.textContent = `${idx + 1}. ${q.text[state.lang]}`;
+        setQuestionLegend(legend, q.text[state.lang], idx);
         fs.appendChild(legend);
         const row = document.createElement("div");
         row.className = "mt-3 flex flex-wrap gap-2";
@@ -2103,7 +2442,7 @@
         fs.style.animationDelay = `${idx * 35}ms`;
         const legend = document.createElement("legend");
         legend.className = "px-1 text-sm text-slate-200";
-        legend.textContent = `${idx + 1}. ${q.text[state.lang]}`;
+        setQuestionLegend(legend, q.text[state.lang], idx);
         fs.appendChild(legend);
         const row = document.createElement("div");
         row.className = "mt-3 flex flex-wrap gap-2";
@@ -2133,7 +2472,7 @@
         fieldset.style.animationDelay = `${index * 25}ms`;
         const legend = document.createElement("legend");
         legend.className = "px-1 text-sm text-slate-200";
-        legend.textContent = `${index + 1}. ${question.text[state.lang]}`;
+        setQuestionLegend(legend, question.text[state.lang], index);
         fieldset.appendChild(legend);
         const options = document.createElement("div");
         options.className = "mt-3 flex flex-wrap gap-2";
@@ -2649,6 +2988,151 @@
       };
     }
 
+    function assessmentComparisonCopy() {
+      return ({
+        en: {
+          eyebrow: "COMPARATIVE CHECK-IN", title: "Your answers, side by side", firstTitle: "Your comparison starts here",
+          intro: "The same questions were used in both sessions. Compare the descriptive response patterns below.",
+          firstIntro: "This session is your baseline. Your next Comparative check-in will use the same questions, so you can view the two sessions together.",
+          previous: "Previous check-in", current: "This check-in", previousScore: "Previous", currentScore: "Current",
+          baseline: "Baseline", lower: "Lower response score", close: "Close response scores", higher: "Higher response score",
+          difference: "Difference", note: "These figures describe the response options selected in each session. They are for reflection only, not a diagnosis or a measure of progress."
+        },
+        fr: {
+          eyebrow: "COMPARAISON DES SÉANCES", title: "Tes réponses, côte à côte", firstTitle: "Ta comparaison commence ici",
+          intro: "Les mêmes questions ont été utilisées dans les deux séances. Voici une comparaison descriptive des réponses.",
+          firstIntro: "Cette séance est ton point de départ. La prochaine séance en mode Comparatif reprendra les mêmes questions pour afficher les deux séances ensemble.",
+          previous: "Séance précédente", current: "Cette séance", previousScore: "Avant", currentScore: "Maintenant",
+          baseline: "Point de départ", lower: "Score de réponses plus bas", close: "Scores de réponses proches", higher: "Score de réponses plus élevé",
+          difference: "Écart", note: "Ces chiffres décrivent les réponses choisies à chaque séance. Ils servent à la réflexion, pas au diagnostic ni à mesurer un progrès."
+        },
+        ar: {
+          eyebrow: "مقارنة بين الجلسات", title: "إجاباتك جنبًا إلى جنب", firstTitle: "تبدأ المقارنة من هنا",
+          intro: "استُخدمت الأسئلة نفسها في الجلستين. قارني نمط الإجابات الوصفي أدناه.",
+          firstIntro: "هذه الجلسة هي نقطة البداية. ستستخدم جلسة المقارنة القادمة الأسئلة نفسها لتتمكني من رؤية الجلستين معًا.",
+          previous: "الجلسة السابقة", current: "هذه الجلسة", previousScore: "سابقًا", currentScore: "حاليًا",
+          baseline: "نقطة البداية", lower: "مؤشر إجابات أقل", close: "مؤشرا الإجابات متقاربان", higher: "مؤشر إجابات أعلى",
+          difference: "الفرق", note: "تصف هذه الأرقام خيارات الإجابة في كل جلسة، وهي للتأمل فقط وليست تشخيصًا أو مقياسًا للتقدم."
+        },
+        darija: {
+          eyebrow: "مقارنة بين الجلسات", title: "الأجوبة ديالك حدّ حدّ", firstTitle: "المقارنة كتبدا من هنا",
+          intro: "تستعملو نفس الأسئلة فالجوج ديال الجلسات. هادي مقارنة وصفية لنمط الأجوبة.",
+          firstIntro: "هاد الجلسة هي نقطة البداية. المرة الجاية فالوضع المقارن غادي نعاودو نفس الأسئلة باش تشوف الجوج ديال الجلسات مجموعين.",
+          previous: "الجلسة اللي فاتت", current: "هاد الجلسة", previousScore: "قبل", currentScore: "دابا",
+          baseline: "نقطة البداية", lower: "مؤشر الأجوبة أقل", close: "مؤشرات الأجوبة متقاربة", higher: "مؤشر الأجوبة أعلى",
+          difference: "الفرق", note: "هاد الأرقام كتوصف اختيارات الأجوبة فكل جلسة. غير للتأمل، ماشي تشخيص وماشي مقياس للتقدم."
+        }
+      })[state.lang] || {
+        eyebrow: "COMPARATIVE CHECK-IN", title: "Your answers, side by side", firstTitle: "Your comparison starts here",
+        intro: "The same questions were used in both sessions. Compare the descriptive response patterns below.",
+        firstIntro: "This session is your baseline. Your next Comparative check-in will use the same questions, so you can view the two sessions together.",
+        previous: "Previous check-in", current: "This check-in", previousScore: "Previous", currentScore: "Current",
+        baseline: "Baseline", lower: "Lower response score", close: "Close response scores", higher: "Higher response score",
+        difference: "Difference", note: "These figures describe the response options selected in each session. They are for reflection only, not a diagnosis or a measure of progress."
+      };
+    }
+
+    function renderAssessmentComparison(scores, date, previous, hasComparablePrevious, mode) {
+      const panel = document.getElementById("assessment-comparison-panel");
+      if (!panel) return;
+      panel.hidden = mode !== "comparative";
+      if (panel.hidden) return;
+
+      const copy = assessmentComparisonCopy();
+      const locale = { fr: "fr-FR", en: "en-US", ar: "ar", darija: "ar-MA" }[state.lang] || "fr-FR";
+      const formatScore = (value) => new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value);
+      const formatDate = (value) => {
+        const parsed = new Date(value);
+        return Number.isNaN(parsed.valueOf()) ? "" : new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(parsed);
+      };
+      const setText = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
+      setText("assessment-comparison-eyebrow", copy.eyebrow);
+      setText("assessment-comparison-title", hasComparablePrevious ? copy.title : copy.firstTitle);
+      setText("assessment-comparison-intro", hasComparablePrevious ? copy.intro : copy.firstIntro);
+      setText("assessment-comparison-note", copy.note);
+
+      const dateStrip = document.getElementById("assessment-comparison-dates");
+      dateStrip.replaceChildren();
+      const addDate = (label, value, tone) => {
+        if (!value) return;
+        const item = document.createElement("div");
+        item.className = `assessment-comparison-date ${tone}`;
+        const caption = document.createElement("span");
+        caption.textContent = label;
+        const time = document.createElement("time");
+        const parsed = new Date(value);
+        time.textContent = formatDate(value);
+        time.dateTime = Number.isNaN(parsed.valueOf()) ? "" : parsed.toISOString();
+        item.append(caption, time);
+        dateStrip.appendChild(item);
+      };
+      if (hasComparablePrevious) addDate(copy.previous, previous.date, "is-previous");
+      addDate(copy.current, date, "is-current");
+
+      const areaList = document.getElementById("assessment-comparison-areas");
+      areaList.replaceChildren();
+      assessmentDimensions.forEach((key) => {
+        const currentScore = Number(scores?.[key]?.score);
+        const oldScore = hasComparablePrevious ? Number(previous?.scores?.[key]?.score) : null;
+        if (!Number.isFinite(currentScore) || (hasComparablePrevious && !Number.isFinite(oldScore))) return;
+        const delta = hasComparablePrevious ? Math.round((currentScore - oldScore) * 10) / 10 : null;
+        const direction = !hasComparablePrevious ? "baseline" : delta < -0.3 ? "lower" : delta > 0.3 ? "higher" : "close";
+        const areaName = t(`common.${key}`);
+        const row = document.createElement("article");
+        row.className = "assessment-comparison-area";
+
+        const heading = document.createElement("div");
+        heading.className = "assessment-comparison-area-heading";
+        const title = document.createElement("h5");
+        title.textContent = areaName;
+        const status = document.createElement("span");
+        status.className = `assessment-comparison-status is-${direction}`;
+        status.textContent = direction === "baseline" ? copy.baseline : copy[direction];
+        heading.append(title, status);
+
+        const tracks = document.createElement("div");
+        tracks.className = "assessment-comparison-tracks";
+        const addTrack = (label, value, variant) => {
+          const block = document.createElement("div");
+          block.className = `assessment-comparison-track-row ${variant}`;
+          const meta = document.createElement("div");
+          meta.className = "assessment-comparison-track-meta";
+          const labelNode = document.createElement("span");
+          labelNode.textContent = label;
+          const valueNode = document.createElement("strong");
+          valueNode.textContent = `${formatScore(value)} / 9`;
+          meta.append(labelNode, valueNode);
+          const track = document.createElement("div");
+          track.className = "assessment-comparison-track";
+          track.setAttribute("role", "progressbar");
+          track.setAttribute("aria-label", `${areaName} · ${label}: ${formatScore(value)} / 9`);
+          track.setAttribute("aria-valuemin", "0");
+          track.setAttribute("aria-valuemax", "9");
+          track.setAttribute("aria-valuenow", String(Math.min(9, Math.max(0, value))));
+          const fill = document.createElement("span");
+          fill.style.width = `${Math.min(100, Math.max(0, (value / 9) * 100))}%`;
+          track.appendChild(fill);
+          block.append(meta, track);
+          tracks.appendChild(block);
+        };
+        if (hasComparablePrevious) addTrack(copy.previousScore, oldScore, "is-previous");
+        addTrack(hasComparablePrevious ? copy.currentScore : copy.current, currentScore, "is-current");
+        row.append(heading, tracks);
+        if (hasComparablePrevious) {
+          const difference = document.createElement("p");
+          difference.className = "assessment-comparison-difference";
+          const differenceLabel = document.createElement("span");
+          differenceLabel.textContent = copy.difference;
+          const differenceValue = document.createElement("strong");
+          const sign = delta > 0 ? "+" : delta < 0 ? "−" : "";
+          differenceValue.textContent = `${sign}${formatScore(Math.abs(delta))} / 9`;
+          difference.append(differenceLabel, differenceValue);
+          row.appendChild(difference);
+        }
+        areaList.appendChild(row);
+      });
+    }
+
     function renderAssessmentBoardMeta(scores, date) {
       const copy = assessmentBoardCopy();
       const set = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
@@ -2840,6 +3324,7 @@
       const hasComparablePrevious = mode === "comparative" && previous?.mode === "comparative"
         && sameQuestionSet(previous.questionIds, questionIds) && previous.scores
         && assessmentDimensions.every((key) => previous.scores[key]?.max === 9);
+      renderAssessmentComparison(scores, date, previous, hasComparablePrevious, mode);
       if (mode === "comparative") {
         const copy = assessmentModeCopy[state.lang] || assessmentModeCopy.en;
         const locale = { fr: "fr-FR", en: "en-US", ar: "ar", darija: "ar-MA" }[state.lang] || "fr-FR";
@@ -3463,6 +3948,46 @@
         localStorage.setItem("mc-home-reflection", homeJournal.value);
         $("#home-journal-status").textContent = t("homeDashboard.saved");
       });
+      document.getElementById("need-picker-options").addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-need-choice]");
+        if (!button) return;
+        selectedNeedChoice = Number(button.dataset.needChoice);
+        const copy = needPickerCopy[state.lang] || needPickerCopy.en;
+        document.querySelectorAll("#need-picker-options .need-picker-option").forEach((option, index) => {
+          const selected = index === selectedNeedChoice;
+          option.setAttribute("aria-pressed", String(selected));
+          option.classList.toggle("is-active", selected);
+        });
+        updateNeedPickerResult(copy, selectedNeedChoice);
+      });
+      const dailyCheckinForm = document.getElementById("daily-checkin-form");
+      dailyCheckinForm.addEventListener("change", () => {
+        const copy = dailyCheckinCopy[state.lang] || dailyCheckinCopy.en;
+        const answers = Object.fromEntries(dailyCheckinAreas.map((area) => [area, dailyCheckinForm.querySelector(`input[name="${area}"]:checked`)?.value]));
+        const values = Object.fromEntries(dailyCheckinAreas.map((area) => [area, answers[area] === undefined ? null : Number(answers[area])]));
+        const complete = dailyCheckinAreas.every((area) => [0, 1, 2].includes(values[area]));
+        document.getElementById("daily-checkin-save").disabled = !complete;
+        document.getElementById("daily-checkin-status").textContent = complete ? "" : copy.incomplete;
+        updateDailyCheckinSuggestion(copy, values, complete);
+      });
+      dailyCheckinForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const copy = dailyCheckinCopy[state.lang] || dailyCheckinCopy.en;
+        const answers = Object.fromEntries(dailyCheckinAreas.map((area) => [area, Number(dailyCheckinForm.querySelector(`input[name="${area}"]:checked`)?.value)]));
+        if (!dailyCheckinAreas.every((area) => [0, 1, 2].includes(answers[area]))) return;
+        const day = localDateKey();
+        const history = getDailyCheckinHistory().filter((entry) => entry.day !== day);
+        history.push({ day, answers });
+        history.sort((a, b) => b.day.localeCompare(a.day));
+        try {
+          localStorage.setItem(dailyCheckinStorageKey, JSON.stringify(history.slice(0, 30)));
+          document.getElementById("daily-checkin-status").textContent = copy.saved;
+          renderDailyCheckinHistory(copy);
+          document.getElementById("daily-checkin-save").textContent = copy.update;
+        } catch {
+          document.getElementById("daily-checkin-status").textContent = copy.saveFailed;
+        }
+      });
       const referenceRoot = $("#reference-library");
       referenceRoot.addEventListener("click", (event) => {
         const button = event.target.closest("button[data-reference-start]");
@@ -3719,6 +4244,8 @@
       $("#theme-select").addEventListener("change", (e) => {
         const theme = e.target.value;
         document.body.classList.toggle("theme-light", theme === "light");
+        document.body.classList.toggle("theme-dark", theme === "dark");
+        document.documentElement.dataset.theme = theme;
         localStorage.setItem("mc-theme", theme);
       });
 
@@ -3737,9 +4264,11 @@
         localStorage.setItem("mc-theme", "light");
         localStorage.setItem("mc-interface-version", interfaceVersion);
       }
-      const theme = localStorage.getItem("mc-theme") || "light";
+      const theme = localStorage.getItem("mc-theme") === "dark" ? "dark" : "light";
       $("#theme-select").value = theme;
       document.body.classList.toggle("theme-light", theme === "light");
+      document.body.classList.toggle("theme-dark", theme === "dark");
+      document.documentElement.dataset.theme = theme;
     }
 
     function replayVisibleReveals() {

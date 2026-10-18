@@ -7,6 +7,10 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { promisify } from "node:util";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
+const PUBLIC_ASSETS = new Map([
+  ["/styles.css", { file: "styles.css", contentType: "text/css; charset=utf-8" }],
+  ["/app.js", { file: "app.js", contentType: "text/javascript; charset=utf-8" }]
+]);
 const COOKIE_NAME = "mc_session";
 const SESSION_DAYS = 7;
 const MAX_BODY_BYTES = 16 * 1024;
@@ -308,6 +312,8 @@ export function createApp({
     throw error;
   }
   const indexHtml = readFileSync(resolve(ROOT, "index.htm"), "utf8");
+  const checkinHtml = readFileSync(resolve(ROOT, "checkin.htm"), "utf8");
+  const portalHtml = readFileSync(resolve(ROOT, "portal.htm"), "utf8");
   const authAttempts = new Map();
   const configuredPublicOrigin = process.env.PUBLIC_ORIGIN ? new URL(process.env.PUBLIC_ORIGIN).origin : null;
   let activePasswordKdfs = 0;
@@ -498,9 +504,11 @@ export function createApp({
 
   const server = createServer(async (request, response) => {
     const url = new URL(request.url || "/", "http://localhost");
-    if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/index.htm")) {
+    if (request.method === "GET" && (url.pathname === "/" || url.pathname === "/index.htm" || url.pathname === "/checkin.htm" || url.pathname === "/portal.htm")) {
       const nonce = randomBytes(18).toString("base64");
-      const pageHtml = indexHtml.replace(/<script\b/gi, `<script nonce="${nonce}"`);
+      const isPortal = url.pathname === "/portal.htm" || (url.pathname === "/" && !url.searchParams.has("page"));
+      const sourceHtml = url.pathname === "/checkin.htm" ? checkinHtml : isPortal ? portalHtml : indexHtml;
+      const pageHtml = sourceHtml.replace(/<script\b/gi, `<script nonce="${nonce}"`);
       const csp = [
         "default-src 'self'",
         `script-src 'self' 'nonce-${nonce}' https://cdn.jsdelivr.net 'unsafe-eval'`,
@@ -524,6 +532,18 @@ export function createApp({
         "Content-Security-Policy": csp.join("; ")
       });
       response.end(pageHtml);
+      return;
+    }
+
+    const publicAsset = PUBLIC_ASSETS.get(url.pathname);
+    if (publicAsset && ["GET", "HEAD"].includes(request.method)) {
+      const asset = readFileSync(resolve(ROOT, publicAsset.file));
+      response.writeHead(200, {
+        ...securityHeaders(),
+        "Content-Type": publicAsset.contentType,
+        "Cache-Control": "no-cache"
+      });
+      response.end(request.method === "HEAD" ? undefined : asset);
       return;
     }
 

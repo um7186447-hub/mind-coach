@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1209">
+  <title>Nafs — Choose your space</title>
+  <meta name="description" content="Choose between a Nafs listening session and Mind Coach reflection tools.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; --cream:#f6e9cf; --ink:#1b1209; --tan:#a87f4e; --brown:#6b4a26; --menu:#1a0f06; --display:"Bodoni Moda","Bodoni MT",Didot,Georgia,serif; --sans:Inter,Arial,sans-serif; --arabic:Amiri,"Noto Naskh Arabic",serif; }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { min-width:320px; min-height:100%; background:var(--cream); }
+    body { min-width:320px; min-height:100svh; margin:0; background:var(--cream); color:var(--ink); font:400 13px/1.65 var(--sans); -webkit-font-smoothing:antialiased; }
+    a { color:inherit; }
+    a:focus-visible { outline:2px solid var(--tan); outline-offset:5px; }
+    .header { position:absolute; z-index:2; inset:0 0 auto; display:grid; grid-template-columns:1fr auto; align-items:center; min-height:72px; padding:0 max(6vw,env(safe-area-inset-right)) 0 max(6vw,env(safe-area-inset-left)); border-bottom:1px solid rgba(27,18,9,.25); }
+    .brand { font-size:13px; font-weight:600; letter-spacing:.18em; text-decoration:none; }
+    .arabic-mark { justify-self:end; color:var(--brown); font:400 25px/1 var(--arabic); }
+    main { display:flex; min-height:100svh; flex-direction:column; justify-content:center; padding:calc(115px + env(safe-area-inset-top)) max(7vw,env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) max(7vw,env(safe-area-inset-left)); }
+    .intro { width:min(1250px,100%); margin:0 auto 36px; }
+    .eyebrow { display:flex; align-items:baseline; gap:10px; margin:0 0 20px; color:var(--brown); font-size:9px; letter-spacing:.16em; text-transform:uppercase; }
+    .eyebrow .arabic { color:var(--ink); font:400 21px/1 var(--arabic); letter-spacing:0; text-transform:none; }
+    h1 { max-width:1100px; margin:0; font:500 clamp(3rem,8vw,7.7rem)/.93 var(--display); letter-spacing:-.025em; text-transform:uppercase; }
+    .lead { max-width:57ch; margin:18px 0 0; color:var(--brown); font-size:12px; line-height:1.8; }
+    .choices { display:grid; grid-template-columns:1fr 1fr; gap:1px; width:min(1250px,100%); margin:18px auto 0; background:rgba(27,18,9,.22); }
+    .choice { position:relative; isolation:isolate; display:flex; min-height:clamp(340px,43vh,490px); flex-direction:column; align-items:flex-start; overflow:hidden; padding:clamp(25px,4vw,52px); background:var(--menu); color:var(--cream); text-decoration:none; transition:background-color .35s,color .35s; }
+    .choice::before,.choice::after { position:absolute; z-index:-1; border:1px solid rgba(168,127,78,.48); border-radius:50%; content:""; pointer-events:none; transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+    .choice::before { top:15%; right:-6%; width:min(29vw,310px); aspect-ratio:1; }
+    .choice::after { top:24%; right:3%; width:min(21vw,220px); aspect-ratio:1; }
+    .choice:hover { background:#302214; }
+    .choice:hover::before { transform:translate(-10px,8px) scale(1.04); }
+    .choice:hover::after { transform:translate(8px,-8px) scale(.96); }
+    .choice.coach { background:#e9d8b9; color:var(--ink); }
+    .choice.coach::before,.choice.coach::after { border-color:rgba(107,74,38,.37); }
+    .choice.coach:hover { background:#f0e2c8; }
+    .choice-index { color:var(--tan); font-size:9px; letter-spacing:.16em; }
+    .choice h2 { max-width:600px; margin:auto 0 13px; font:500 clamp(2.7rem,6.4vw,6rem)/.9 var(--display); letter-spacing:-.025em; text-transform:uppercase; }
+    .choice.coach h2 { color:var(--ink); }
+    .choice-description { max-width:43ch; min-height:3.6em; margin:0; color:rgba(246,233,207,.72); font-size:11px; line-height:1.8; }
+    .choice.coach .choice-description { color:#594632; }
+    .choice-meta { display:flex; width:100%; align-items:center; justify-content:space-between; gap:15px; margin-top:28px; border-top:1px solid rgba(246,233,207,.27); padding-top:18px; color:var(--cream); font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+    .choice.coach .choice-meta { border-color:rgba(27,18,9,.27); color:var(--brown); }
+    .choice-arrow { display:grid; width:40px; height:40px; flex:0 0 40px; place-items:center; border:1px solid currentColor; border-radius:50%; font-size:17px; transition:transform .25s; }
+    .choice:hover .choice-arrow { transform:translate(3px,-3px); }
+    .footer { display:flex; width:min(1250px,100%); justify-content:space-between; gap:20px; margin:28px auto 0; color:var(--brown); font-size:9px; }
+    @media(max-width:700px) {
+      .header { min-height:62px; }
+      main { padding:calc(92px + env(safe-area-inset-top)) 6vw calc(38px + env(safe-area-inset-bottom)); }
+      .intro { margin-bottom:24px; }
+      .choices { grid-template-columns:1fr; }
+      .choice { min-height:310px; padding:26px; }
+      .choice::before { width:48vw; }
+      .choice::after { width:36vw; }
+      .choice h2 { font-size:clamp(2.7rem,12vw,4.7rem); }
+      .footer { flex-direction:column; gap:5px; }
+    }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+  </style>
+</head>
+<body>
+  <header class="header"><a class="brand" href="/" aria-label="Nafs choose your space">NAFS</a><span class="arabic-mark" lang="ar" dir="rtl" aria-label="Nafs">نفس</span></header>
+  <main>
+    <div class="intro"><p class="eyebrow"><span class="arabic" lang="ar" dir="rtl">مساحتك</span><span>(MASAHTAK)</span><span>YOUR SPACE</span></p><h1>Choose what feels right.</h1><p class="lead">Mind Coach brings together reflection questions and wellbeing tools. Nafs is here when you would like to be heard and explore possible next steps.</p></div>
+    <nav class="choices" aria-label="Choose a space">
+      <a class="choice" href="/checkin.htm#/book"><span class="choice-index">01 / NAFS</span><h2>Nafs</h2><p class="choice-description">A listening session: share what is on your heart, be heard without judgment, and explore possible next steps.</p><span class="choice-meta"><span>Listening session</span><span class="choice-arrow" aria-hidden="true">↗</span></span></a>
+      <a class="choice coach" href="/index.htm?page=home"><span class="choice-index">02 / MIND COACH</span><h2>Mind Coach</h2><p class="choice-description">Explore guided self-reflection, emotional patterns, wellbeing tools, breathing, sleep, and your saved progress.</p><span class="choice-meta"><span>Reflection tools</span><span class="choice-arrow" aria-hidden="true">↗</span></span></a>
+    </nav>
+    <footer class="footer"><span>A space for reflection and support.</span><span>For wellbeing support, not emergency care.</span></footer>
+  </main>
+</body>
+</html>

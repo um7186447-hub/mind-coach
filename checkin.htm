@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6e9cf">
+  <meta name="description" content="Request a listening session with Nafs.">
+  <title>Nafs — Listening session</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --cream: #f6e9cf;
+      --ink: #1b1209;
+      --tan: #a87f4e;
+      --brown: #6b4a26;
+      --line: rgba(27,18,9,.24);
+      --display: "Bodoni Moda", "Bodoni MT", Didot, Georgia, serif;
+      --sans: Inter, Arial, sans-serif;
+      --arabic: Amiri, "Noto Naskh Arabic", Georgia, serif;
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-right: env(safe-area-inset-right, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-left: env(safe-area-inset-left, 0px);
+    }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; min-height: 100%; background: var(--cream); scroll-behavior: smooth; }
+    body { min-width: 320px; min-height: 100svh; margin: 0; background: var(--cream); color: var(--ink); font: 13px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    a,button,input,select,textarea { font: inherit; }
+    a,button { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--tan); outline-offset: 4px; }
+    .site-header { position: relative; z-index: 2; display: grid; min-height: 76px; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: max(14px,var(--safe-top)) max(5vw,var(--safe-right)) 13px max(5vw,var(--safe-left)); background: var(--cream); }
+    .site-header::after { position: absolute; right: max(5vw,var(--safe-right)); bottom: 0; left: max(5vw,var(--safe-left)); height: 1px; background: var(--line); content: ""; }
+    .brand { justify-self: start; color: var(--ink); font-size: 13px; font-weight: 600; letter-spacing: .2em; text-decoration: none; }
+    .coach-link { justify-self: end; display: inline-flex; min-height: 44px; align-items: center; color: var(--ink); font-size: 10px; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; }
+    .booking-layout { display: grid; min-height: calc(100svh - 76px); grid-template-columns: minmax(0,.92fr) minmax(420px,1.08fr); }
+    .intro-panel { display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; padding: clamp(48px,8vw,112px) max(7vw,var(--safe-left)) max(34px,var(--safe-bottom)) max(7vw,var(--safe-left)); }
+    .label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; margin: 0; color: var(--brown); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .label .arabic { color: var(--ink); font: 400 19px/1 var(--arabic); letter-spacing: 0; }
+    .intro-title { max-width: 8ch; margin: 10vh 0 24px; font: 500 clamp(4rem,8.6vw,9rem)/.88 var(--display); letter-spacing: -.055em; text-transform: uppercase; }
+    .intro-copy { max-width: 38ch; margin: 0; color: var(--brown); font-size: 12px; line-height: 1.9; }
+    .intro-foot { display: flex; align-items: center; gap: 12px; margin-top: 48px; color: var(--brown); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+    .intro-foot::before { width: 36px; height: 1px; background: var(--tan); content: ""; }
+    .form-panel { display: flex; align-items: center; min-height: 100%; padding: clamp(38px,7vw,86px) max(7vw,var(--safe-right)) max(42px,var(--safe-bottom)) max(7vw,40px); background: var(--ink); color: var(--cream); }
+    .form-inner { width: min(650px,100%); margin: 0 auto; }
+    .form-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 9px; margin: 0 0 15px; color: #d7b68a; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+    .form-label .arabic { color: var(--cream); font: 400 19px/1 var(--arabic); letter-spacing: 0; }
+    .form-title { margin: 0; font: 500 clamp(2.8rem,5vw,5.2rem)/.92 var(--display); letter-spacing: -.04em; }
+    .form-copy { max-width: 54ch; margin: 15px 0 28px; color: rgba(246,233,207,.7); font-size: 11px; line-height: 1.8; }
+    .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; border-top: 1px solid rgba(246,233,207,.26); padding-top: 22px; }
+    .field { display: grid; gap: 7px; }
+    .field.full,.status,.privacy-note { grid-column: 1/-1; }
+    .field label { color: rgba(246,233,207,.78); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+    .field input,.field select,.field textarea { width: 100%; min-height: 48px; border: 0; border-bottom: 1px solid rgba(246,233,207,.38); border-radius: 0; padding: 11px 2px; background: transparent; color: var(--cream); outline-offset: 2px; }
+    .field select { color-scheme: dark; }
+    .field select option { background: var(--ink); color: var(--cream); }
+    .field textarea { min-height: 82px; resize: vertical; }
+    .field input::placeholder,.field textarea::placeholder { color: rgba(246,233,207,.43); }
+    .privacy-note { margin: 0; color: rgba(246,233,207,.57); font-size: 10px; line-height: 1.7; }
+    .followup[hidden] { display: none; }
+    .followup { display: grid; grid-column: 1/-1; gap: 12px; border-top: 1px solid rgba(246,233,207,.26); padding-top: 18px; }
+    .followup-copy { margin: 0; color: rgba(246,233,207,.78); font-size: 11px; line-height: 1.8; }
+    .followup textarea { width: 100%; min-height: 98px; border: 1px solid rgba(246,233,207,.38); border-radius: 2px; padding: 12px; background: rgba(246,233,207,.05); color: var(--cream); font: 400 12px/1.7 var(--body); resize: vertical; }
+    .followup-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .form-actions { grid-column: 1/-1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 3px; }
+    .pill { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; border: 1px solid var(--tan); border-radius: 999px; padding: 11px 20px; background: var(--tan); color: #fff8eb; cursor: pointer; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; transition: background .2s ease,transform .2s ease; }
+    .pill:hover { transform: translateY(-2px); background: var(--brown); }
+    .pill.outline { border-color: rgba(246,233,207,.58); background: transparent; color: var(--cream); }
+    .pill.outline:hover { background: rgba(246,233,207,.1); }
+    .status { min-height: 22px; margin: 0; color: #e4c394; font-size: 10px; }
+    .site-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 26px; padding: 20px max(5vw,var(--safe-right)) max(20px,var(--safe-bottom)) max(5vw,var(--safe-left)); background: var(--cream); color: var(--brown); font-size: 9px; }
+    .site-footer p { margin: 0; }
+    .footer-brand { color: var(--ink); font: 500 17px/1.2 var(--display); letter-spacing: .08em; }
+    @media (max-width: 820px) {
+      .booking-layout { grid-template-columns: 1fr; }
+      .intro-panel { min-height: 43svh; padding: 44px max(7vw,var(--safe-left)) 30px; }
+      .intro-title { max-width: 10ch; margin: 36px 0 18px; font-size: clamp(3.7rem,12vw,6.4rem); }
+      .intro-copy { max-width: 52ch; }
+      .intro-foot { margin-top: 28px; }
+      .form-panel { padding: 42px max(7vw,var(--safe-right)) max(48px,var(--safe-bottom)) max(7vw,var(--safe-left)); }
+    }
+    @media (max-width: 520px) {
+      .site-header { min-height: 66px; grid-template-columns: 1fr auto; }
+      .brand { font-size: 11px; }
+      .coach-link { font-size: 8px; letter-spacing: .05em; }
+      .intro-panel { min-height: 0; padding-top: 38px; }
+      .intro-title { margin-top: 42px; font-size: clamp(3.25rem,14vw,5rem); }
+      .form-panel { padding-top: 38px; }
+      .booking-form { grid-template-columns: 1fr; }
+      .field.full,.status,.privacy-note,.form-actions { grid-column: auto; }
+      .form-title { font-size: clamp(2.8rem,12vw,4.3rem); }
+      .form-actions { align-items: stretch; flex-direction: column; }
+      .form-actions .pill { width: 100%; }
+      .site-footer { flex-direction: column; padding-top: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/checkin.htm#/book" aria-label="Nafs booking home">NAFS</a>
+    <a class="coach-link" href="/index.htm?page=home">Mind Coach ↗</a>
+  </header>
+  <main class="booking-layout">
+    <section class="intro-panel" aria-labelledby="booking-intro-title">
+      <p class="label"><span class="arabic" lang="ar" dir="rtl">إصغاء</span><span>(ISGHA)</span><span>NAFS LISTENING</span></p>
+      <div>
+        <h1 class="intro-title" id="booking-intro-title">A space to be heard.</h1>
+        <p class="intro-copy">Share what is on your heart. I will listen without judgment, and together we can explore possible next steps.</p>
+      </div>
+      <p class="intro-foot">A considered first step</p>
+    </section>
+    <section class="form-panel" aria-labelledby="booking-title">
+      <div class="form-inner">
+        <p class="form-label"><span class="arabic" lang="ar" dir="rtl">جلسة إنصات</span><span>(JALSAT ISGHA)</span><span>LISTENING SESSION</span></p>
+        <h2 class="form-title" id="booking-title">Let's talk through what's on your mind.</h2>
+        <p class="form-copy">A calm, one-to-one listening space. You do not need to have everything figured out before you arrive.</p>
+        <form class="booking-form" id="booking-form">
+          <div class="field"><label for="booking-name">Your name</label><input id="booking-name" name="name" autocomplete="name" required maxlength="120"></div>
+          <div class="field"><label for="booking-time">Preferred date</label><input id="booking-time" name="time" type="date"></div>
+          <div class="field full"><label for="booking-note">What would you like to talk about? (optional)</label><textarea id="booking-note" name="note" maxlength="1000" placeholder="Share only what feels useful."></textarea></div>
+          <p class="privacy-note">This form cannot send details directly to Instagram. After you continue, message @psy_nafs to arrange a time; share only what you feel comfortable sending.</p>
+          <div class="form-actions"><button class="pill" type="submit">Continue</button><a class="pill outline" href="/index.htm?page=home">Explore Mind Coach</a></div>
+          <p class="status" id="booking-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <div class="followup" id="booking-followup" hidden>
+            <p class="followup-copy">Your form details have not been sent. Review this message, edit anything you like, then copy and paste it into your Instagram chat with @psy_nafs.</p>
+            <div class="field"><label for="instagram-message">Message to copy</label><textarea id="instagram-message"></textarea></div>
+            <div class="followup-actions">
+              <button class="pill" id="copy-instagram-message" type="button">Copy message</button>
+              <a class="pill outline" href="https://www.instagram.com/psy_nafs/" target="_blank" rel="noopener noreferrer">Open @psy_nafs ↗</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p class="footer-brand">NAFS</p>
+    <p>Nafs is not an emergency service. If you may be in immediate danger, contact local emergency services now.</p>
+  </footer>
+  <script>
+    (() => {
+      "use strict";
+      const form = document.getElementById("booking-form");
+      const status = document.getElementById("booking-status");
+      const followup = document.getElementById("booking-followup");
+      const messageField = document.getElementById("instagram-message");
+      const copyButton = document.getElementById("copy-instagram-message");
+      const instagramUrl = "https://www.instagram.com/psy_nafs/";
+      const today = new Date();
+      const dateInput = document.getElementById("booking-time");
+      dateInput.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const name = String(data.get("name") || "").trim().slice(0, 120);
+        const preferredDate = String(data.get("time") || "").slice(0, 10);
+        const note = String(data.get("note") || "").trim().slice(0, 1000);
+        messageField.value = [
+          "Hello, I would like to book a listening session.",
+          name ? `My name is ${name}.` : "",
+          preferredDate ? `My preferred date is ${preferredDate}.` : "",
+          note ? `I would like to talk about: ${note}` : "",
+          "Could you let me know what times are available?"
+        ].filter(Boolean).join("\n");
+        followup.hidden = false;
+        const instagramTab = window.open(instagramUrl, "_blank");
+        if (instagramTab) instagramTab.opener = null;
+        status.textContent = instagramTab
+          ? "Instagram opened in a new tab. Your form has not been sent; paste the message there to arrange a time."
+          : "Your form has not been sent. Use the Instagram link below to message @psy_nafs and arrange a time.";
+        status.focus({ preventScroll: true });
+      });
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(messageField.value);
+          status.textContent = "Copied. Paste the message into your Instagram chat with @psy_nafs.";
+        } catch {
+          messageField.focus();
+          messageField.select();
+          status.textContent = "Select and copy the message, then paste it into your Instagram chat with @psy_nafs.";
+        }
+        status.focus({ preventScroll: true });
+      });
+    })();
+  </script>
+</body>
+</html>
