@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
-  <link rel="stylesheet" href="./styles.css?v=20261018-mobile-smooth">
+  <link rel="stylesheet" href="./styles.css?v=20261018-loader-fallback">
   
   
   
@@ -318,8 +318,9 @@
     footer [data-i18n="global.safety"] { color: #d4b481 !important; font-size: 10px !important; }
     .nafs-emergency-notice { max-width: 760px; margin: 16px auto 0; color: rgba(246,233,207,.64); font-size: 9px; line-height: 1.7; }
 
-    .nafs-loader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; background: var(--nafs-cream); transition: opacity .55s ease,visibility .55s ease; }
-    .nafs-loader.is-gone { visibility: hidden; opacity: 0; }
+    .nafs-loader { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; background: var(--nafs-cream); pointer-events: none; transition: opacity .55s ease,visibility .55s ease; animation: nafs-loader-fallback .55s ease 1.25s forwards; }
+    .nafs-loader.is-gone { visibility: hidden; opacity: 0; } @keyframes nafs-loader-fallback { to { opacity: 0; visibility: hidden; } } @media (prefers-reduced-motion: reduce) { .nafs-loader { animation-delay: 0s; transition: none; } }
+    @keyframes nafs-loader-fallback { to { opacity: 0; visibility: hidden; } }
     .nafs-loader-mark { position: relative; z-index: 1; display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--nafs-ink); border-radius: 50%; background: var(--nafs-cream); }
     .nafs-loader-mark span { font: 600 10px/1 var(--sans); letter-spacing: .08em; }
     .nafs-loader-lines { position: absolute; top: 50%; left: 50%; display: flex; height: 112px; gap: 10px; transform: translate(-50%,-50%); }
@@ -456,6 +457,7 @@
     body:has(#top-nav:not(.hidden)) { overflow: hidden !important; }
     @media (prefers-reduced-motion: reduce) {
       *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .nafs-loader { animation-delay: 0s; transition: none; }
       .nafs-loader-lines { display: none !important; }
       #main-home .nafs-letter { transform: none !important; animation: none !important; }
       .nafs-reveal-word { opacity: 1 !important; transform: none !important; }
