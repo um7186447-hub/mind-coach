@@ -4320,7 +4320,7 @@
     let scrollFrame = 0;
     let scrollableHeight = 0;
     let previousScrollProgress = -1;
-    let previousScrolledState = false;
+    let previousScrolledState = false;     const scrollProgressElement = document.getElementById("scroll-progress");
     function measureScrollRange() {
       scrollableHeight = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
     }
@@ -4336,7 +4336,7 @@
         const progress = scrollableHeight > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollableHeight)) : 0;
         const roundedProgress = Math.round(progress * 1000) / 1000;
         if (roundedProgress !== previousScrollProgress) {
-          document.documentElement.style.setProperty("--scroll-progress", roundedProgress.toFixed(3));
+          scrollProgressElement?.style.setProperty("--scroll-progress", roundedProgress.toFixed(3));
           previousScrollProgress = roundedProgress;
         }
       });
