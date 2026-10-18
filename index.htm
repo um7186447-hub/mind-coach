@@ -1887,6 +1887,7 @@
     (() => {
       try { sessionStorage.setItem("mc-welcome-intro-seen", "true"); } catch {}
       const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+      const touchViewport = window.matchMedia?.("(max-width: 700px), (hover: none) and (pointer: coarse)").matches ?? false;
       const closeMenuForAnchor = () => {
         const panel = document.getElementById("top-nav");
         const button = document.getElementById("menu-btn");
@@ -2022,7 +2023,7 @@
         const queueMotion = () => {
           if (!frame) frame = requestAnimationFrame(paintMotion);
         };
-        if (!reducedMotion) {
+          if (!reducedMotion && !touchViewport) {
           window.addEventListener("scroll", queueMotion, { passive: true });
           window.addEventListener("resize", queueLayoutRefresh, { passive: true });
           refreshMotionLayout();

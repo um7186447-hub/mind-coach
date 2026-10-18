@@ -2765,6 +2765,27 @@ body .page-cover::before { animation: none; }
   #menu-btn, .hero-actions a, .hero-dock-card, #home-tests article, .results-path-step { transition: none !important; }
 }
 
+/* Keep touch devices smooth: avoid repainting entire scenes while the page scrolls. */
+@media (max-width: 700px), (hover: none) and (pointer: coarse) {
+  .hero-section::before,
+  .hero-section > img,
+  .hero-wave i,
+  body .page-cover::before,
+  main#top > section:not(.hidden):not([hidden]),
+  main#top article:not(.hidden),
+  main#top .page-cover,
+  main#top form:not(.hidden),
+  #main-home .hero-copy,
+  #main-home .hero-caption,
+  #main-home .hero-dock,
+  .page-cover .page-cover-copy {
+    animation: none !important;
+    animation-timeline: auto !important;
+    will-change: auto !important;
+  }
+  .hero-section > img { transform: none !important; }
+}
+
 /* Comparative check-in: paired, descriptive snapshots across sessions. */
 .assessment-comparison-panel {
   --comparison-line: rgba(217,185,142,.2);
