@@ -919,7 +919,8 @@
     }
 
     async function initializeAccount() {
-      if (window.location.protocol === "file:") {
+      const staticGitHubPages = window.location.hostname.endsWith(".github.io");
+      if (window.location.protocol === "file:" || staticGitHubPages) {
         setAccountStatus(t("account.serverUnavailable"), true);
         return;
       }
